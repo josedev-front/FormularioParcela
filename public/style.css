@@ -1,0 +1,209 @@
+/* Cookies */
+.cookie-notification {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: #f8f9fa;
+  text-align: center;
+  z-index: 9999;
+}
+/* Fin de cookies */
+
+.flexRight{
+  margin-right: 1rem;
+}
+
+
+
+
+/*el header*/
+h1 {
+  text-align: center;
+  color: white;
+  font-size: 1.5em;
+  
+}
+.navbar {
+  background: rgb(245,245,245);
+  background: linear-gradient(156deg, rgba(245,245,245,1) 7%, rgba(206,224,240,1) 13%, rgba(199,220,239,1) 21%, rgba(40,94,142,1) 42%);
+justify-content: space-evenly;
+}
+.logo {
+  padding-left: 2rem; 
+  width: 80px;
+  height: 50px;
+}
+.navbar .navbar-brand span {
+  padding-left: 2rem; 
+}
+br {
+  display: none;
+}
+
+@media (max-width: 995px) {
+  h1 {
+    font-size: 18px;
+  }
+  .reducir {
+    display: none;  
+
+  }
+}
+@media (max-width: 768px) {
+  #espacea {
+    margin: 5px;
+  }
+}
+@media (max-width: 580px) {
+  h1 {
+    display: none;
+  }
+  br {
+    display: flex; 
+  }
+}
+@media (max-width: 324px) {
+  .navbar .navbar-brand span {
+  font-size: 14px; 
+  }
+}
+/* fin del header*/
+
+/*el cuerpo*/
+
+#textareatutorial {
+  display: none;
+}
+.btn-sm {
+  font-size: 1rem;
+}
+.btn-sm:hover {
+  animation: shake3856 0.3s linear infinite both;
+ }
+@keyframes shake3856 {
+  0% {
+   -webkit-transform: translate(0);
+   transform: translate(0);
+  }
+ 
+  20% {
+   -webkit-transform: translate(-2px, 2px);
+   transform: translate(-2px, 2px);
+  }
+ 
+  40% {
+   -webkit-transform: translate(-2px, -2px);
+   transform: translate(-2px, -2px);
+  }
+ 
+  60% {
+   -webkit-transform: translate(2px, 2px);
+   transform: translate(2px, 2px);
+  }
+ 
+  80% {
+   -webkit-transform: translate(2px, -2px);
+   transform: translate(2px, -2px);
+  }
+ 
+  100% {
+   -webkit-transform: translate(0);
+   transform: translate(0);
+  }
+ }
+
+body{
+  background-color: #f5f5f5;
+  }
+
+.marco {
+  border: 2px solid #285e8e;
+  margin: 10% 0 3% ;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px #6e95b9;
+}
+
+.marco p {
+  font-size: large;
+}
+
+
+
+@media (max-width: 995px) { 
+  .marco { 
+  margin: 20% 0 20% ; 
+}
+.efecto-escritura, label {
+  font-size: 14px;
+}
+h2, h3 {
+  font-size: 18px;
+  margin: 5px 0 5px ;
+}
+
+}
+@media (max-width: 750px) {
+.typewrite {
+  font-size: 14px;
+}
+.marco p {
+  font-size: 14px;
+}
+}
+
+
+@media (max-width: 324px) {
+  .marco { 
+    margin: 30% 0 30% ; 
+  }
+}
+
+.hidden{
+  font-size: 10px !important; 
+}
+form {
+  margin-bottom: 10%;
+}
+
+
+
+/* ==========> CSS de la animación <================= */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+
+  .loading-text {
+    color: #fff;
+    font-size: 24px;
+    margin-right: 10px;
+  }
+
+  .loading-spinner {
+    border: 4px solid #fff;
+    border-top: 4px solid transparent;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+  }
+
+  .text-center > img {
+    width: 100%;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

@@ -1,0 +1,1 @@
+Solucionado el problema de la animacion de "cargando" cuando el usuario sube mas fotos de las establecidas

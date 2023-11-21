@@ -1,0 +1,2477 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formulario</title>
+  <!-- Latest compiled and minified CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Latest compiled JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+  <script src="https://kit.fontawesome.com/aa0c4d1c13.js" crossorigin="anonymous"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head> 
+<body>
+    <div id="cookieNotification" class="cookie-notification d-flex justify-content-center gap-3">
+    <p>Este sitio web utiliza cookies para mejorar su experiencia. Al continuar navegando, aceptas nuestra <a href="/politica-de-cookies">política de cookies</a>.</p>
+    <button class="btn btn-primary" onclick="aceptarCookies()">X</button>
+  </div>
+  <!-- fixed-top -->
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand"><img src="simb.webp" class="logo"><span>Tasar Inmuebles.cl</span></a>      
+    <h1>Formulario de tasación, valor de venta para parcela.</h1>
+  </nav>
+  <form id="formulario" action="/enviar" method="POST" enctype="multipart/form-data" class="container">
+   <div class="marco">
+    <h2 class="border-bottom pb-2"><i class="fa-solid fa-user"></i> Datos personales</h2>
+
+    <!--======== Inicio de los datos personales =============  -->
+    <!-- Este es el formato para todos los inputs de tipo texto -->
+    <div class="row">
+      <div class="col-md">
+        <div class="form-floating mb-3 mt-3">
+          <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Jhon" required>
+          <label for="nombre">Nombre</label>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="form-floating mb-3 mt-3">
+          <input type="text" id="apellido" name="apellido" class="form-control" placeholder="Doe" required>
+          <label for="apellido">Apellido</label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="form-floating mb-3 mt-3">
+          <input type="text" id="primerosdigitos" class="form-control" maxlength="8" placeholder="Jhon" required>
+          <label for="primerosdigitos">RUT</label>
+        </div>
+     </div>
+    <div class="col-md">
+      <div class="form-floating mb-3 mt-3">
+        <select class="form-select" id="verificador" required>
+          <option value="" disabled selected>Seleccionar</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+         <option value="5">5</option>
+          <option value="6">6</option>
+         <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="K">K</option>
+        </select>
+        <label class="form-label" for="verificador">Dígito verificador</label>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md">
+      <div class="form-floating mb-3 mt-3">
+        <input class="form-control" type="text" id="telefono" name="telefono" placeholder="781281278" maxlength="9" required>
+        <label class="form-label" for="telefono">Teléfono</label>
+      </div>
+    </div>
+    <div class="col-md">
+      <div class="form-floating mb-3 mt-3">
+        <input class="form-control" type="text" id="confirmartelefono" name="confirmartelefono" placeholder="781281278" maxlength="9" oncontextmenu="return false;" onpaste="return false;" required>
+        <label class="form-label" for="confirmartelefono">Confirmar Teléfono</label>
+      </div>      
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md">
+      <div class="form-floating mb-3 mt-3">
+        <input class="form-control" type="text" id="correo" name="correo" placeholder="hola@gmail.com" required>
+        <label class="form-label" for="correo">Correo</label>
+      </div>
+    </div>
+    <div class="col-md">
+      <div class="form-floating mb-3 mt-3">
+        <input class="form-control" type="text" id="confcorreo" name="confcorreo" placeholder="hola@gmail.com" oncontextmenu="return false;" onpaste="return false;" required>
+        <label class="form-label" for="confcorreo">Confirmar Correo</label>
+      </div>
+    </div>
+    <div class="col-md">
+      <div class="input-group">
+      <div class="form-floating mb-3 mt-3">
+        <select class="form-select" id="razon" name="razon" required>
+          <option value="" disabled selected>Selecciona una opción</option>
+          <option value="Soy propietario">Soy propietario</option>
+          <option value="Soy corredor">Soy corredor</option>
+          <option value="Soy comprador">Soy comprador</option>
+          <option value="Soy tasador">Soy tasador</option>
+          <option value="Otro">Otro</option>
+        </select>
+        <label class="form-label" for="razon">¿Por qué estás tasando?</label>      
+      </div>
+      <button type="button" class="btn btn-primary mb-3 mt-3" data-bs-toggle="modal" data-bs-target="#exampleModalTasando">
+        <i class="fa-solid fa-lightbulb fa-xl"></i>
+      </button>
+      </div>
+    </div>
+  </div>
+ </div> 
+
+ <!-- Modal Por qué estás tasando -->
+<div class="modal fade" id="exampleModalTasando" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5" id="exampleModalLabel">¿Por qué te preguntamos esto?</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Queremos asegurarnos de que nuestro contenido en el blog se adapte a tus necesidades e intereses de la mejor manera posible. Tu respuesta nos ayudará a ofrecerte contenido más relevante y valioso.</p>
+        <img src="generacion-de-ideas.png" loading="lazy" alt="blog" class="img-fluid">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ <div class="marco mb-3%" id="m2">
+  <h2 class="border-bottom pb-2"><i class="fa-solid fa-house"></i> Datos de la Parcela </h2>
+
+  <div class="row">
+  <div class="col-md">
+    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModalrecepcion">
+     <i class="fa-solid fa-circle-info"></i> Ayuda con la recepción final (por favor tome esto con atencion! ya que puede afectar el valor final significativamente)
+    </button>
+  <div class="row">
+  <div class="col-md-3">
+    <div class="input-group">
+     <div class="form-floating mb-3 mt-3">
+       <input class="form-control" type="text" id="rol" name="rol" placeholder="573-24" maxlength="6">
+       <label class="form-label" for="rol">ROL de la propiedad</label>
+     </div>
+     <button type="button" class="btn btn-primary mb-3 mt-3" data-bs-toggle="modal" data-bs-target="#exampleModalRol">
+       <i class="fa-solid fa-question fa-xl"></i>
+     </button>      
+    </div>
+   </div>
+   <div class="col-md-5">
+    <div class="form-floating mb-3 mt-3">
+      <select class="form-select" id="bienhechuria" name="biencheruria" onchange="togglerecepcion()" required>
+        <option value="" disabled selected>Selecciona una opción</option>
+        <option value="Sí">Sí</option>
+        <option value="No">No</option>
+        <option value="En trámite">En trámite</option>
+        <option value="Parcial">Parcial</option>
+      </select>
+      <label class="form-label text-center text-sm-left" for="biencheruria">Recepción final <i class="reducir">(¿Los metrajes de la propiedad están regularizados?)</i></label>
+    </div>
+  </div>
+  <div class="form-floating mb-3 visually-hidden" id="enTramiteTextdiv">
+    <textarea class="form-control" id="enTramiteText" name="enTramiteText" placeholder="Escriba aquí cualquier comentario adicional"></textarea>
+    <label for="enTrámiteDescrip" id="enTrámiteDescrip">Escriba en que parte del <br> tramite de regularización se encuentra</label>                         <!-- aqui esta text area -->
+  </div>
+  <div class="form-floating mb-3 visually-hidden" id="parcialTextdiv">
+    <textarea class="form-control" id="parcialText" name="parcialText" placeholder="Escriba aquí cualquier comentario adicional"></textarea>
+    <label for="parcialDescrip" id="parcialDescrip">Especifique</label>                         <!-- aqui esta text area -->
+  </div>
+ </div>
+</div>
+  <div class="row">
+    <div class="col-md-6">
+      <label class="form-label" for="inputPrueba"><i class="fa-solid fa-circle-arrow-down fa-xl"></i><kbd>Documento de regularización</kbd><i class="fa-solid fa-circle-arrow-down fa-xl"></i></label>
+      <input class="form-control" type="file" id="inputPrueba" name="inputPrueba" multiple max="5">
+    </div>
+  </div>
+<!-- Modal ROL -->
+<div class="modal fade" id="exampleModalRol" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5" id="exampleModalLabel">¿Dónde consigo mi número de ROL?</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>El número de Rol de tu propiedad lo puedes encontrar en el avalúo fiscal de la misma, algunas veces en la escritura de la propiedad o en los planos, lo encontrarás también en el documento de recepción final y otros.</p>
+        <!--<img src="ayuda-rol.png" loading="lazy" alt="avaluo" class="img-fluid">-->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal PDF -->
+<div class="modal fade" id="exampleModalDOCPDF" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5" id="exampleModalLabel">Ayuda</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Aquí debes subir tu documento de regularización en formato PDF en caso de tenerlo</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Imagen regularización -->
+<div class="modal fade" id="exampleModalDOCIMG" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5" id="exampleModalLabel">Ayuda</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Aquí debes subir las fotos de tu documento de regularización en caso de tenerlo</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModalrecepcion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5" id="exampleModalLabel">Estados de la recepción final</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li><span style="font-weight: 700;">Sí: </span>Usted confirma que todas las modificaciones están registradas.</li>
+          <li><span style="font-weight: 700;">No: </span>Usted confirma que realizó modificaciones en el domicilio y aún no las ha registrado, (nuevas piezas, baños, bodegas entre otros...)</li>
+          <li><span style="font-weight: 700;">En trámite: </span>Se encuentra usted en proceso de esta gestión.</li>
+          <li><span style="font-weight: 700;">Parcial: </span>Unas modificaciones fueron registradas y posteriormente se registraron otras modificaciones.</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+    
+<h3 class="border-bottom pb-2"><i class="fa-solid fa-location-dot"></i> Dirección</h3>
+
+<div class="container mt-3">
+  <div class="alert alert-info">
+    Recuerda que nuestras tasaciones solo están disponibles en <strong>algunas comunas de la región de Valparaíso.</strong>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md">
+    <div class="form-floating mb-3 mt-3">
+      <select class="form-select" name="comuna" id="comuna" required>
+        <option disabled selected value="">Seleccione una opción</option>
+        <!-- <option value="Algarrobo">Algarrobo</option> -->
+        <!--<option value="Cabildo">Cabildo</option>-->
+        <option value="Calera">La Calera</option>
+        <!-- <option value="Calle Larga">Calle Larga</option> -->
+        <!-- <option value="Cartagena">Cartagena</option> -->
+        <!-- <option value="Casablanca">Casablanca</option> -->
+        <!-- <option value="Catemu">Catemu</option> -->
+        <option value="Concón">Concón</option>
+        <!-- <option value="El Quisco">El Quisco</option> -->
+        <!-- <option value="El Tabo">El Tabo</option> -->
+        <option value="Hijuelas">Hijuelas</option>
+        <option value="La Cruz">La Cruz</option>
+        <!-- <option value="La Ligua">La Ligua</option> -->
+        <option value="Limache">Limache</option>
+        <!-- <option value="Llaillay">Llaillay</option> -->
+        <!-- <option value="Los Andes">Los Andes</option> -->
+        <option value="Nogales">Nogales</option>
+        <!-- <option value="Olmué">Olmué</option> -->
+        <!-- <option value="Panquehue">Panquehue</option> -->
+        <!-- <option value="Papudo">Papudo</option> -->
+         <!--<option value="Petorca">Petorca</option>-->
+        <!-- <option value="Puchuncaví">Puchuncaví</option> -->
+        <!-- <option value="Putaendo">Putaendo</option> -->
+        <option value="Quillota">Quillota</option>
+        <!--<option value="Quilpué">Quilpué</option> -->
+        <!-- <option value="Quintero">Quintero</option> -->
+        <!-- <option value="Rinconada">Rinconada</option> -->
+        <!-- <option value="San Antonio">San Antonio</option> -->
+        <!-- <option value="San Esteban">San Esteban</option> -->
+        <!-- <option value="San Felipe">San Felipe</option> -->
+        <!-- <option value="Santa María">Santa María</option> -->
+        <!-- <option value="Santo Domingo">Santo Domingo</option> -->
+        <option value="Valparaíso">Valparaíso</option>
+        <option value="Villa Alemana">Villa Alemana</option>
+        <option value="Viña del Mar">Viña del Mar</option>
+        <!-- <option value="Zapallar">Zapallar</option> -->
+      </select>
+      <label class="form-label" for="comuna">Comuna:</label>
+    </div>
+
+  </div>
+  <div class="col-md">
+    <div class="form-floating mb-3 mt-3">
+      <input class="form-control" type="text" id="calle" name="calle" placeholder="Calle Betulio Medina" required>
+      <label class="form-label" for="calle">Calle</label>
+  </div>
+  </div>
+  <div class="col-md">
+    <div class="form-floating mb-3 mt-3">
+      <input class="form-control" type="text" id="casa" name="casa" placeholder="Casa #9-13" required>
+      <label class="form-label" for="casa">Nº de casa</label>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md">
+    <div class="form-floating mb-3 mt-3">
+     <input class="form-control" type="text" id="sector" name="sector" placeholder="Calle Betulio Medina">
+     <label class="form-label" for="Sector">Sector</label>
+    </div>
+ </div>
+  <div class="col-md">
+    <div class="input-group">
+    <div class="form-floating mb-3 mt-3">
+      <input class="form-control" type="number" id="anos" name="anos" placeholder="" min="1800">
+      <label class="form-label" for="anos">Año de contrucción</label>
+    </div>
+    <button type="button" class="btn btn-primary mb-3 mt-3" data-bs-toggle="modal" data-bs-target="#exampleModalAno">
+      <i class="fa-solid fa-question fa-xl"></i>
+    </button>
+  </div>
+  </div>
+
+  
+
+  <div class="col-md">
+    <div class="form-floating mb-3 mt-3">
+      <select class="form-select" id="amoblada" name="amoblada" onchange="toggleTextarea()" required>
+        <option value="" disabled selected>Selecciona una opción</option>
+        <option value="Sí">Sí</option>                                                                       <!-- aqui esta sw -->
+        <option value="No">No</option>
+      </select>
+      <label class="form-label" for="amoblada">¿Vende la propiedad amoblada?</label>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md" id="construidostogle">
+    <div class="form-floating mb-3 mt-3">
+      <input class="form-control" type="number" id="mconstruidos" name="mconstruidos" min="1" placeholder="" required>
+      <label class="form-label" for="mconstruidos">m<sup>2</sup> construídos</label>
+    </div>
+    <p class="visually-hidden" id="textomt2">Por favor no incluya en este campo los m<sup>2</sup> de "terraza" si la posee.</p>
+  </div>
+
+<div class="form-floating col-md mb-3 mt-3">
+  <input class="form-control" type="number" id="mterraza" name="mterraza" min="0" placeholder="">
+  <label class="form-label" for="mterraza">m<sup>2</sup> terraza</label>
+</div>
+
+<div class="col-md">
+  <div class="form-floating mb-3 mt-3">
+    <input class="form-control" type="number" id="mtotales" name="mtotales" min="0" placeholder="">
+    <label class="form-label" for="mtotales"> m<sup>2</sup> terreno</label>
+  </div>
+</div>
+</div>
+
+<p id="textareatutorial">Tomese unos minutos para llenar el inventario, de acuerdo al orden estipulado en el siguiente campo</p>
+<div class="form-floating mb-3 visually-hidden" id="articuloscasaContainer">
+  <textarea class="form-control" id="articuloscasa" name="articuloscasa" disabled placeholder="Escriba aquí cualquier comentario adicional"></textarea>
+  <label for="articuloscasa" id="inventarioText">Escriba aquí los artículos <br> que incluye el departamento</label>                             <!-- aqui esta text area -->
+</div>
+<div class="col-md-6 mb-3" id="divInputFileAmoblada">
+  <label class="form-label" for="articulosamoblada"><i class="fa-solid fa-circle-arrow-down fa-xl"></i><kbd>Fotos de artículos que incluye el casa</kbd><i class="fa-solid fa-circle-arrow-down fa-xl"></i></label>
+  <div class="input-group">
+  <input class="form-control" type="file" id="articulosamoblada" name="articulosamoblada" accept="image/*" multiple max="20"> 
+  <button type="button" class="btn btn-primary" onclick="openModalAmoblada()">
+    <i class="fa-solid fa-eye fa-xl"></i>
+  </button>
+</div>
+</div>
+<div class="row">
+  <div class="col-md-3">
+    <div class="form-floating mb-3 mt-3">
+      <select class="form-select" id="nPisos" required>
+        <option value="" disabled selected>Seleccionar</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+       <option value="5">5</option>
+      </select>
+      <label class="form-label" for="nPisos">N° de pisos</label>
+    </div>
+  </div>
+  <!--<div class="col-md-5">
+    <div class="form-floating mb-3 mt-3">
+      <select class="form-select" id="condoPregunta" required  onchange="toggleconserjeria()">
+        <option value="" disabled selected>Seleccionar</option>
+        <option value="Sí">Sí</option>
+        <option value="No">No</option>
+      </select>
+      <label class="form-label" for="condoPregunta">¿Su vivienda pertenece a un condominio?</label>
+    </div>
+</div>-->
+<div class="col-md-3">
+  <div class="form-floating mb-3 mt-3 visually-hidden" id="conserjeriaPreguntaDiv">
+    <select class="form-select" id="conserjeriaPregunta" onchange="togglehorario()">
+      <option value="" disabled selected>Seleccionar</option>
+      <option value="Sí">Sí</option>
+      <option value="No">No</option>
+    </select>
+    <label class="form-label" for="conserjeriaPregunta">¿Consta de conserjería?</label>
+  </div>
+</div>
+</div>
+<div class="col-md-5">
+  <div class="form-floating mb-3 visually-hidden" id="horarioContainer">
+   <textarea class="form-control" id="horario" name="horario" placeholder="Escriba aquí cualquier comentario adicional"></textarea>
+   <label for="horario" id="horarioText">Horario de trabajo y días de la semana.</label>
+  </div>
+</div>
+
+
+<!--==============El modal para ver las fotos de los artículos en venta==================-->
+<div class="modal fade" id="imageModalAmoblada" tabindex="-1" aria-labelledby="imageModalLabelAmoblada" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabelAmoblada">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerAmoblada">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!-- Modal botón de ayuda, año de construcción -->
+<div class="modal fade" id="exampleModalAno" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5" id="exampleModalLabel">¿Cómo puedo saber en que año se construyó mi casa?</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>La podrás ver en tu avalúo fiscal, como sale en la siguiente imagen. si no posees este dato nuestro equipo se encargará de determinarlo.</p>
+        <img src="ayuda-año.png" alt="avaluo con año" class="img-fluid" loading="lazy">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--modal boton de aislacion-->
+
+<div class="modal fade" id="exampleModalAislacion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5" id="exampleModalLabel">¿Como saber el tipo de aislacion de la vivienda?</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Observe la imagen y verifique si su propidad tiene las paredes laterales unidas a otras viviendas</p>
+        <img src="aislacion.jpeg" alt="imagen de aislaciones" class="img-fluid" loading="lazy">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--modal boton de roles bodega y estacionamiento-->
+<div class="modal fade" id="exampleModalbodega" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5" id="exampleModalLabel"></h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Si una construcción se inscribe en el conservador de bienes raíces tendrá su propio Rol.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <h3 class="border-bottom pb-2"><i class="fa-solid fa-person-booth"></i> Suites (piezas con baño privado)</h3>
+    
+    <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary btn-sm visually-hidden" id="tipoPisoButtonSuite" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <i class="fa-solid fa-circle-info"></i> Ayuda para elegir el tipo de piso
+  </button>
+  
+  <div class="col-md-6">
+    <div class="form-floating mb-3 mt-3">
+      <select class="form-select" id="numeroSuite" onchange="mostrarCamposDeSeleccionSuite()" required>
+        <option value="" disabled selected>Seleccionar</option>
+        <option value="0">No tiene</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select>
+      <label class="form-label" for="numeroSuite">N° de suites</label>
+    </div>
+  </div>
+  
+
+<div id="contenedorPisosSuite"></div>
+<div id="contenedorPisosSuite2"></div>
+<div id="contenedorPisosSuite3"></div>
+
+<!--==============El modal para ver las fotos de la suite 1==================-->
+<div class="modal fade" id="imageModalSuite1" tabindex="-1" aria-labelledby="imageModalLabelSuite1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalSuite1">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerSuite1">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos de la suite 2==================-->
+<div class="modal fade" id="imageModalSuite2" tabindex="-1" aria-labelledby="imageModalLabelSuite2" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalSuite2">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerSuite2">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos de la suite 3==================-->
+<div class="modal fade" id="imageModalSuite3" tabindex="-1" aria-labelledby="imageModalLabelSuite3" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalSuite3">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerSuite3">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos de la suite 4==================-->
+<div class="modal fade" id="imageModalSuite4" tabindex="-1" aria-labelledby="imageModalLabelSuite4" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalSuite4">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerSuite4">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos de la suite 5==================-->
+<div class="modal fade" id="imageModalSuite5" tabindex="-1" aria-labelledby="imageModalLabelSuite5" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalSuite5">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerSuite5">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos de la suite 6==================-->
+<div class="modal fade" id="imageModalSuite6" tabindex="-1" aria-labelledby="imageModalLabelSuite6" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalSuite6">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerSuite6">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos de la suite 7==================-->
+<div class="modal fade" id="imageModalSuite7" tabindex="-1" aria-labelledby="imageModalLabelSuite7" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalSuite7">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerSuite7">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos de la suite 8==================-->
+<div class="modal fade" id="imageModalSuite8" tabindex="-1" aria-labelledby="imageModalLabelSuite8" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalSuite8">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerSuite8">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos de la suite 9==================-->
+<div class="modal fade" id="imageModalSuite9" tabindex="-1" aria-labelledby="imageModalLabelSuite9" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalSuite9">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerSuite9">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos de la suite 10==================-->
+<div class="modal fade" id="imageModalSuite10" tabindex="-1" aria-labelledby="imageModalLabelSuite10" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalSuite10">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerSuite10">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+  
+
+<h3 class="border-bottom pb-2"><i class="fa-solid fa-bed"></i> Dormitorios</h3>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-sm visually-hidden" id="tipoPisoButton" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <i class="fa-solid fa-circle-info"></i> Ayuda para elegir el tipo de piso
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5" id="exampleModalLabel">Tipo de piso</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h4 class="text-center"><kbd>Alfombra</kbd></h4>
+        <div class="text-center">                                                                                   <!-- Modal -->
+        <img src="alfombra.png" class="img-fluid">
+        </div>                          
+        <h4 class="text-center"><kbd>Baldosa Córdova</kbd></h4>
+        <div class="text-center">
+        <img src="baldosa.png" class="img-fluid">
+        </div>
+        <!--<h4 class="text-center"><kbd>Baldosas</kbd></h4>
+        <div class="text-center">
+        <img src="baldosas.webp" class="img-fluid">
+        </div>-->
+        <h4 class="text-center"><kbd>Baldosín cerámico</kbd></h4>
+        <div class="text-center">
+        <img src="baldosin.png" class="img-fluid">
+        </div>
+        <h4 class="text-center"><kbd>Cemento refinado</kbd></h4>
+        <div class="text-center">
+        <img src="cemento-refinado.png" class="img-fluid">
+        </div>
+        <h4 class="text-center"><kbd>Cerámica</kbd></h4>
+        <div class="text-center">
+        <img src="ceramica.png" class="img-fluid">
+        </div>
+        <h4 class="text-center"><kbd>Cubre Pisos</kbd></h4>
+        <div class="text-center">
+        <img src="cubrepiso.png" class="img-fluid">
+        </div>
+        <h4 class="text-center"><kbd>Flexit</kbd></h4>
+        <div class="text-center">
+        <img src="flexit.png" class="img-fluid">
+        </div>
+        <h4 class="text-center"><kbd>Madera</kbd></h4>
+        <div class="text-center">
+        <img src="madera.png" class="img-fluid">
+        </div>
+        <!--<h4 class="text-center"><kbd>Mármol</kbd></h4>
+        <div class="text-center">
+        <img src="piso-marmol.webp" class="img-fluid">
+        </div>-->
+        <h4 class="text-center"><kbd>Parquet</kbd></h4>
+        <div class="text-center">
+        <img src="parquet.png" class="img-fluid">
+        </div>
+         <!--<h4 class="text-center"><kbd>Piedra Pizarra</kbd></h4>
+        <div class="text-center">
+        <img src="piedra-pizarra.webp" class="img-fluid">
+        </div>-->
+        <h4 class="text-center"><kbd>Piso Flotante</kbd></h4>
+        <div class="text-center">
+        <img src="piso-flotante.png" class="img-fluid">
+        </div>
+        <h4 class="text-center"><kbd>Porcelanato</kbd></h4>
+        <div class="text-center">
+        <img src="porcelanato.png" class="img-fluid">
+        </div>
+        <!--<h4 class="text-center"><kbd>Radier afinado</kbd></h4>
+        <div class="text-center">
+        <img src="radier-afinado.webp" class="img-fluid">
+        </div>-->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-floating mb-3 mt-3">
+      <select class="form-select" id="numeroDormitorios" onchange="mostrarCamposDeSeleccion()" required>
+        <option value="" disabled selected>Seleccionar</option>
+        <option value="0">No tiene</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select>
+      <label class="form-label" for="numeroDormitorios">N° de dormitorios</label>
+    </div>
+  </div>
+</div>
+
+<div id="contenedorPisosHab"></div>
+<div id="contenedorPisosHab3"></div>
+
+<!--==============El modal para ver las fotos de la Dormitorio 1==================-->
+<div class="modal fade" id="imageModalDormitorio1" tabindex="-1" aria-labelledby="imageModalLabelDormitorio1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalDormitorio1">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerDormitorio1">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos de la Dormitorio 2==================-->
+<div class="modal fade" id="imageModalDormitorio2" tabindex="-1" aria-labelledby="imageModalLabelDormitorio2" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalDormitorio2">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerDormitorio2">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos de la Dormitorio 3==================-->
+<div class="modal fade" id="imageModalDormitorio3" tabindex="-1" aria-labelledby="imageModalLabelDormitorio3" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalDormitorio3">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerDormitorio3">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos de la Dormitorio 4==================-->
+<div class="modal fade" id="imageModalDormitorio4" tabindex="-1" aria-labelledby="imageModalLabelDormitorio4" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalDormitorio4">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerDormitorio4">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos de la Dormitorio 5==================-->
+<div class="modal fade" id="imageModalDormitorio5" tabindex="-1" aria-labelledby="imageModalLabelDormitorio5" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalDormitorio5">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerDormitorio5">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos de la Dormitorio 6==================-->
+<div class="modal fade" id="imageModalDormitorio6" tabindex="-1" aria-labelledby="imageModalLabelDormitorio6" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalDormitorio6">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerDormitorio6">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos de la Dormitorio 7==================-->
+<div class="modal fade" id="imageModalDormitorio7" tabindex="-1" aria-labelledby="imageModalLabelDormitorio7" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalDormitorio7">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerDormitorio7">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos de la Dormitorio 8==================-->
+<div class="modal fade" id="imageModalDormitorio8" tabindex="-1" aria-labelledby="imageModalLabelDormitorio8" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalDormitorio8">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerDormitorio8">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos de la Dormitorio 9==================-->
+<div class="modal fade" id="imageModalDormitorio9" tabindex="-1" aria-labelledby="imageModalLabelDormitorio9" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalDormitorio9">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerDormitorio9">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos de la Dormitorio 10==================-->
+<div class="modal fade" id="imageModalDormitorio10" tabindex="-1" aria-labelledby="imageModalLabelDormitorio10" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalDormitorio10">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerDormitorio10">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+                    <!--pieza de servicio-->
+<div id="contenedorPisosPiezas"></div>
+<div id="divPiezaServicioContainer">
+ <!--pieza de servicio-->
+ <h3 class="border-bottom pb-2"><i class="fa-solid fa-bed"></i> Pieza de servicio</h3>
+ <button type="button" class="btn btn-primary btn-sm visually-hidden" id="tipoPisoButtonPiezaServicio" data-bs-toggle="modal" data-bs-target="#exampleModal">
+   <i class="fa-solid fa-circle-info"></i> Ayuda para elegir el tipo de piso
+ </button>
+ <div class="row">
+  <div class="col-md-6">
+    <div class="form-floating mb-3 mt-3">
+      <select class="form-select" id="numeroPiezasServicio" onchange="mostrarCamposDeSeleccionPiezasServicio()" required>
+        <option value="" disabled selected>Seleccionar</option>
+        <option value="0">No tiene</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <label class="form-label" for="numeroPiezasServicio">N° de piezas de servicio</label>
+    </div>
+  </div>
+ </div>
+ <div id="contenedorPisosPiezasServicio"></div>
+ <div id="contenedorPisosPiezasServicio3"></div>
+
+</div>
+
+
+<!--==============El modal para ver las fotos del pieza de servicio 1==================-->
+<div class="modal fade" id="imageModalPiezasServicio1" tabindex="-1" aria-labelledby="imageModalLabelPiezasServicio1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabelPiezasServicio1">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerPiezasServicio1">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos del pieza de servicio 2==================-->
+<div class="modal fade" id="imageModalPiezasServicio2" tabindex="-2" aria-labelledby="imageModalLabelPiezasServicio2" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabelPiezasServicio2">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerPiezasServicio2">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos del pieza de servicio 3==================-->
+<div class="modal fade" id="imageModalPiezasServicio3" tabindex="-3" aria-labelledby="imageModalLabelPiezasServicio3" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabelPiezasServicio3">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerPiezasServicio3">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos del pieza de servicio 4==================-->
+<div class="modal fade" id="imageModalPiezasServicio4" tabindex="-4" aria-labelledby="imageModalLabelPiezasServicio4" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabelPiezasServicio4">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerPiezasServicio4">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos del pieza de servicio 5==================-->
+<div class="modal fade" id="imageModalPiezasServicio5" tabindex="-5" aria-labelledby="imageModalLabelPiezasServicio5" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabelPiezasServicio5">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerPiezasServicio5">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+                         
+
+
+
+
+
+
+
+
+<h3 class="border-bottom pb-2"><i class="fa-solid fa-bath"></i> Baños</h3>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-sm visually-hidden" id="tipoPisoButtonBano" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <i class="fa-solid fa-circle-info"></i> Ayuda para elegir el tipo de piso
+</button>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-floating mb-3 mt-3">
+      <select class="form-select" id="numeroBanos" onchange="mostrarCamposDeSeleccionBanos()" required>
+        <option value="" disabled selected>Seleccionar</option>
+        <option value="0">No tiene</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select>
+      <label class="form-label" for="numeroBanos">N° de baños</label>
+    </div>
+  </div>
+</div>
+
+<div id="contenedorPisosBano"></div>
+<div id="contenedorPisosBano3"></div>
+
+<!--==============El modal para ver las fotos de los baños==================-->
+<div class="modal fade" id="imageModalBanos" tabindex="-1" aria-labelledby="imageModalLabelBanos" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabelBanos">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerBanos">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos del baño 1==================-->
+<div class="modal fade" id="imageModalBanos1" tabindex="-1" aria-labelledby="imageModalLabelBanos1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabelBanos1">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerBanos1">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos del baño 2==================-->
+<div class="modal fade" id="imageModalBanos2" tabindex="-1" aria-labelledby="imageModalLabelBanos2" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabelBanos2">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerBanos2">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos del baño 3==================-->
+<div class="modal fade" id="imageModalBanos3" tabindex="-1" aria-labelledby="imageModalLabelBanos3" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabelBanos3">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerBanos3">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos del baño 4==================-->
+<div class="modal fade" id="imageModalBanos4" tabindex="-1" aria-labelledby="imageModalLabelBanos4" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabelBanos4">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerBanos4">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos del baño 5==================-->
+<div class="modal fade" id="imageModalBanos5" tabindex="-1" aria-labelledby="imageModalLabelBanos5" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabelBanos5">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerBanos5">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos del baño 6==================-->
+<div class="modal fade" id="imageModalBanos6" tabindex="-1" aria-labelledby="imageModalLabelBanos6" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabelBanos6">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerBanos6">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos del baño 7==================-->
+<div class="modal fade" id="imageModalBanos7" tabindex="-1" aria-labelledby="imageModalLabelBanos7" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabelBanos7">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerBanos7">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos del baño 8==================-->
+<div class="modal fade" id="imageModalBanos8" tabindex="-1" aria-labelledby="imageModalLabelBanos8" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabelBanos8">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerBanos8">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos del baño 9==================-->
+<div class="modal fade" id="imageModalBanos9" tabindex="-1" aria-labelledby="imageModalLabelBanos9" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabelBanos9">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerBanos9">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos del baño 10==================-->
+<div class="modal fade" id="imageModalBanos10" tabindex="-1" aria-labelledby="imageModalLabelBanos10" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabelBanos10">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerBanos10">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos del baño de servicio 1==================-->
+<div class="modal fade" id="imageModalBanosServicio1" tabindex="-1" aria-labelledby="imageModalLabelBanosServicio1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabelBanosServicio1">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerBanosServicio1">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos del baño de servicio 2==================-->
+<div class="modal fade" id="imageModalBanosServicio2" tabindex="-2" aria-labelledby="imageModalLabelBanosServicio2" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabelBanosServicio2">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerBanosServicio2">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos del baño de servicio 3==================-->
+<div class="modal fade" id="imageModalBanosServicio3" tabindex="-1" aria-labelledby="imageModalLabelBanosServicio3" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabelBanosServicio3">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerBanosServicio3">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos del baño de servicio 4==================-->
+<div class="modal fade" id="imageModalBanosServicio4" tabindex="-1" aria-labelledby="imageModalLabelBanosServicio4" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabelBanosServicio4">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerBanosServicio4">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos del baño de servicio 5==================-->
+<div class="modal fade" id="imageModalBanosServicio5" tabindex="-1" aria-labelledby="imageModalLabelBanosServicio5" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabelBanosServicio5">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerBanosServicio5">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+
+    <div id="contenedorPisosBanos"></div>
+<div id="divBanoServicioContainer">
+ <!--baño de servicio-->
+ <h3 class="border-bottom pb-2"><i class="fa-solid fa-bed"></i> Baño de servicio</h3>
+ <button type="button" class="btn btn-primary btn-sm visually-hidden" id="tipoPisoButtonBanoServicio" data-bs-toggle="modal" data-bs-target="#exampleModal">
+   <i class="fa-solid fa-circle-info"></i> Ayuda para elegir el tipo de piso
+ </button>
+ <div class="row">
+  <div class="col-md-6">
+    <div class="form-floating mb-3 mt-3">
+      <select class="form-select" id="numeroBanosServicio" onchange="mostrarCamposDeSeleccionBanosServicio()" required>
+        <option value="" disabled selected>Seleccionar</option>
+        <option value="0">No tiene</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <label class="form-label" for="numeroBanosServicio">N° de baños de servicio</label>
+    </div>
+  </div>
+ </div>
+ <div id="contenedorPisosBanosServicio"></div>
+ <div id="contenedorPisosBanosServicio3"></div>
+
+</div>
+
+    <h3 class="border-bottom pb-2"><i class="fa-solid fa-kitchen-set"></i> Cocina</h3>
+
+    <!-- Button trigger modal -->
+<div class="col-md">
+<button type="button" class="btn btn-primary btn-sm" id="ayudaCocina" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <i class="fa-solid fa-circle-info"></i> Ayuda para elegir el tipo de piso
+</button>
+</div>
+
+<div class="row">
+  <div class="col-md">
+    <div class="form-floating mb-3 mt-3">
+      <select class="form-select" id="pisococina" name="pisococina">
+        <option value="" disabled selected>Seleccione una opción</option>
+        <option value="Alfombra">Alfombra</option>
+        <option value="Baldosa Córdova">Baldosa Córdova</option>
+        <option value="Baldosa">Baldosas</option>
+        <option value="Baldosín cerámico">Baldosín cerámico</option>
+        <option value="Cemento refinado">Cemento refinado</option>
+        <option value="Cerámica">Cerámica</option>                                                        <!-- los pisos  -->
+        <option value="Cubre Pisos">Cubre Pisos</option>
+        <option value="Flexit">Flexit</option>
+        <option value="Madera">Madera</option>
+        <option value="Marmol">Mármol</option>
+        <option value="Parquet">Parquet</option>
+        <option value="Piedra Pizarra">Piedra Pizarra</option>
+        <option value="Piso Flotante">Piso Flotante</option>
+        <option value="Porcelanato">Porcelanato</option>
+        <option value="Radier afinado">Radier afinado</option>
+        <option value="Otro">Otro</option>
+      </select>
+      <label class="form-label" for="pisococina">Tipo de piso de la cocina</label>
+    </div>
+</div>
+  <div class="col-md">
+    <label class="form-label" for="cocina"><i class="fa-solid fa-circle-arrow-down fa-xl"></i><kbd>Foto de la cocina</kbd><i class="fa-solid fa-circle-arrow-down fa-xl"></i></label>
+    <div class="input-group">
+    <input class="form-control" type="file" id="cocina" name="cocina" accept="image/*" multiple max="2">
+    <button type="button" class="btn btn-primary" onclick="openModalCocina()">
+      <i class="fa-solid fa-eye fa-xl"></i>
+    </button>
+  </div>
+  </div>
+  <h3 class="border-bottom pb-2"><i class="fa-solid fa-utensils"></i> Comedor</h3>
+  <div class="col-md">
+    <button type="button" class="btn btn-primary btn-sm visually-hidden" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <i class="fa-solid fa-circle-info"></i> Ayuda para elegir el tipo de piso
+    </button>
+    <div class="form-floating mb-3 mt-3">
+      <select class="form-select" id="pisocomedor" name="pisocomedor" required>
+        <option value="" disabled selected>Seleccione una opción</option>
+        <option value="Alfombra">Alfombra</option>
+        <option value="Baldosa Córdova">Baldosa Córdova</option>
+        <option value="Baldosa">Baldosas</option>
+        <option value="Baldosín cerámico">Baldosín cerámico</option>
+        <option value="Cemento refinado">Cemento refinado</option>
+        <option value="Cerámica">Cerámica</option>
+        <option value="Cubre Pisos">Cubre Pisos</option>
+        <option value="Flexit">Flexit</option>
+        <option value="Madera">Madera</option>
+        <option value="Marmol">Mármol</option>
+        <option value="Parquet">Parquet</option>
+        <option value="Piedra Pizarra">Piedra Pizarra</option>
+        <option value="Piso Flotante">Piso Flotante</option>
+        <option value="Porcelanato">Porcelanato</option>
+        <option value="Radier afinado">Radier afinado</option>
+        <option value="Otro">Otro</option>
+      </select>
+      <label class="form-label" for="pisocomedor">Tipo de piso del comedor</label>
+    </div>
+  </div>
+  <div class="col-md">
+    <label class="form-label" for="comedor"><i class="fa-solid fa-circle-arrow-down fa-xl"></i><kbd>Foto del comedor</kbd><i class="fa-solid fa-circle-arrow-down fa-xl"></i></label>
+    <div class="input-group">
+    <input class="form-control" type="file" id="comedor" name="comedor" accept="image/*" multiple max="2">
+    <button type="button" class="btn btn-primary" onclick="openModalComedor()">
+      <i class="fa-solid fa-eye fa-xl"></i>
+    </button>
+  </div>
+  </div>
+</div>
+
+<!--==============El modal para ver las fotos de la cocina==================-->
+<div class="modal fade" id="imageModalCocina" tabindex="-1" aria-labelledby="imageModalLabelCocina" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabelCocina">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerCocina">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos del comedor==================-->
+<div class="modal fade" id="imageModalComedor" tabindex="-1" aria-labelledby="imageModalLabelComedor" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabelComedor">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerComedor">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<h3 class="border-bottom pb-2"><i class="fa-solid fa-couch"></i> Living</h3>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-sm visually-hidden" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <i class="fa-solid fa-circle-info"></i> Ayuda para elegir el tipo de piso
+</button>
+
+<div class="row">
+  <div class="col-md">
+    <div class="form-floating mb-3 mt-3">
+      <select class="form-select" id="pisoliving" name="pisoliving" required>
+        <option value="" disabled selected>Seleccione una opción</option>
+        <option value="Alfombra">Alfombra</option>
+        <option value="Baldosa Córdova">Baldosa Córdova</option>
+        <option value="Baldosa">Baldosas</option>
+        <option value="Baldosín cerámico">Baldosín cerámico</option>
+        <option value="Cemento refinado">Cemento refinado</option>
+        <option value="Cerámica">Cerámica</option>
+        <option value="Cubre Pisos">Cubre Pisos</option>
+        <option value="Flexit">Flexit</option>
+        <option value="Madera">Madera</option>
+        <option value="Marmol">Mármol</option>
+        <option value="Parquet">Parquet</option>
+        <option value="Piedra Pizarra">Piedra Pizarra</option>
+        <option value="Piso Flotante">Piso Flotante</option>
+        <option value="Porcelanato">Porcelanato</option>
+        <option value="Radier afinado">Radier afinado</option>
+        <option value="Otro">Otro</option>
+      </select>
+      <label class="form-label" for="pisoliving">Tipo de piso del living</label>
+    </div>
+  </div>
+  <div class="col-md">
+    <label class="form-label" for="living"><i class="fa-solid fa-circle-arrow-down fa-xl"></i><kbd>Foto del living</kbd><i class="fa-solid fa-circle-arrow-down fa-xl"></i></label>
+    <div class="input-group">
+    <input class="form-control" type="file" id="living" name="living" accept="image/*" multiple max="2">
+    <button type="button" class="btn btn-primary" onclick="openModalLiving()">
+      <i class="fa-solid fa-eye fa-xl"></i>
+    </button>
+  </div>
+  </div>
+  <h3 class="border-bottom pb-2"><i class="fa-solid fa-person-shelter"></i> hall de entrada</h3>
+  <div class="col-md">
+    <button type="button" class="btn btn-primary btn-sm visually-hidden" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <i class="fa-solid fa-circle-info"></i> Ayuda para elegir el tipo de piso
+    </button>
+    <div class="form-floating mb-3 mt-3">
+      <select class="form-select" id="pisohall" name="pisocomedor">
+        <option value="" disabled selected>Seleccione una opción</option>
+        <option value="Alfombra">Alfombra</option>
+        <option value="Baldosa Córdova">Baldosa Córdova</option>
+        <option value="Baldosa">Baldosas</option>
+        <option value="Baldosín cerámico">Baldosín cerámico</option>
+        <option value="Cemento refinado">Cemento refinado</option>
+        <option value="Cerámica">Cerámica</option>
+        <option value="Cubre Pisos">Cubre Pisos</option>
+        <option value="Flexit">Flexit</option>
+        <option value="Madera">Madera</option>
+        <option value="Marmol">Mármol</option>
+        <option value="Parquet">Parquet</option>
+        <option value="Piedra Pizarra">Piedra Pizarra</option>
+        <option value="Piso Flotante">Piso Flotante</option>
+        <option value="Porcelanato">Porcelanato</option>
+        <option value="Radier afinado">Radier afinado</option>
+        <option value="Otro">Otro</option>
+      </select>
+      <label class="form-label" for="pisohall">Tipo de piso hall de entrada</label>
+    </div>
+  </div>
+  <div class="col-md">
+    <label class="form-label" for="hall"><i class="fa-solid fa-circle-arrow-down fa-xl"></i><kbd>Foto del hall de entrada</kbd><i class="fa-solid fa-circle-arrow-down fa-xl"></i></label>
+    <div class="input-group">
+    <input class="form-control" type="file" id="hall" name="hall" accept="image/*" multiple max="2">
+    <button type="button" class="btn btn-primary" onclick="openModalHall()">
+      <i class="fa-solid fa-eye fa-xl"></i>
+    </button>
+  </div>
+  </div>
+</div>
+
+
+<!--==============El modal para ver las fotos del Living==================-->
+<div class="modal fade" id="imageModalLiving" tabindex="-1" aria-labelledby="imageModalLabelLiving" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabelLiving">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerLiving">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos del Living==================-->
+<div class="modal fade" id="imageModalHall" tabindex="-1" aria-labelledby="imageModalLabelHall" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabelHall">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerHall">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<h3 class="border-bottom pb-2"><i class="fa-solid fa-circle-info"></i> Información adicional</h3>
+
+<!-- Button trigger modal -->
+
+<!-- Modal tipo de construcción -->
+<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5" id="exampleModalLabel">Tipo de contrucción</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h4 class="text-center"><kbd>Adobe</kbd></h4>
+        <div class="text-center">
+        <img src="adobe-wall-with-window-photo.webp" class="img-fluid">
+        </div>
+        <h4 class="text-center"><kbd>Albañilería tradicional</kbd></h4>
+        <div class="text-center">
+        <img src="albanileria tradicional.webp" class="img-fluid">
+        </div>
+        <h4 class="text-center"><kbd>Albañilería y tabiquería</kbd></h4>
+        <div class="text-center">
+        <img src="albanileria y tabiqueria.webp" class="img-fluid">
+        </div>
+        <h4 class="text-center"><kbd>Covintec</kbd></h4>
+        <div class="text-center">
+        <img src="covintec.webp" class="img-fluid">
+        </div>
+        <h4 class="text-center"><kbd>Hormigón</kbd></h4>
+        <div class="text-center">
+        <img src="pared de hormigon.webp" class="img-fluid">
+        </div>
+        <h4 class="text-center"><kbd>Hormigón celular</kbd></h4>
+        <div class="text-center">
+        <img src="hormigon celular.webp" class="img-fluid">
+        </div>
+        <h4 class="text-center"><kbd>Hormigón y tabiquería</kbd></h4>
+        <div class="text-center">
+        <img src="hormigon y tabiqueria (1).webp" class="img-fluid">
+        </div>
+        <h4 class="text-center"><kbd>Madera</kbd></h4>
+        <div class="text-center">
+        <img src="pared de madera.webp" class="img-fluid">
+        </div>
+        <h4 class="text-center"><kbd>Metalcom</kbd></h4>
+        <div class="text-center">
+        <img src="pared de metalcom.webp" class="img-fluid">
+        </div>
+        <h4 class="text-center"><kbd>Prefabricada</kbd></h4>
+        <div class="text-center">
+        <img src="pared prefabricada.webp" class="img-fluid">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal tipo de muebles de cocina -->
+<div class="modal fade" id="exampleModalMueblesCocina" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5" id="exampleModalLabel">Tipo de muebles de cocina</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h4 class="text-center"><kbd>Cocina 1</kbd></h4>
+        <div class="text-center">
+        <img src="facebook.png" class="img-fluid">
+        </div>
+        <h4 class="text-center"><kbd>Cocina 2</kbd></h4>
+        <div class="text-center">
+        <img src="instagram.png" class="img-fluid">
+        </div>
+        <h4 class="text-center"><kbd>Cocina 3</kbd></h4>
+        <div class="text-center">
+        <img src="correo-electronico.png" class="img-fluid">
+        </div>
+        <h4 class="text-center"><kbd>Hormigón y tabiquería</kbd></h4>
+        <div class="text-center">
+        <img src="hormigon y tabiqueria (1).webp" class="img-fluid">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal tipo de techo -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5" id="exampleModalLabel">Tipo de techo</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h4 class="text-center"><kbd>Losa</kbd></h4>
+        <div class="text-center">
+        <img src="techo de losa.webp" class="img-fluid">
+        </div>
+        <h4 class="text-center"><kbd>Membrana asfáltica</kbd></h4>
+        <div class="text-center">
+        <img src="techo de membrana asfaltica.webp" class="img-fluid">
+        </div>
+        <h4 class="text-center"><kbd>Pizarreño</kbd></h4>
+        <div class="text-center">
+        <img src="techo-pizarreño.webp" class="img-fluid">
+        </div>
+        <h4 class="text-center"><kbd>Teja asfáltica</kbd></h4>
+        <div class="text-center">
+        <img src="teja asfaltica.webp" class="img-fluid">
+        </div>
+        <h4 class="text-center"><kbd>Teja de greda</kbd></h4>
+        <div class="text-center">
+        <img src="teja de greda.webp" class="img-fluid">
+        </div>
+        <h4 class="text-center"><kbd>Teja plástica</kbd></h4>
+        <div class="text-center">
+        <img src="teja plastica.webp" class="img-fluid">
+        </div>
+        <h4 class="text-center"><kbd>Tejuelas alerce</kbd></h4>
+        <div class="text-center">
+        <img src="tejuelas.webp" class="img-fluid">
+        </div>
+        <h4 class="text-center"><kbd>Zinc</kbd></h4>
+        <div class="text-center">
+        <img src="techo-de-zinc.webp" class="img-fluid">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md">
+    <div class="input-group">
+    <div class="form-floating mb-3 mt-3">
+      <select class="form-select" id="mueblecocina"><option value="" disabled selected>Seleccione...</option><option value="No tiene">No tiene</option><option value="Base">Base</option><option value="Base y muro">Base y muro</option><option value="Cuarzo">Cuarzo</option><option value="Cubierta granito">Cubierta granito</option><option value="Mármol">Mármol</option><option value="Otro">Otro</option><option value="Porcelanato">Porcelanato </option></select>
+      <label class="form-label" for="mueblecocina">Tipo de muebles de cocina</label>
+    </div>
+    <button type="button" class="btn btn-primary mb-3 mt-3" data-bs-toggle="modal" data-bs-target="#exampleModalMueblesCocina">
+      <i class="fa-solid fa-question fa-xl"></i>
+    </button>
+  </div>
+  </div>
+  <div class="col-md">
+    <div class="form-floating mb-3 mt-3">  
+      <select class="form-select" id="tipoventana" ><option value="" disabled selected>Seleccione...</option><option value="No tiene">No tiene</option><option value="Aluminio">Aluminio</option><option value="Fierro">Fierro</option><option value="Madera">Madera</option><option value="Plastico">Plastico</option><option value="Termopanel">Termopanel</option></select>  
+      <label class="form-label" for="tipoventana">Tipo de ventanas</label>
+    </div>
+  </div>
+  <div class="col-md">
+    <div class="form-floating mb-3 mt-3" >
+      <select class="form-select" id="termopanel" onchange="toggletermopanel()"><option value="" disabled selected>Seleccione...</option><option value="No">No</option><option value="Parcial">Parcial (solo en algunas partes)</option><option value="Sí">Sí</option></select>
+      <label class="form-label" for="termopanel">Termopanel</label>
+    </div>
+  </div>
+</div>
+
+<div class="form-floating mb-3 visually-hidden" id="termopanelContainer">
+  <textarea class="form-control" id="termopanelText" name="termopanelText"placeholder="Escriba aquí cualquier comentario adicional"></textarea>
+  <label for="termopanelDescrip" id="termopanelDescrip">Indique por favor <br>cuantos paneles tiene <br>y una breve descripción</label>                         <!-- aqui esta text area -->
+</div>
+
+<div class="row">
+  <div class="col-md">
+    <div class="form-floating mb-3 mt-3">
+      <select class="form-select" id="tipococina"><option value="" disabled selected>Seleccione...</option><option value="no tiene">No tiene</option></option><option value="Americana">Americana</option><option value="Central">Central</option><option value="Encimera">Encimera</option><option value="Tradicional">Tradicional</option></select>
+      <label class="form-label" for="tipococina">Tipo de cocina</label>
+    </div>
+  </div>
+
+  <div class="col-md-5">
+    <div class="input-group">
+    <div class="form-floating mb-3 mt-3">
+      <select class="form-select" id="construccion" name="construccion" required>
+        <option value="" disabled selected>Seleccione una opción</option>
+        <option value="no tiene">No tiene</option>
+        <option value="Adobe">Adobe</option>
+        <option value="Albañilería tradicional">Albañilería tradicional</option>
+        <option value="Albañilería y tabiquería">Albañilería y tabiquería</option>
+        <option value="Covintec">Covintec</option>
+        <option value="Hormigón">Hormigón</option>
+        <option value="Hormigón celular">Hormigón celular</option>
+        <option value="Hormigón y tabiquería">Hormigón y tabiquería</option>
+        <option value="Madera">Madera</option>
+        <option value="Metalcom">Metalcom</option>
+        <option value="Prefabricada">Prefabricada</option>
+        <option value="Otro">Otro</option>
+      </select>
+      <label class="form-label text-center text-sm-left" for="construccion">Tipo de construcción de la vivienda</label>
+    </div>
+    <button type="button" class="btn btn-primary mb-3 mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+      <i class="fa-solid fa-question fa-xl"></i>
+    </button>
+    </div>
+  </div>
+  <div class="col-md">
+    <div class="input-group">
+    <div class="form-floating mb-3 mt-3"> 
+      <select class="form-select" id="techo" name="techo" required>
+        <option value="" disabled selected>Seleccione una opción</option>
+        <option value="no tiene">No tiene</option>
+        <option value="Losa">Losa</option>
+        <option value="Membrana asfáltica">Membrana asfáltica</option>
+        <option value="Pizarreño">Pizarreño</option>
+        <option value="Teja Asfáltica">Teja Asfáltica</option>
+        <option value="Teja de greda">Teja de greda</option>
+        <option value="Teja Plástica">Teja Plástica</option>
+        <option value="Tejuelas alerce">Tejuelas alerce</option>
+        <option value="Zinc">Zinc</option>
+        <option value="Otro">Otro</option>
+      </select>
+      <label class="form-label" for="techo">Tipo de techo</label>
+    </div>
+    <button type="button" class="btn btn-primary mb-3 mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+      <i class="fa-solid fa-question fa-xl"></i>
+    </button>
+    </div>
+  </div>
+<div class="row">
+  <div class="col-md-5">
+    <div class="form-floating mb-4 mt-3">
+      <input class="form-control" type="number" id="estacionamientosTechados" value="0" min="0" name="estacionamientos" placeholder="" required>
+      <label class="form-label" for="estacionamientosTechados">Nº de estacionamientos techados</label>
+    </div>
+  </div>
+  <div class="col-md-5">
+    <div class="form-floating mb-3 mt-3">
+      <input class="form-control" type="number" id="estacionamientos" value="0" min="0" name="estacionamientos" placeholder="" required>
+      <label class="form-label" for="estacionamientos">Nº de estacionamientos no techados</label>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md">
+    <div class="form-floating mb-3 mt-3">
+      <select class="form-select" id="tipogas" class=""><option value="">Seleccione...</option><option value="no tiene">No tiene</option><option value="Balones">Balones</option><option value="Cañería">Cañería</option><option value="Central">Central</option><option value="Estanque propio">Estanque propio</option><option value="Otros">Otros</option></select>     
+      <label class="form-label" for="tipogas">Tipo de gas</label> 
+    </div>
+  </div>
+  <div class="col-md">
+    <div class="form-floating mb-3 mt-3">
+      <select class="form-select" id="aguacaliente"><option value="">Seleccione...</option><option value="No tiene">No tiene</option><option value="Calefont">Calefont</option><option value="Calefont y Caldera">Calefont y Caldera</option><option value="Central agua">Central agua</option><option value="Otro">Otro</option><option value="Panel solar">Panel solar</option><option value="Termo">Termo</option><option value="Termo y otro">Termo y otro</option></select>
+      <label class="form-label" for="aguacaliente">Agua caliente</label>  
+    </div>
+  </div>
+  <div class="col-md">
+    <div class="input-group">
+     <div class="form-floating mb-3 mt-3">
+       <select class="form-select" id="aislacion"><option value="">Seleccione...</option><option value="Aislada">Aislada</option><option value="Pareada-sola">Pareada por un solo lado</option><option value="Pareada doble">Pareada doble</option></select>
+       <label class="form-label" for="aislacion">Tipo de aislacion</label>  
+     </div>
+     <button type="button" class="btn btn-primary mb-3 mt-3" data-bs-toggle="modal" data-bs-target="#exampleModalAislacion">
+       <i class="fa-solid fa-question fa-xl"></i>
+     </button>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md">
+    <div class="form-floating mb-3 mt-3">
+      <select class="form-select" id="alcantarillado"><option value="" disabled selected>Seleccione...</option><option value="no tiene">No tiene</option><option value="Empresa sanitaria">Empresa sanitaria</option><option value="Foza septica">Foza septica</option></select>
+      <label class="form-label" for="alcantarillado">Alcantarillado</label>
+    </div>
+  </div>
+  <div class="col-md">
+    <div class="form-floating mb-3 mt-3">
+      <select class="form-select" id="tipoagua"><option value="" disabled selected>Seleccione...</option><option value="no tiene">No tiene</option><option value="Empresa sanitaria">Empresa sanitaria</option><option value="noria">Noria</option><option value="pozo">Pozo</option></select>
+      <label class="form-label" for="tipoagua">Tipo de agua</label>
+    </div>
+  </div>
+  <div class="col-md">
+    <div class="form-floating mb-3 mt-3">
+      <select class="form-select" id="Formaterreno"><option value="" disabled selected>Seleccione...</option><option value="regular">Regular</option><option value="irregular">Irregular</option><option value="plano">Plano</option></select>
+      <label class="form-label" for="Formaterreno">Forma del terreno</label>
+    </div>
+  </div>
+</div>
+
+  <!-- El checkbox de las características adicionales -->
+<div class="container mt-3">
+  <div class="alert alert-info">
+    <strong>Seleccione si su vivienda posee las siguientes características:</strong>
+      <label>
+        <input type="checkbox" name="Alarma" value="Alarma" class="ampliaciones"> Alarma
+      </label>
+      <label>
+        <input type="checkbox" name="internet" value="Acceso a internet" class="ampliaciones"> Acceso a internet
+      </label>
+      <label>
+        <input type="checkbox" name="Portón eléctrico" value="Portón-eléctrico" class="ampliaciones"> Portón eléctrico
+      </label>
+      <label>
+        <input type="checkbox" name="Chimenea" value="Chimenea" class="ampliaciones"> Chimenea
+      </label>
+      <label>
+        <input type="checkbox" name="Comedor de Diario" value="Comedor de Diario" class="ampliaciones"> Comedor de Diario
+      </label>
+      <label>
+        <input type="checkbox" name="Escritorio" value="Escritorio" class="ampliaciones"> Escritorio
+      </label>
+      <label>
+          <input type="checkbox" name="Family Room" value="Family Room" class="ampliaciones" id="familyroom"> FamilyRoom
+      </label>
+      <label>
+        <input type="checkbox" name="Home office" value="Home office" class="ampliaciones" id="homeoffice"> Home office
+      </label>
+      <label>
+        <input type="checkbox" name="Jacuzzi" value="Jacuzzi" class="ampliaciones"> Jacuzzi
+      </label>
+      <label>
+        <input type="checkbox" name="Loggia" value="Loggia" class="ampliaciones"> Loggia
+      </label>
+      <label>
+        <input type="checkbox" name="Protecciones" value="Protecciones" class="ampliaciones"> Protecciones
+      </label>
+      <label>
+        <input type="checkbox" name="Riego Tecnificado" value="Riego Tecnificado" class="ampliaciones"> Riego Tecnificado
+      </label>
+      <label>
+        <input type="checkbox" name="Sauna" value="Sauna" class="ampliaciones"> Sauna
+      </label>
+      <label>
+      <input type="checkbox" name="Walk-in-Closet" value="Walk-in-Closet" class="ampliaciones"> Walk-in-Closet
+      </label>
+  </div>
+</div>
+ <!-- Fin del checkbox -->
+ <div class="row visually-hidden" id="familyroomDiv">
+  <div class="col-md">
+     <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+       <i class="fa-solid fa-circle-info"></i> Ayuda para elegir el tipo de piso
+     </button>
+     <div class="form-floating mb-3 mt-3">
+        <select class="form-select" id="pisoFamilyRoom" name="piso family room">
+         <option value="" disabled selected>Seleccione una opción</option>
+         <option value="Alfombra">Alfombra</option>
+         <option value="Baldosa Córdova">Baldosa Córdova</option>
+         <option value="Baldosa">Baldosas</option>
+         <option value="Baldosín cerámico">Baldosín cerámico</option>
+         <option value="Cemento refinado">Cemento refinado</option>
+         <option value="Cerámica">Cerámica</option>
+         <option value="Cubre Pisos">Cubre Pisos</option>
+         <option value="Flexit">Flexit</option>
+         <option value="Madera">Madera</option>
+         <option value="Marmol">Mármol</option>
+         <option value="Parquet">Parquet</option>
+         <option value="Piedra Pizarra">Piedra Pizarra</option>
+         <option value="Piso Flotante">Piso Flotante</option>
+         <option value="Porcelanato">Porcelanato</option>
+         <option value="Radier afinado">Radier afinado</option>
+         <option value="Otro">Otro</option>
+        </select>
+       <label class="form-label" for="pisofamilyroom">Tipo de piso del family room</label>
+      </div>
+   </div>
+   <div class="col-md">
+     <label class="form-label" for="familyroom"><i class="fa-solid fa-circle-arrow-down"></i><kbd>Fotos del family room</kbd><i class="fa-solid fa-circle-arrow-down"></i></label>
+     <div class="input-group">
+     <input class="form-control" type="file" id="fotoFamilyRoom" name="fotoFamilyRoom" accept="image/*" multiple max="2">
+     <button type="button" class="btn btn-primary" onclick="openModalFamilyRoom()">
+     <i class="fa-solid fa-eye fa-xl"></i>
+     </button>
+     </div>
+   </div>
+</div>
+
+<!--==============El modal para ver las fotos FamilyRoom==================-->
+<div class="modal fade" id="imageModalFamilyRoom" tabindex="-1" aria-labelledby="imageModalLabelFamilyRoom" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabelFamilyRoom">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerFamilyRoom">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row visually-hidden" id="homeofficeDiv">
+  <div class="col-md">
+     <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+       <i class="fa-solid fa-circle-info"></i> Ayuda para elegir el tipo de piso
+     </button>
+     <div class="form-floating mb-3 mt-3">
+        <select class="form-select" id="pisoHomeOffice" name="piso home office">
+         <option value="" disabled selected>Seleccione una opción</option>
+         <option value="Alfombra">Alfombra</option>
+         <option value="Baldosa Córdova">Baldosa Córdova</option>
+         <option value="Baldosa">Baldosas</option>
+         <option value="Baldosín cerámico">Baldosín cerámico</option>
+         <option value="Cemento refinado">Cemento refinado</option>
+         <option value="Cerámica">Cerámica</option>
+         <option value="Cubre Pisos">Cubre Pisos</option>
+         <option value="Flexit">Flexit</option>
+         <option value="Madera">Madera</option>
+         <option value="Marmol">Mármol</option>
+         <option value="Parquet">Parquet</option>
+         <option value="Piedra Pizarra">Piedra Pizarra</option>
+         <option value="Piso Flotante">Piso Flotante</option>
+         <option value="Porcelanato">Porcelanato</option>
+         <option value="Radier afinado">Radier afinado</option>
+         <option value="Otro">Otro</option>
+        </select>
+       <label class="form-label" for="pisohomeoffice">Tipo de piso de la home office</label>
+      </div>
+   </div>
+   <div class="col-md">
+     <label class="form-label" for="homeoffice"><i class="fa-solid fa-circle-arrow-down"></i><kbd>Fotos de la home office</kbd><i class="fa-solid fa-circle-arrow-down"></i></label>
+     <div class="input-group">
+     <input class="form-control" type="file" id="fotoHomeOffice" name="fotoHomeoffice" accept="image/*" multiple max="2">
+     <button type="button" class="btn btn-primary" onclick="openModalhomeoffice()">
+     <i class="fa-solid fa-eye fa-xl"></i>
+     </button>
+     </div>
+   </div>
+</div>
+<!--==============El modal para ver las fotos Homeoffice"==================-->
+<div class="modal fade" id="imageModalhomeoffice" tabindex="-1" aria-labelledby="imageModalLabelhomeoffice" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabelhomeoffice">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerhomeoffice">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!-- ===================================================================================== -->
+
+    <div class="row">
+      <div class="col-md-3">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" onchange="mostrarCampoTexto()" name="Rol Bodega" value="Rol Bodega" id="checkrolbodega" >
+          <label class="form-check-label">Marque si la casa tiene un ROL bodega</label>
+        </div>
+        <div class="input-group">
+          <div class="form-floating mb-3 mt-3">
+           <input class="form-control" type="text" id="rolbodega" placeholder="573-24" maxlength="6" disabled >
+           <label class="form-label" for="rolbodega">Nº de ROL bodega</label>
+          </div>
+          <button type="button" class="btn btn-primary mb-3 mt-3" data-bs-toggle="modal" data-bs-target="#exampleModalbodega">
+            <i class="fa-solid fa-question fa-xl"></i>
+          </button>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" onchange="mostrarCampoTexto()" name="Rol Estacionamiento" value="Rol Estacionamiento" id="checkrolestacionamiento" >
+          <label class="form-check-label">Marque si la casa tiene un ROL estacionamiento</label>
+        </div>
+        <div class="input-group">
+          <div class="form-floating mb-3 mt-3">
+            <input class="form-control" type="text" id="rolestacionamiento" placeholder="573-24" maxlength="6" disabled >
+            <label class="form-label" for="rolestacionamiento">Nº de ROL estacionamiento</label>
+          </div>
+          <button type="button" class="btn btn-primary mb-3 mt-3" data-bs-toggle="modal" data-bs-target="#exampleModalbodega">
+            <i class="fa-solid fa-question fa-xl"></i>
+           </button>
+        </div>
+      </div>
+
+      <h2 class="border-bottom pb-2 visually-hidden" id="condominiotittle"><i class="fa-solid fa-tree-city"></i> Condominio y áreas comunes</h2>
+      <div class="alert alert-info visually-hidden" id="condominiocosas">
+        <strong>Seleccione si su Condominio posee las siguientes características:</strong>
+          <label>
+            <input type="checkbox" name="Cancha de basquetbol" value="Cancha de basquetbol" class="ampliaciones2" id="canchaBasquet"> Cancha de básquetbol
+          </label>
+          <label>
+            <input type="checkbox" name="Cancha de futbol" value="Cancha de futbol" class="ampliaciones2" id="canchaFutbol"> Cancha de fútbol
+          </label>
+          <label>
+            <input type="checkbox" name="Cancha de paddle" value="Cancha de padel" class="ampliaciones2" id="canchaPaddle"> Cancha de Pádel
+          </label>
+          <label>
+            <input type="checkbox" name="Estacionamiento de visitas" value="Estacionamiento de visitas" class="ampliaciones2"> Estacionamiento de visitas
+          </label>
+          <label>
+            <input type="checkbox" name="Gimnasio" value="Gimnasio" class="ampliaciones2" id="gimnasio"> Gimnasio
+          </label>
+          <label>
+            <input type="checkbox" name="Lavanderia" value="Lavanderia" class="ampliaciones2" id="lavanderia"> Lavandería
+          </label>
+          <label>
+            <input type="checkbox" name="Playroom" value="Playroom" class="ampliaciones2" id="playroom"> Playroom
+          </label>
+          <label>
+            <input type="checkbox" name="RiegoTecnificado" value="RiegoTecnificado" class="ampliaciones2" id="playroom"> Riego tecnificado
+          </label>
+          <label>
+            <input type="checkbox" name="Salón de fiestas" value="Salón de fiestas" class="ampliaciones2" id="salonFiestas"> Salón de fiestas
+          </label>
+          <label>
+            <input type="checkbox" name="Salón de usos multiples" value="Salón de usos multiples" class="ampliaciones2" id="salonUsosMultiples"> Salón de usos múltiples
+          </label>
+          <label>
+            <input type="checkbox" name="Áreas verdes" value="Áreas verdes" class="ampliaciones2" id="areasVerdes"> Áreas verdes   <!--se añade areas verdes-->
+          </label>
+          <label>
+            <input type="checkbox" name="Cancha de usos multiples" value="Cancha de usos multiples" class="ampliaciones2"> Cancha de usos multiples
+          </label>
+          <label>
+            <input type="checkbox" name="Conserjeria 24 horas" value="Conserjeria 24 horas" class="ampliaciones2"> Conserjería 24 horas
+          </label>
+          <label>
+            <input type="checkbox" name="Cerco Eléctrico" value="Cerco Eléctrico" class="ampliaciones2"> Cerco Eléctrico
+          </label>
+          <label>
+            <input type="checkbox" name="Quincho" value="Quincho" class="ampliaciones2" id="Quincho"> Quincho
+          </label>
+          <label>
+            <input type="checkbox" name="Area de juegos infantiles" value="area de juegos infantiles" class="ampliaciones"> Area de juegos infantiles
+         </label>
+         <label>
+             <input type="checkbox" name="alarma" value="alarma" class="ampliaciones"> Alarma
+         </label>
+      </div>
+  </div>
+</div>
+<!-- </div> -->
+      <!-- <input type="checkbox" onchange="mostrarCampoTexto()" name="Rol estacionamiento" value="Rol estacionamiento" id="checkrolest"> ¿Además del anterior tiene otro rol adicional?
+    <div id="campotextoest" style="display: none;">
+    <label for="rolestacionamiento">Nº de ROL</label>
+    <input type="text" id="rolestacionamiento" name="rolestacionamiento">
+    </div> -->
+  
+
+</div>
+
+
+    <!--=============  Sección de las fotos  ==========================-->
+    <div class="marco mb-3%">
+        <h2 class="border-bottom pb-2"><i class="fa-solid fa-camera"></i> Fotos adicionales</h2>
+    <div class="row">
+      <div class="col-md-8">
+        <label class="form-label" for="housePhotos"><i class="fa-solid fa-circle-arrow-down"></i><kbd>Otros</kbd><i class="fa-solid fa-circle-arrow-down"></i></label>
+        <div class="input-group">
+        <input class="form-control" type="file" id="housePhotos" name="housePhotos" accept="image/*" multiple max="25">
+        <button type="button" class="btn btn-primary" onclick="openModalAdicionales()">
+          <i class="fa-solid fa-eye fa-xl"></i>
+        </button>
+      </div>
+      </div>
+    </div>
+        <br></br>
+        <p>Si su casa fue construida sobre una parcela, por favor comentar si cuenta con servicios básicos, de luz, agua e internet, y a cuanto esta su distancia con supermercados, colegios, hospitales, entre otros.</p>
+        <div class="form-floating">
+          <textarea class="form-control" id="adicional" name="adicional" placeholder="Escriba aquí cualquier comentario adicional"></textarea>
+          <label for="adicional">Comentarios adicionales</label>
+        </div>
+    </div>
+    <div class="form-check mb-3">
+      <input class="form-check-input fs-5" type="checkbox" id="terminos" name="terminos" required>
+    <label class="form-check-label fs-5">Acepto los <a href=""> términos y condiciones</a></label>
+    </div>
+
+    
+
+    <button onclick="validarBootstrap()" class="btn btn-primary btn-md" type="submit">Enviar</button>
+  </form>
+
+  <div id="overlay" class="overlay" style="display: none;">
+    <span class="loading-text">Cargando...</span>
+    <div class="loading-spinner"></div>
+  </div>
+
+  <!--==============El modal para ver las fotos de la fachada==================-->
+<div class="modal fade" id="imageModalFachada" tabindex="-1" aria-labelledby="imageModalLabelFachada" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabelFachada">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerFachada">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+<!--==============El modal para ver las fotos de la Entrada==================-->
+<div class="modal fade" id="imageModalEntrada" tabindex="-1" aria-labelledby="imageModalLabelEntrada" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabelEntrada">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerEntrada">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos del Garaje==================-->
+<div class="modal fade" id="imageModalGaraje" tabindex="-1" aria-labelledby="imageModalLabelGaraje" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabelGaraje">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerGaraje">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+<!--==============El modal para ver las fotos del Patio==================-->
+<div class="modal fade" id="imageModalPatio" tabindex="-1" aria-labelledby="imageModalLabelPatio" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabelPatio">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerPatio">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================================================================================== -->
+
+
+
+
+
+
+<!--==============El modal para ver las fotos adicionales==================-->
+<div class="modal fade" id="imageModalAdicionales" tabindex="-1" aria-labelledby="imageModalLabelAdicionales" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabelAdicionales">Fotos Cargadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="imageContainerAdicionales">
+        <!-- Aquí se mostrarán las imágenes cargadas -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================================================================================== -->
+
+
+  <script src="script.js"></script>
+</body>
+</html>
