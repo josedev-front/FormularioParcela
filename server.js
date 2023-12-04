@@ -283,7 +283,7 @@ app.post('/enviar', (req, res) => {
             
 
       sharp(fachada.path)
-    .resize(800, 600)
+    .resize(500)
     .toFormat('jpeg')
     .toFile(`public/uploads/compressed_${fachada.originalname}`, (err, info) => {
       if (err) {
@@ -562,7 +562,7 @@ app.post('/enviar', (req, res) => {
           let i = 0
           if (file.mimetype.startsWith('image')) {
             sharp(file.path)
-            .resize(800, 600)
+            .resize(500)
             .toFormat('jpeg')
             .toFile(`public/uploads/compressed_${file.originalname}`, (err, info) => {
               if (err) {
@@ -589,7 +589,7 @@ app.post('/enviar', (req, res) => {
         // Comprimir y adjuntar fotos adicionales.
         articulosamoblada.forEach((articulosamoblad) => {
           sharp(articulosamoblad.path)
-            .resize(800, 600)
+            .resize(500)
             .toFormat('jpeg')
             .toFile(`public/uploads/compressed_${articulosamoblad.originalname}`, (err, info) => {
               if (err) {
@@ -615,7 +615,7 @@ app.post('/enviar', (req, res) => {
     // Comprimir y adjuntar fotos adicionales.
     fotoHabBanoSuite1.forEach((fotoHabBanoSuite1a) => {
       sharp(fotoHabBanoSuite1a.path)
-        .resize(800, 600)
+        .resize(500)
         .toFormat('jpeg')
         .toFile(`public/uploads/compressed_${fotoHabBanoSuite1a.originalname}`, (err, info) => {
           if (err) {
@@ -641,7 +641,7 @@ if (fotoHabBanoSuite2) {
   // Comprimir y adjuntar fotos adicionales.
   fotoHabBanoSuite2.forEach((fotoHabBanoSuite2a) => {
     sharp(fotoHabBanoSuite2a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoHabBanoSuite2a.originalname}`, (err, info) => {
         if (err) {
@@ -667,7 +667,7 @@ if (fotoHabBanoSuite3) {
   // Comprimir y adjuntar fotos adicionales.
   fotoHabBanoSuite3.forEach((fotoHabBanoSuite3a) => {
     sharp(fotoHabBanoSuite3a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoHabBanoSuite3a.originalname}`, (err, info) => {
         if (err) {
@@ -693,7 +693,7 @@ if (fotoHabBanoSuite4) {
   // Comprimir y adjuntar fotos adicionales.
   fotoHabBanoSuite4.forEach((fotoHabBanoSuite4a) => {
     sharp(fotoHabBanoSuite4a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoHabBanoSuite4a.originalname}`, (err, info) => {
         if (err) {
@@ -719,7 +719,7 @@ if (fotoHabBanoSuite5) {
   // Comprimir y adjuntar fotos adicionales.
   fotoHabBanoSuite5.forEach((fotoHabBanoSuite5a) => {
     sharp(fotoHabBanoSuite5a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoHabBanoSuite5a.originalname}`, (err, info) => {
         if (err) {
@@ -745,7 +745,7 @@ if (fotoHabBanoSuite6) {
   // Comprimir y adjuntar fotos adicionales.
   fotoHabBanoSuite6.forEach((fotoHabBanoSuite6a) => {
     sharp(fotoHabBanoSuite6a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoHabBanoSuite6a.originalname}`, (err, info) => {
         if (err) {
@@ -771,7 +771,7 @@ if (fotoHabBanoSuite7) {
   // Comprimir y adjuntar fotos adicionales.
   fotoHabBanoSuite7.forEach((fotoHabBanoSuite7a) => {
     sharp(fotoHabBanoSuite7a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoHabBanoSuite7a.originalname}`, (err, info) => {
         if (err) {
@@ -797,7 +797,7 @@ if (fotoHabBanoSuite8) {
   // Comprimir y adjuntar fotos adicionales.
   fotoHabBanoSuite8.forEach((fotoHabBanoSuite8a) => {
     sharp(fotoHabBanoSuite8a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoHabBanoSuite8a.originalname}`, (err, info) => {
         if (err) {
@@ -823,7 +823,7 @@ if (fotoHabBanoSuite9) {
   // Comprimir y adjuntar fotos adicionales.
   fotoHabBanoSuite9.forEach((fotoHabBanoSuite9a) => {
     sharp(fotoHabBanoSuite9a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoHabBanoSuite9a.originalname}`, (err, info) => {
         if (err) {
@@ -849,7 +849,7 @@ if (fotoHabBanoSuite10) {
   // Comprimir y adjuntar fotos adicionales.
   fotoHabBanoSuite10.forEach((fotoHabBanoSuite10a) => {
     sharp(fotoHabBanoSuite10a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoHabBanoSuite10a.originalname}`, (err, info) => {
         if (err) {
@@ -875,7 +875,7 @@ if (fotoHab1) {
   // Comprimir y adjuntar fotos adicionales.
   fotoHab1.forEach((fotoHab1a) => {
     sharp(fotoHab1a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoHab1a.originalname}`, (err, info) => {
         if (err) {
@@ -901,7 +901,7 @@ if (fotoHab2) {
   // Comprimir y adjuntar fotos adicionales.
   fotoHab2.forEach((fotoHab2a) => {
     sharp(fotoHab2a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoHab2a.originalname}`, (err, info) => {
         if (err) {
@@ -927,7 +927,7 @@ if (fotoHab3) {
   // Comprimir y adjuntar fotos adicionales.
   fotoHab3.forEach((fotoHab3a) => {
     sharp(fotoHab3a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoHab3a.originalname}`, (err, info) => {
         if (err) {
@@ -953,7 +953,7 @@ if (fotoHab4) {
   // Comprimir y adjuntar fotos adicionales.
   fotoHab4.forEach((fotoHab4a) => {
     sharp(fotoHab4a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoHab4a.originalname}`, (err, info) => {
         if (err) {
@@ -979,7 +979,7 @@ if (fotoHab5) {
   // Comprimir y adjuntar fotos adicionales.
   fotoHab5.forEach((fotoHab5a) => {
     sharp(fotoHab5a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoHab5a.originalname}`, (err, info) => {
         if (err) {
@@ -1005,7 +1005,7 @@ if (fotoHab6) {
   // Comprimir y adjuntar fotos adicionales.
   fotoHab6.forEach((fotoHab6a) => {
     sharp(fotoHab6a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoHab6a.originalname}`, (err, info) => {
         if (err) {
@@ -1031,7 +1031,7 @@ if (fotoHab7) {
   // Comprimir y adjuntar fotos adicionales.
   fotoHab7.forEach((fotoHab7a) => {
     sharp(fotoHab7a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoHab7a.originalname}`, (err, info) => {
         if (err) {
@@ -1057,7 +1057,7 @@ if (fotoHab8) {
   // Comprimir y adjuntar fotos adicionales.
   fotoHab8.forEach((fotoHab8a) => {
     sharp(fotoHab8a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoHab8a.originalname}`, (err, info) => {
         if (err) {
@@ -1083,7 +1083,7 @@ if (fotoHab9) {
   // Comprimir y adjuntar fotos adicionales.
   fotoHab9.forEach((fotoHab9a) => {
     sharp(fotoHab9a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoHab9a.originalname}`, (err, info) => {
         if (err) {
@@ -1109,7 +1109,7 @@ if (fotoHab10) {
   // Comprimir y adjuntar fotos adicionales.
   fotoHab10.forEach((fotoHab10a) => {
     sharp(fotoHab10a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoHab10a.originalname}`, (err, info) => {
         if (err) {
@@ -1135,7 +1135,7 @@ if (fotoPiezasServicio1) {
   // Comprimir y adjuntar fotos adicionales.
   fotoPiezasServicio1.forEach((fotoPiezasServicio1a) => {
     sharp(fotoPiezasServicio1a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoPiezasServicio1a.originalname}`, (err, info) => {
         if (err) {
@@ -1161,7 +1161,7 @@ if (fotoPiezasServicio2) {
   // Comprimir y adjuntar fotos adicionales.
   fotoPiezasServicio2.forEach((fotoPiezasServicio2a) => {
     sharp(fotoPiezasServicio2a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoPiezasServicio2a.originalname}`, (err, info) => {
         if (err) {
@@ -1187,7 +1187,7 @@ if (fotoPiezasServicio3) {
   // Comprimir y adjuntar fotos adicionales.
   fotoPiezasServicio3.forEach((fotoPiezasServicio3a) => {
     sharp(fotoPiezasServicio3a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoPiezasServicio3a.originalname}`, (err, info) => {
         if (err) {
@@ -1213,7 +1213,7 @@ if (fotoPiezasServicio4) {
   // Comprimir y adjuntar fotos adicionales.
   fotoPiezasServicio4.forEach((fotoPiezasServicio4a) => {
     sharp(fotoPiezasServicio4a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoPiezasServicio4a.originalname}`, (err, info) => {
         if (err) {
@@ -1239,7 +1239,7 @@ if (fotoPiezasServicio5) {
   // Comprimir y adjuntar fotos adicionales.
   fotoPiezasServicio5.forEach((fotoPiezasServicio5a) => {
     sharp(fotoPiezasServicio5a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoPiezasServicio5a.originalname}`, (err, info) => {
         if (err) {
@@ -1265,7 +1265,7 @@ if (fotoBano1) {
   // Comprimir y adjuntar fotos adicionales.
   fotoBano1.forEach((fotoBano1a) => {
     sharp(fotoBano1a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoBano1a.originalname}`, (err, info) => {
         if (err) {
@@ -1291,7 +1291,7 @@ if (fotoBano2) {
   // Comprimir y adjuntar fotos adicionales.
   fotoBano2.forEach((fotoBano2a) => {
     sharp(fotoBano2a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoBano2a.originalname}`, (err, info) => {
         if (err) {
@@ -1317,7 +1317,7 @@ if (fotoBano3) {
   // Comprimir y adjuntar fotos adicionales.
   fotoBano3.forEach((fotoBano3a) => {
     sharp(fotoBano3a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoBano3a.originalname}`, (err, info) => {
         if (err) {
@@ -1343,7 +1343,7 @@ if (fotoBano4) {
   // Comprimir y adjuntar fotos adicionales.
   fotoBano4.forEach((fotoBano4a) => {
     sharp(fotoBano4a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoBano4a.originalname}`, (err, info) => {
         if (err) {
@@ -1369,7 +1369,7 @@ if (fotoBano5) {
   // Comprimir y adjuntar fotos adicionales.
   fotoBano5.forEach((fotoBano5a) => {
     sharp(fotoBano5a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoBano5a.originalname}`, (err, info) => {
         if (err) {
@@ -1395,7 +1395,7 @@ if (fotoBano6) {
   // Comprimir y adjuntar fotos adicionales.
   fotoBano6.forEach((fotoBano6a) => {
     sharp(fotoBano6a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoBano6a.originalname}`, (err, info) => {
         if (err) {
@@ -1421,7 +1421,7 @@ if (fotoBano7) {
   // Comprimir y adjuntar fotos adicionales.
   fotoBano7.forEach((fotoBano7a) => {
     sharp(fotoBano7a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoBano7a.originalname}`, (err, info) => {
         if (err) {
@@ -1447,7 +1447,7 @@ if (fotoBano8) {
   // Comprimir y adjuntar fotos adicionales.
   fotoBano8.forEach((fotoBano8a) => {
     sharp(fotoBano8a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoBano8a.originalname}`, (err, info) => {
         if (err) {
@@ -1473,7 +1473,7 @@ if (fotoBano9) {
   // Comprimir y adjuntar fotos adicionales.
   fotoBano9.forEach((fotoBano9a) => {
     sharp(fotoBano9a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoBano9a.originalname}`, (err, info) => {
         if (err) {
@@ -1499,7 +1499,7 @@ if (fotoBano10) {
   // Comprimir y adjuntar fotos adicionales.
   fotoBano10.forEach((fotoBano10a) => {
     sharp(fotoBano10a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoBano10a.originalname}`, (err, info) => {
         if (err) {
@@ -1525,7 +1525,7 @@ if (fotoBanosServicio1) {
   // Comprimir y adjuntar fotos adicionales.
   fotoBanosServicio1.forEach((fotoBanosServicio1a) => {
     sharp(fotoBanosServicio1a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoBanosServicio1a.originalname}`, (err, info) => {
         if (err) {
@@ -1551,7 +1551,7 @@ if (fotoBanosServicio2) {
   // Comprimir y adjuntar fotos adicionales.
   fotoBanosServicio2.forEach((fotoBanosServicio2a) => {
     sharp(fotoBanosServicio2a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoBanosServicio2a.originalname}`, (err, info) => {
         if (err) {
@@ -1577,7 +1577,7 @@ if (fotoBanosServicio3) {
   // Comprimir y adjuntar fotos adicionales.
   fotoBanosServicio3.forEach((fotoBanosServicio3a) => {
     sharp(fotoBanosServicio3a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoBanosServicio3a.originalname}`, (err, info) => {
         if (err) {
@@ -1603,7 +1603,7 @@ if (fotoBanosServicio4) {
   // Comprimir y adjuntar fotos adicionales.
   fotoBanosServicio4.forEach((fotoBanosServicio4a) => {
     sharp(fotoBanosServicio4a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoBanosServicio4a.originalname}`, (err, info) => {
         if (err) {
@@ -1629,7 +1629,7 @@ if (fotoBanosServicio5) {
   // Comprimir y adjuntar fotos adicionales.
   fotoBanosServicio5.forEach((fotoBanosServicio5a) => {
     sharp(fotoBanosServicio5a.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoBanosServicio5a.originalname}`, (err, info) => {
         if (err) {
@@ -1658,7 +1658,7 @@ if (fotoBanosServicio5) {
       // Comprimir y adjuntar fotos adicionales.
       cocina.forEach((cocin) => {
         sharp(cocin.path)
-          .resize(800, 600)
+          .resize(500)
           .toFormat('jpeg')
           .toFile(`public/uploads/compressed_${cocin.originalname}`, (err, info) => {
             if (err) {
@@ -1684,7 +1684,7 @@ if (fotoBanosServicio5) {
     // Comprimir y adjuntar fotos adicionales.
     comedor.forEach((comedo) => {
       sharp(comedo.path)
-        .resize(800, 600)
+        .resize(500)
         .toFormat('jpeg')
         .toFile(`public/uploads/compressed_${comedo.originalname}`, (err, info) => {
           if (err) {
@@ -1710,7 +1710,7 @@ if (fotoBanosServicio5) {
       // Comprimir y adjuntar fotos adicionales.
       living.forEach((livin) => {
         sharp(livin.path)
-          .resize(800, 600)
+          .resize(500)
           .toFormat('jpeg')
           .toFile(`public/uploads/compressed_${livin.originalname}`, (err, info) => {
             if (err) {
@@ -1736,7 +1736,7 @@ if (fotoBanosServicio5) {
     // Comprimir y adjuntar fotos adicionales.
     hall.forEach((hal) => {
       sharp(hal.path)
-        .resize(800, 600)
+        .resize(500)
         .toFormat('jpeg')
         .toFile(`public/uploads/compressed_${hal.originalname}`, (err, info) => {
           if (err) {
@@ -1762,7 +1762,7 @@ if (fotoFamilyRoom) {
   // Comprimir y adjuntar fotos adicionales.
   fotoFamilyRoom.forEach((fotoFamilyRooma) => {
     sharp(fotoFamilyRooma.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoFamilyRooma.originalname}`, (err, info) => {
         if (err) {
@@ -1788,7 +1788,7 @@ if (entrada) {
   // Comprimir y adjuntar fotos adicionales.
   entrada.forEach((entra) => {
     sharp(entra.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${entra.originalname}`, (err, info) => {
         if (err) {
@@ -1814,7 +1814,7 @@ if (garaje) {
   // Comprimir y adjuntar fotos adicionales.
   garaje.forEach((garaj) => {
     sharp(garaj.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${garaj.originalname}`, (err, info) => {
         if (err) {
@@ -1840,7 +1840,7 @@ if (patiojardin) {
   // Comprimir y adjuntar fotos adicionales.
   patiojardin.forEach((patiojardi) => {
     sharp(patiojardi.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${patiojardi.originalname}`, (err, info) => {
         if (err) {
@@ -1866,7 +1866,7 @@ if (fotoHomeOffice) {
   // Comprimir y adjuntar fotos adicionales.
   fotoHomeOffice.forEach((fotoHomeOfficea) => {
     sharp(fotoHomeOfficea.path)
-      .resize(800, 600)
+      .resize(500)
       .toFormat('jpeg')
       .toFile(`public/uploads/compressed_${fotoHomeOfficea.originalname}`, (err, info) => {
         if (err) {
@@ -1892,7 +1892,7 @@ if (fotoHomeOffice) {
         // Comprimir y adjuntar fotos adicionales.
         housePhotos.forEach((housePhoto) => {
           sharp(housePhoto.path)
-            .resize(800, 600)
+            .resize(500)
             .toFormat('jpeg')
             .toFile(`public/uploads/compressed_${housePhoto.originalname}`, (err, info) => {
               if (err) {
