@@ -1,5 +1,43 @@
 const formulario = document.getElementById('formulario');
 
+//Validación en tiempo real de teléfono
+telefono.addEventListener("blur", function(){
+  const tlfregex = /^\d{9}$/;
+  const telefono = document.getElementById('telefono').value;
+   if (!tlfregex.test(telefono)) {
+     alert('Por favor, introduce un número de teléfono válido.');
+     return;
+   }
+})
+
+confirmartelefono.addEventListener("blur",function(){
+  const confirmartelefono = document.getElementById('confirmartelefono').value;
+  const telefono = document.getElementById('telefono').value;
+  if (telefono!==confirmartelefono){
+   alert('Los teléfonos no coinciden');
+   return;
+  }
+})
+
+//Validación en tiempo real de correo
+correo.addEventListener("blur", function(){
+  const emailregex= /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+  const correo = document.getElementById('correo').value;
+  if (!emailregex.test(correo)) {
+    alert('Por favor, introduce un correo válido.');
+    return;
+  }
+})
+
+confcorreo.addEventListener("blur", function(){
+  const confcorreo = document.getElementById('confcorreo').value;
+  const correo = document.getElementById('correo').value;
+  if (correo!==confcorreo){
+   alert('Los correos no coinciden');
+   return;
+  }
+})
+
 function validarBootstrap(){
   formulario.classList.add('was-validated');
   }
