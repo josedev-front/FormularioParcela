@@ -395,6 +395,27 @@ document.getElementById('housePhotos').addEventListener('change', function (even
   imagesAdicionales = Array.from(fileListAdicionales);
 });
 
+// funcion para ocualtar las bienechurias
+function toggleConstruccion() {
+  const construccionValue = $("#construccion").val();
+  
+  const elementos = [
+    "#amobadaDiv", "#mterrazaDiv", "#construidostogle", "#anosDiv", "#divInputFileAmoblada",
+    "#pisosDiv", "#suitestittle", "#suitesDiv", "#dormitoriostittle", "#dormitoriosDiv",
+    "#divPiezaServicioContainer", "#banostittle", "#banosDiv", "#divBanoServicioContainer",
+    "#cocinatittle", "#cocinaDiv", "#ayudaGeneral", "#livingtittle", "#livingDiv",
+    "#oculta1", "#oculta2", "#oculta3", "#oculta4", ".oculta5"
+  ];
+
+  if (construccionValue === "Sí") {
+    elementos.forEach(item => $(item).removeClass("visually-hidden"));
+  } else {
+    elementos.forEach(item => $(item).addClass("visually-hidden"));
+    $("#oculta4").removeClass("visually-hidden");
+  }
+}        
+
+
 //Función para mostrar/ocultar los artículos en venta
 function toggleTextarea() {
   const amoblada = document.getElementById("amoblada");

@@ -328,7 +328,7 @@
   <div class="col-md">
     <div class="form-floating mb-3 mt-3">
       <input class="form-control" type="text" id="casa" name="casa" placeholder="Casa #9-13" required>
-      <label class="form-label" for="casa">Nº de casa</label>
+      <label class="form-label" for="casa">Nº</label>
     </div>
   </div>
 </div>
@@ -340,7 +340,7 @@
      <label class="form-label" for="Sector">Sector</label>
     </div>
  </div>
-  <div class="col-md">
+  <div class="col-md visually-hidden" id="anosDiv" >
     <div class="input-group">
     <div class="form-floating mb-3 mt-3">
       <input class="form-control" type="number" id="anos" name="anos" placeholder="" min="1800">
@@ -351,12 +351,19 @@
     </button>
   </div>
   </div>
-
-  
-
-  <div class="col-md">
+  <div class="col-md-3">
     <div class="form-floating mb-3 mt-3">
-      <select class="form-select" id="amoblada" name="amoblada" onchange="toggleTextarea()" required>
+      <select class="form-select" id="construccion" name="construccion" onchange="toggleConstruccion()" required>
+        <option value="" disabled selected>Selecciona una opción</option>
+        <option value="Sí">Sí</option>                                                                       <!-- aqui esta sw -->
+        <option value="No">No</option>
+      </select>
+      <label class="form-label" for="construccion">¿El inmueble, tiene construcciones?</label>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-floating mb-3 mt-3 visually-hidden" id="amobadaDiv">
+      <select class="form-select" id="amoblada" name="amoblada" onchange="toggleTextarea()">
         <option value="" disabled selected>Selecciona una opción</option>
         <option value="Sí">Sí</option>                                                                       <!-- aqui esta sw -->
         <option value="No">No</option>
@@ -366,19 +373,23 @@
   </div>
 </div>
 
+
 <div class="row">
-  <div class="col-md" id="construidostogle">
+  <div class="col-md visually-hidden" id="construidostogle">
     <div class="form-floating mb-3 mt-3">
-      <input class="form-control" type="number" id="mconstruidos" name="mconstruidos" min="1" placeholder="" required>
+      <input class="form-control" type="number" id="mconstruidos" name="mconstruidos" min="1" placeholder="">
       <label class="form-label" for="mconstruidos">m<sup>2</sup> construídos</label>
     </div>
     <p class="visually-hidden" id="textomt2">Por favor no incluya en este campo los m<sup>2</sup> de "terraza" si la posee.</p>
   </div>
 
-<div class="form-floating col-md mb-3 mt-3">
+<div class="form-floating col-md mb-3 mt-3 visually-hidden" id="mterrazaDiv">
   <input class="form-control" type="number" id="mterraza" name="mterraza" min="0" placeholder="">
   <label class="form-label" for="mterraza">m<sup>2</sup> terraza</label>
 </div>
+
+
+
 
 <div class="col-md">
   <div class="form-floating mb-3 mt-3">
@@ -387,14 +398,18 @@
   </div>
 </div>
 </div>
+  
+
+
+
 
 <p id="textareatutorial">Tomese unos minutos para llenar el inventario, de acuerdo al orden estipulado en el siguiente campo</p>
 <div class="form-floating mb-3 visually-hidden" id="articuloscasaContainer">
   <textarea class="form-control" id="articuloscasa" name="articuloscasa" disabled placeholder="Escriba aquí cualquier comentario adicional"></textarea>
   <label for="articuloscasa" id="inventarioText">Escriba aquí los artículos <br> que incluye el departamento</label>                             <!-- aqui esta text area -->
 </div>
-<div class="col-md-6 mb-3" id="divInputFileAmoblada">
-  <label class="form-label" for="articulosamoblada"><i class="fa-solid fa-circle-arrow-down fa-xl"></i><kbd>Fotos de artículos que incluye el casa</kbd><i class="fa-solid fa-circle-arrow-down fa-xl"></i></label>
+<div class="col-md-6 mb-3 visually-hidden" id="divInputFileAmoblada">
+  <label class="form-label" for="articulosamoblada"><i class="fa-solid fa-circle-arrow-down fa-xl"></i><kbd>Fotos de artículos que incluye el inmueble</kbd><i class="fa-solid fa-circle-arrow-down fa-xl"></i></label>
   <div class="input-group">
   <input class="form-control" type="file" id="articulosamoblada" name="articulosamoblada" accept="image/*" multiple max="20"> 
   <button type="button" class="btn btn-primary" onclick="openModalAmoblada()">
@@ -402,10 +417,10 @@
   </button>
 </div>
 </div>
-<div class="row">
-  <div class="col-md-3">
+<div class="row visually-hidden" id="pisosDiv">
+  <div class="col-md-3" >
     <div class="form-floating mb-3 mt-3">
-      <select class="form-select" id="nPisos" required>
+      <select class="form-select" id="nPisos">
         <option value="" disabled selected>Seleccionar</option>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -519,16 +534,16 @@
   </div>
 </div>
 
-    <h3 class="border-bottom pb-2"><i class="fa-solid fa-person-booth"></i> Suites (piezas con baño privado)</h3>
+    <h3 class="border-bottom pb-2 selector visually-hidden" id="suitestittle"><i class="fa-solid fa-person-booth"></i> Suites (piezas con baño privado)</h3>
     
     <!-- Button trigger modal -->
   <button type="button" class="btn btn-primary btn-sm visually-hidden" id="tipoPisoButtonSuite" data-bs-toggle="modal" data-bs-target="#exampleModal">
     <i class="fa-solid fa-circle-info"></i> Ayuda para elegir el tipo de piso
   </button>
   
-  <div class="col-md-6">
+  <div class="col-md-6 selector visually-hidden" id="suitesDiv">
     <div class="form-floating mb-3 mt-3">
-      <select class="form-select" id="numeroSuite" onchange="mostrarCamposDeSeleccionSuite()" required>
+      <select class="form-select" id="numeroSuite" onchange="mostrarCamposDeSeleccionSuite()">
         <option value="" disabled selected>Seleccionar</option>
         <option value="0">No tiene</option>
         <option value="1">1</option>
@@ -743,7 +758,7 @@
 
   
 
-<h3 class="border-bottom pb-2"><i class="fa-solid fa-bed"></i> Dormitorios</h3>
+<h3 class="border-bottom pb-2 visually-hidden" id="dormitoriostittle"><i class="fa-solid fa-bed"></i> Dormitorios</h3>
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-sm visually-hidden" id="tipoPisoButton" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -827,10 +842,10 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row visually-hidden" id="dormitoriosDiv">
   <div class="col-md-6">
     <div class="form-floating mb-3 mt-3">
-      <select class="form-select" id="numeroDormitorios" onchange="mostrarCamposDeSeleccion()" required>
+      <select class="form-select" id="numeroDormitorios" onchange="mostrarCamposDeSeleccion()">
         <option value="" disabled selected>Seleccionar</option>
         <option value="0">No tiene</option>
         <option value="1">1</option>
@@ -1042,17 +1057,17 @@
 </div>
 <!-- ===================================================================================== -->
                     <!--pieza de servicio-->
-<div id="contenedorPisosPiezas"></div>
+<div id="contenedorPisosPiezas" class="visually-hidden"></div>
 <div id="divPiezaServicioContainer">
  <!--pieza de servicio-->
- <h3 class="border-bottom pb-2"><i class="fa-solid fa-bed"></i> Pieza de servicio</h3>
+ <h3 class="border-bottom pb-2 oculta5 visually-hidden"><i class="fa-solid fa-bed"></i> Pieza de servicio</h3>
  <button type="button" class="btn btn-primary btn-sm visually-hidden" id="tipoPisoButtonPiezaServicio" data-bs-toggle="modal" data-bs-target="#exampleModal">
    <i class="fa-solid fa-circle-info"></i> Ayuda para elegir el tipo de piso
  </button>
  <div class="row">
   <div class="col-md-6">
     <div class="form-floating mb-3 mt-3">
-      <select class="form-select" id="numeroPiezasServicio" onchange="mostrarCamposDeSeleccionPiezasServicio()" required>
+      <select class="form-select" id="numeroPiezasServicio" onchange="mostrarCamposDeSeleccionPiezasServicio()">
         <option value="" disabled selected>Seleccionar</option>
         <option value="0">No tiene</option>
         <option value="1">1</option>
@@ -1174,17 +1189,17 @@
 
 
 
-<h3 class="border-bottom pb-2"><i class="fa-solid fa-bath"></i> Baños</h3>
+<h3 class="border-bottom pb-2 visually-hidden" id="banostittle"><i class="fa-solid fa-bath"></i> Baños</h3>
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-sm visually-hidden" id="tipoPisoButtonBano" data-bs-toggle="modal" data-bs-target="#exampleModal">
   <i class="fa-solid fa-circle-info"></i> Ayuda para elegir el tipo de piso
 </button>
 
-<div class="row">
+<div class="row visually-hidden" id="banosDiv">
   <div class="col-md-6">
     <div class="form-floating mb-3 mt-3">
-      <select class="form-select" id="numeroBanos" onchange="mostrarCamposDeSeleccionBanos()" required>
+      <select class="form-select" id="numeroBanos" onchange="mostrarCamposDeSeleccionBanos()">
         <option value="" disabled selected>Seleccionar</option>
         <option value="0">No tiene</option>
         <option value="1">1</option>
@@ -1512,7 +1527,7 @@
 
 
     <div id="contenedorPisosBanos"></div>
-<div id="divBanoServicioContainer">
+<div id="divBanoServicioContainer" class="visually-hidden">
  <!--baño de servicio-->
  <h3 class="border-bottom pb-2"><i class="fa-solid fa-bed"></i> Baño de servicio</h3>
  <button type="button" class="btn btn-primary btn-sm visually-hidden" id="tipoPisoButtonBanoServicio" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -1521,7 +1536,7 @@
  <div class="row">
   <div class="col-md-6">
     <div class="form-floating mb-3 mt-3">
-      <select class="form-select" id="numeroBanosServicio" onchange="mostrarCamposDeSeleccionBanosServicio()" required>
+      <select class="form-select" id="numeroBanosServicio" onchange="mostrarCamposDeSeleccionBanosServicio()">
         <option value="" disabled selected>Seleccionar</option>
         <option value="0">No tiene</option>
         <option value="1">1</option>
@@ -1539,16 +1554,16 @@
 
 </div>
 
-    <h3 class="border-bottom pb-2"><i class="fa-solid fa-kitchen-set"></i> Cocina</h3>
+    <h3 class="border-bottom pb-2 visually-hidden" id="cocinatittle"><i class="fa-solid fa-kitchen-set"></i> Cocina</h3>
 
     <!-- Button trigger modal -->
-<div class="col-md">
+<div class="col-md visually-hidden" id="ayudaGeneral">
 <button type="button" class="btn btn-primary btn-sm" id="ayudaCocina" data-bs-toggle="modal" data-bs-target="#exampleModal">
   <i class="fa-solid fa-circle-info"></i> Ayuda para elegir el tipo de piso
 </button>
 </div>
 
-<div class="row">
+<div class="row visually-hidden" id="cocinaDiv">
   <div class="col-md">
     <div class="form-floating mb-3 mt-3">
       <select class="form-select" id="pisococina" name="pisococina">
@@ -1588,7 +1603,7 @@
       <i class="fa-solid fa-circle-info"></i> Ayuda para elegir el tipo de piso
     </button>
     <div class="form-floating mb-3 mt-3">
-      <select class="form-select" id="pisocomedor" name="pisocomedor" required>
+      <select class="form-select" id="pisocomedor" name="pisocomedor">
         <option value="" disabled selected>Seleccione una opción</option>
         <option value="Alfombra">Alfombra</option>
         <option value="Baldosa Córdova">Baldosa Córdova</option>
@@ -1659,17 +1674,17 @@
 </div>
 <!-- ===================================================================================== -->
 
-<h3 class="border-bottom pb-2"><i class="fa-solid fa-couch"></i> Living</h3>
+<h3 class="border-bottom pb-2 visually-hidden" id="livingtittle"><i class="fa-solid fa-couch"></i> Living</h3>
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-sm visually-hidden" data-bs-toggle="modal" data-bs-target="#exampleModal">
   <i class="fa-solid fa-circle-info"></i> Ayuda para elegir el tipo de piso
 </button>
 
-<div class="row">
+<div class="row visually-hidden" id="livingDiv">
   <div class="col-md">
     <div class="form-floating mb-3 mt-3">
-      <select class="form-select" id="pisoliving" name="pisoliving" required>
+      <select class="form-select" id="pisoliving" name="pisoliving">
         <option value="" disabled selected>Seleccione una opción</option>
         <option value="Alfombra">Alfombra</option>
         <option value="Baldosa Córdova">Baldosa Córdova</option>
@@ -1923,7 +1938,7 @@
 </div>
 
 
-<div class="row">
+<div class="row visually-hidden" id="oculta1">
   <div class="col-md">
     <div class="input-group">
     <div class="form-floating mb-3 mt-3">
@@ -1954,18 +1969,17 @@
   <label for="termopanelDescrip" id="termopanelDescrip">Indique por favor <br>cuantos paneles tiene <br>y una breve descripción</label>                         <!-- aqui esta text area -->
 </div>
 
-<div class="row">
+<div class="row visually-hidden" id="oculta2">
   <div class="col-md">
     <div class="form-floating mb-3 mt-3">
       <select class="form-select" id="tipococina"><option value="" disabled selected>Seleccione...</option><option value="no tiene">No tiene</option></option><option value="Americana">Americana</option><option value="Central">Central</option><option value="Encimera">Encimera</option><option value="Tradicional">Tradicional</option></select>
       <label class="form-label" for="tipococina">Tipo de cocina</label>
     </div>
   </div>
-
   <div class="col-md-5">
     <div class="input-group">
     <div class="form-floating mb-3 mt-3">
-      <select class="form-select" id="construccion" name="construccion" required>
+      <select class="form-select" id="construccion" name="construccion">
         <option value="" disabled selected>Seleccione una opción</option>
         <option value="no tiene">No tiene</option>
         <option value="Adobe">Adobe</option>
@@ -1990,7 +2004,7 @@
   <div class="col-md">
     <div class="input-group">
     <div class="form-floating mb-3 mt-3"> 
-      <select class="form-select" id="techo" name="techo" required>
+      <select class="form-select" id="techo" name="techo">
         <option value="" disabled selected>Seleccione una opción</option>
         <option value="no tiene">No tiene</option>
         <option value="Losa">Losa</option>
@@ -2010,33 +2024,38 @@
     </button>
     </div>
   </div>
-<div class="row">
+</div>
+<div class="row visually-hidden" id="oculta3">
   <div class="col-md-5">
     <div class="form-floating mb-4 mt-3">
-      <input class="form-control" type="number" id="estacionamientosTechados" value="0" min="0" name="estacionamientos" placeholder="" required>
+      <input class="form-control" type="number" id="estacionamientosTechados" value="0" min="0" name="estacionamientos" placeholder="">
       <label class="form-label" for="estacionamientosTechados">Nº de estacionamientos techados</label>
     </div>
   </div>
   <div class="col-md-5">
     <div class="form-floating mb-3 mt-3">
-      <input class="form-control" type="number" id="estacionamientos" value="0" min="0" name="estacionamientos" placeholder="" required>
+      <input class="form-control" type="number" id="estacionamientos" value="0" min="0" name="estacionamientos" placeholder="">
       <label class="form-label" for="estacionamientos">Nº de estacionamientos no techados</label>
     </div>
   </div>
 </div>
+<div class="visually-hidden" id="oculta4">
 <div class="row">
   <div class="col-md">
-    <div class="form-floating mb-3 mt-3">
+    <div class="form-floating mb-3 mt-3 visually-hidden" id="oculta4">
       <select class="form-select" id="tipogas" class=""><option value="">Seleccione...</option><option value="no tiene">No tiene</option><option value="Balones">Balones</option><option value="Cañería">Cañería</option><option value="Central">Central</option><option value="Estanque propio">Estanque propio</option><option value="Otros">Otros</option></select>     
       <label class="form-label" for="tipogas">Tipo de gas</label> 
     </div>
   </div>
-  <div class="col-md">
-    <div class="form-floating mb-3 mt-3">
+  
+    <div class="form-floating visually-hidden oculta5" id="">
       <select class="form-select" id="aguacaliente"><option value="">Seleccione...</option><option value="No tiene">No tiene</option><option value="Calefont">Calefont</option><option value="Calefont y Caldera">Calefont y Caldera</option><option value="Central agua">Central agua</option><option value="Otro">Otro</option><option value="Panel solar">Panel solar</option><option value="Termo">Termo</option><option value="Termo y otro">Termo y otro</option></select>
       <label class="form-label" for="aguacaliente">Agua caliente</label>  
     </div>
-  </div>
+  
+</div>
+</div>
+
   <div class="col-md">
     <div class="input-group">
      <div class="form-floating mb-3 mt-3">
@@ -2071,7 +2090,7 @@
 </div>
 
   <!-- El checkbox de las características adicionales -->
-<div class="container mt-3">
+<div class="container mt-3 oculta5 visually-hidden">
   <div class="alert alert-info">
     <strong>Seleccione si su vivienda posee las siguientes características:</strong>
       <label>
@@ -2235,7 +2254,7 @@
 
 <!-- ===================================================================================== -->
 
-    <div class="row">
+    <div class="row oculta5 visually-hidden">
       <div class="col-md-3">
         <div class="form-check">
           <input class="form-check-input" type="checkbox" onchange="mostrarCampoTexto()" name="Rol Bodega" value="Rol Bodega" id="checkrolbodega" >
