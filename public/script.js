@@ -117,10 +117,7 @@ let imagesCocina = [];
 let imagesComedor = [];
 let imagesLiving = [];
 let imagesHall = [];
-let imagesFachada = [];
 let imagesPatio = [];
-let imagesEntrada = [];
-let imagesGaraje = [];
 let imagesAdicionales = [];
 let imagesBalcon = [];
 let imagesPiezaServicio =[];
@@ -265,84 +262,6 @@ document.getElementById('hall').addEventListener('change', function (event) {
   imagesHall = Array.from(fileListHall);
 });
 
-function openModalFachada() {
-  // Vaciar el contenedor de imágenes antes de agregar las nuevas
-  document.getElementById('imageContainerFachada').innerHTML = '';
-
-  // Recorrer el array de imágenes y crear elementos <img> para mostrarlas en el modal
-  for (let i = 0; i < imagesFachada.length; i++) {
-    const imgElementFachada = document.createElement('img');
-    imgElementFachada.src = URL.createObjectURL(imagesFachada[i]);
-    imgElementFachada.classList.add('img-fluid', 'mb-2');
-
-    document.getElementById('imageContainerFachada').appendChild(imgElementFachada);
-  }
-
-  // Mostrar el modal utilizando el método "modal" de Bootstrap
-  const imageModalFachada = new bootstrap.Modal(document.getElementById('imageModalFachada'));
-  imageModalFachada.show();
-}
-
-document.getElementById('fachada').addEventListener('change', function (event) {
-  // Obtener las imágenes seleccionadas por el usuario
-  const fileListFachada = event.target.files;
-
-  // Convertir el objeto FileList a un array para facilitar su manejo
-  imagesFachada = Array.from(fileListFachada);
-});
-
-function openModalEntrada() {
-  // Vaciar el contenedor de imágenes antes de agregar las nuevas
-  document.getElementById('imageContainerEntrada').innerHTML = '';
-
-  // Recorrer el array de imágenes y crear elementos <img> para mostrarlas en el modal
-  for (let i = 0; i < imagesEntrada.length; i++) {
-    const imgElementEntrada = document.createElement('img');
-    imgElementEntrada.src = URL.createObjectURL(imagesEntrada[i]);
-    imgElementEntrada.classList.add('img-fluid', 'mb-2');
-
-    document.getElementById('imageContainerEntrada').appendChild(imgElementEntrada);
-  }
-
-  // Mostrar el modal utilizando el método "modal" de Bootstrap
-  const imageModalEntrada = new bootstrap.Modal(document.getElementById('imageModalEntrada'));
-  imageModalEntrada.show();
-}
-
-document.getElementById('entrada').addEventListener('change', function (event) {
-  // Obtener las imágenes seleccionadas por el usuario
-  const fileListEntrada = event.target.files;
-
-  // Convertir el objeto FileList a un array para facilitar su manejo
-  imagesEntrada = Array.from(fileListEntrada);
-});
-
-function openModalGaraje() {
-  // Vaciar el contenedor de imágenes antes de agregar las nuevas
-  document.getElementById('imageContainerGaraje').innerHTML = '';
-
-  // Recorrer el array de imágenes y crear elementos <img> para mostrarlas en el modal
-  for (let i = 0; i < imagesGaraje.length; i++) {
-    const imgElementGaraje = document.createElement('img');
-    imgElementGaraje.src = URL.createObjectURL(imagesGaraje[i]);
-    imgElementGaraje.classList.add('img-fluid', 'mb-2');
-
-    document.getElementById('imageContainerGaraje').appendChild(imgElementGaraje);
-  }
-
-  // Mostrar el modal utilizando el método "modal" de Bootstrap
-  const imageModalGaraje = new bootstrap.Modal(document.getElementById('imageModalGaraje'));
-  imageModalGaraje.show();
-}
-
-document.getElementById('garaje').addEventListener('change', function (event) {
-  // Obtener las imágenes seleccionadas por el usuario
-  const fileListGaraje = event.target.files;
-
-  // Convertir el objeto FileList a un array para facilitar su manejo
-  imagesGaraje = Array.from(fileListGaraje);
-});
-
 function openModalPatio() {
   // Vaciar el contenedor de imágenes antes de agregar las nuevas
   document.getElementById('imageContainerPatio').innerHTML = '';
@@ -360,14 +279,6 @@ function openModalPatio() {
   const imageModalPatio = new bootstrap.Modal(document.getElementById('imageModalPatio'));
   imageModalPatio.show();
 }
-
-document.getElementById('patiojardin').addEventListener('change', function (event) {
-  // Obtener las imágenes seleccionadas por el usuario
-  const fileListPatio = event.target.files;
-
-  // Convertir el objeto FileList a un array para facilitar su manejo
-  imagesPatio = Array.from(fileListPatio);
-});
 
 function openModalAdicionales() {
   // Vaciar el contenedor de imágenes antes de agregar las nuevas
@@ -499,25 +410,11 @@ function togglehorario() {
 }
 }
 // ===========> funcion para ocultar el sectc de si hay conseria 
-function toggleconserjeria() {
-  const condoPregunta = document.getElementById("condoPregunta");
-  const conserjeriaPreguntaDiv = document.getElementById("conserjeriaPreguntaDiv");
-  const condominiotittle= document.getElementById("condominiotittle");
-  const condominiocosas= document.getElementById("condominiocosas");
+
   
 
 
-  if (condoPregunta .value === "Sí") {
-    conserjeriaPreguntaDiv.classList.remove("visually-hidden");  
-    condominiotittle.classList.remove("visually-hidden");
-    condominiocosas.classList.remove("visually-hidden");
-} else {
-  conserjeriaPreguntaDiv.classList.add("visually-hidden");
-  horarioContainer.classList.add("visually-hidden");
-  condominiotittle.classList.add("visually-hidden");
-    condominiocosas.classList.add("visually-hidden");
-}
-} 
+
 
 
 
@@ -2864,7 +2761,6 @@ const rut = primerosdigitos + "-" + verificador;
   const mtotales = document.getElementById('mtotales').value
   const mterraza = document.getElementById('mterraza').value;
   const nPisos = document.getElementById('nPisos').value;
-  const condoPregunta = document.getElementById('condoPregunta').value;
   const conserjeriaPregunta = document.getElementById('conserjeriaPregunta').value;
   const horario = document.getElementById('horario').value;
   const amoblada = document.getElementById('amoblada').value;
@@ -3236,7 +3132,7 @@ const fotoHomeOffice = document.getElementById('fotoHomeOffice').files;
 
 
 
-const fachada = document.getElementById('fachada').files[0];
+
 
 const housePhotos=document.getElementById('housePhotos').files;
 
@@ -3282,7 +3178,6 @@ if (!terminos.checked) {
   formData.append('mtotales', mtotales);
   formData.append('sector', sector);
   formData.append('nPisos', nPisos);
-  formData.append('condoPregunta',condoPregunta);
   formData.append('conserjeriaPregunta',conserjeriaPregunta);
   formData.append('horario', horario);
   formData.append('mterraza',mterraza); 
@@ -3760,11 +3655,7 @@ for (var i=0; i<fotoBanosServicio5.length; i++){
   formData.append('rolbodega', rolbodega); //LISTO
   formData.append('rolestacionamiento', rolestacionamiento);
 // Las fotos
-  formData.append('fachada', fachada);
-  if (housePhotos.length > 25) {
-    alert('No se pueden subir más de 25 imágenes opcionales.');
-    return;
-  }
+  
 
   for (var i = 0; i < housePhotos.length; i++) {
     formData.append('housePhotos', housePhotos[i]);
