@@ -76,7 +76,6 @@ const upload = multer({
   { name: 'living', maxCount: 2 },
   { name: 'hall', maxCount: 2 },
   { name: 'fotoFamilyRoom', maxCount: 2 },
-  { name: 'fachada', maxCount: 1 },
   { name: 'entrada', maxCount: 2 },
   { name: 'garaje', maxCount: 2 },
   { name: 'patiojardin', maxCount: 2 },
@@ -271,7 +270,6 @@ app.post('/enviar', (req, res) => {
       const rolestacionamiento = req.body.rolestacionamiento;
       
       const adicional = req.body.adicional;
-      const fachada=req.files['fachada'][0];
       const entrada=req.files['entrada'];
       const garaje=req.files['garaje'];
       const patiojardin=req.files['patiojardin'];
@@ -279,24 +277,6 @@ app.post('/enviar', (req, res) => {
       //homeOffice
       const pisoHomeOffice = req.body.pisoHomeOffice;
       const fotoHomeOffice = req.files['fotoHomeOffice'];
-
-            
-
-      sharp(fachada.path)
-    .resize(500)
-    .toFormat('jpeg')
-    .toFile(`public/uploads/compressed_${fachada.originalname}`, (err, info) => {
-      if (err) {
-        console.error('Error al comprimir la imagen de la fachada:', err);
-      } else {
-        // Borrar el archivo original sin comprimir.
-        // fs.unlinkSync(fachada.path);
-        console.log('Imagen de la fachada comprimida y guardada.');
-      }
-    });
-
-
-
 
       const destinatario1 = 'recibirformulario@marysstyle.cl';
       const destinatario2 = correo;
@@ -542,8 +522,6 @@ app.post('/enviar', (req, res) => {
           </div>
       </div>
   </body>
-
-
 </html>`;      
 
       // Configuración del correo electrónico que irá al correo del hosting
@@ -553,7 +531,6 @@ app.post('/enviar', (req, res) => {
         subject: `Nueva tasación por realizar ⚠️ #${numeroAleatorio}`,
         html:emailTasadorHTML,
         attachments: [
-          { filename: `FACHADA${fachada.originalname}`, path: `public/uploads/compressed_${fachada.originalname}` },
         ]
       };
 

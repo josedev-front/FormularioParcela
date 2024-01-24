@@ -137,10 +137,7 @@ let imagesCocina = [];
 let imagesComedor = [];
 let imagesLiving = [];
 let imagesHall = [];
-let imagesFachada = [];
 let imagesPatio = [];
-let imagesEntrada = [];
-let imagesGaraje = [];
 let imagesAdicionales = [];
 let imagesBalcon = [];
 let imagesPiezaServicio =[];
@@ -285,84 +282,6 @@ document.getElementById('hall').addEventListener('change', function (event) {
   imagesHall = Array.from(fileListHall);
 });
 
-function openModalFachada() {
-  // Vaciar el contenedor de imágenes antes de agregar las nuevas
-  document.getElementById('imageContainerFachada').innerHTML = '';
-
-  // Recorrer el array de imágenes y crear elementos <img> para mostrarlas en el modal
-  for (let i = 0; i < imagesFachada.length; i++) {
-    const imgElementFachada = document.createElement('img');
-    imgElementFachada.src = URL.createObjectURL(imagesFachada[i]);
-    imgElementFachada.classList.add('img-fluid', 'mb-2');
-
-    document.getElementById('imageContainerFachada').appendChild(imgElementFachada);
-  }
-
-  // Mostrar el modal utilizando el método "modal" de Bootstrap
-  const imageModalFachada = new bootstrap.Modal(document.getElementById('imageModalFachada'));
-  imageModalFachada.show();
-}
-
-document.getElementById('fachada').addEventListener('change', function (event) {
-  // Obtener las imágenes seleccionadas por el usuario
-  const fileListFachada = event.target.files;
-
-  // Convertir el objeto FileList a un array para facilitar su manejo
-  imagesFachada = Array.from(fileListFachada);
-});
-
-function openModalEntrada() {
-  // Vaciar el contenedor de imágenes antes de agregar las nuevas
-  document.getElementById('imageContainerEntrada').innerHTML = '';
-
-  // Recorrer el array de imágenes y crear elementos <img> para mostrarlas en el modal
-  for (let i = 0; i < imagesEntrada.length; i++) {
-    const imgElementEntrada = document.createElement('img');
-    imgElementEntrada.src = URL.createObjectURL(imagesEntrada[i]);
-    imgElementEntrada.classList.add('img-fluid', 'mb-2');
-
-    document.getElementById('imageContainerEntrada').appendChild(imgElementEntrada);
-  }
-
-  // Mostrar el modal utilizando el método "modal" de Bootstrap
-  const imageModalEntrada = new bootstrap.Modal(document.getElementById('imageModalEntrada'));
-  imageModalEntrada.show();
-}
-
-document.getElementById('entrada').addEventListener('change', function (event) {
-  // Obtener las imágenes seleccionadas por el usuario
-  const fileListEntrada = event.target.files;
-
-  // Convertir el objeto FileList a un array para facilitar su manejo
-  imagesEntrada = Array.from(fileListEntrada);
-});
-
-function openModalGaraje() {
-  // Vaciar el contenedor de imágenes antes de agregar las nuevas
-  document.getElementById('imageContainerGaraje').innerHTML = '';
-
-  // Recorrer el array de imágenes y crear elementos <img> para mostrarlas en el modal
-  for (let i = 0; i < imagesGaraje.length; i++) {
-    const imgElementGaraje = document.createElement('img');
-    imgElementGaraje.src = URL.createObjectURL(imagesGaraje[i]);
-    imgElementGaraje.classList.add('img-fluid', 'mb-2');
-
-    document.getElementById('imageContainerGaraje').appendChild(imgElementGaraje);
-  }
-
-  // Mostrar el modal utilizando el método "modal" de Bootstrap
-  const imageModalGaraje = new bootstrap.Modal(document.getElementById('imageModalGaraje'));
-  imageModalGaraje.show();
-}
-
-document.getElementById('garaje').addEventListener('change', function (event) {
-  // Obtener las imágenes seleccionadas por el usuario
-  const fileListGaraje = event.target.files;
-
-  // Convertir el objeto FileList a un array para facilitar su manejo
-  imagesGaraje = Array.from(fileListGaraje);
-});
-
 function openModalPatio() {
   // Vaciar el contenedor de imágenes antes de agregar las nuevas
   document.getElementById('imageContainerPatio').innerHTML = '';
@@ -380,14 +299,6 @@ function openModalPatio() {
   const imageModalPatio = new bootstrap.Modal(document.getElementById('imageModalPatio'));
   imageModalPatio.show();
 }
-
-document.getElementById('patiojardin').addEventListener('change', function (event) {
-  // Obtener las imágenes seleccionadas por el usuario
-  const fileListPatio = event.target.files;
-
-  // Convertir el objeto FileList a un array para facilitar su manejo
-  imagesPatio = Array.from(fileListPatio);
-});
 
 function openModalAdicionales() {
   // Vaciar el contenedor de imágenes antes de agregar las nuevas
@@ -415,6 +326,40 @@ document.getElementById('housePhotos').addEventListener('change', function (even
   imagesAdicionales = Array.from(fileListAdicionales);
 });
 
+// funcion para ocualtar las bienechurias
+function toggleConstruccion() {
+  const construccionValue = $("#construccion").val();
+  
+  const elementos = [
+    "#amobadaDiv", "#mterrazaDiv", "#construidostogle", "#anosDiv", "#divInputFileAmoblada",
+    "#pisosDiv", "#suitestittle", "#suitesDiv", "#dormitoriostittle", "#dormitoriosDiv",
+    "#divPiezaServicioContainer", "#banostittle", "#banosDiv", "#divBanoServicioContainer",
+    "#cocinatittle", "#cocinaDiv", "#ayudaGeneral", "#livingtittle", "#livingDiv",
+    "#oculta1", "#oculta2", "#oculta3", "#oculta4", ".oculta5"
+  ];
+
+  if (construccionValue === "Sí") {
+    elementos.forEach(item => $(item).removeClass("visually-hidden"));
+  } else {
+    elementos.forEach(item => $(item).addClass("visually-hidden"));
+    $("#oculta4").removeClass("visually-hidden");
+    anos.value = 1800;   // aqui hay que meter todos los valores del "no tiene"
+    numeroSuite.value = "0";
+    numeroDormitorios.value= "0";
+    numeroPiezasServicio.value = "0";
+    numeroBanos.value = "0";
+    numeroBanosServicio.value = "0";
+    pisococina.value = "no tiene";
+    pisocomedor.value = "no tiene";
+    pisoliving.value = "no tiene";
+    pisohall.value = "no tiene";
+    mconstruidos.value = "1";
+    mterraza.value = "0";
+    nPisos.value = "1";
+  }
+}        
+
+
 //Función para mostrar/ocultar los artículos en venta
 function toggleTextarea() {
   const amoblada = document.getElementById("amoblada");
@@ -423,7 +368,7 @@ function toggleTextarea() {
   const articuloscasaContainer = document.getElementById("articuloscasaContainer");        
   const textareatutorial = document.getElementById("textareatutorial");
   const divInputFileAmoblada = document.getElementById("divInputFileAmoblada");
-
+ 
   if (amoblada.value === "Sí") {
     articuloscasa.disabled = false;
     articuloscasa.style.width= "100%";
@@ -434,6 +379,7 @@ function toggleTextarea() {
     textareatutorial.style.display = "block";
     articuloscasaContainer.classList.remove("visually-hidden");
     divInputFileAmoblada.classList.remove("visually-hidden");
+  
   } else {
     articuloscasa.disabled = true;
     articuloscasa.style.height= "56px";
@@ -498,25 +444,11 @@ function togglehorario() {
 }
 }
 // ===========> funcion para ocultar el sectc de si hay conseria 
-function toggleconserjeria() {
-  const condoPregunta = document.getElementById("condoPregunta");
-  const conserjeriaPreguntaDiv = document.getElementById("conserjeriaPreguntaDiv");
-  const condominiotittle= document.getElementById("condominiotittle");
-  const condominiocosas= document.getElementById("condominiocosas");
+
   
 
 
-  if (condoPregunta .value === "Sí") {
-    conserjeriaPreguntaDiv.classList.remove("visually-hidden");  
-    condominiotittle.classList.remove("visually-hidden");
-    condominiocosas.classList.remove("visually-hidden");
-} else {
-  conserjeriaPreguntaDiv.classList.add("visually-hidden");
-  horarioContainer.classList.add("visually-hidden");
-  condominiotittle.classList.add("visually-hidden");
-    condominiocosas.classList.add("visually-hidden");
-}
-} 
+
 
 
 
@@ -544,7 +476,8 @@ function mostrarCamposDeSeleccion() {
   if (numeroDormitorios !=0) {
     tipoPisoButton.classList.remove('visually-hidden')
   } else {
-    tipoPisoButton.classList.add('visually-hidden')
+    tipoPisoButton.classList.add('visually-hidden');
+    numeroDormitorio = 'No aplica'
   }
 
 
@@ -2863,7 +2796,6 @@ const rut = primerosdigitos + "-" + verificador;
   const mtotales = document.getElementById('mtotales').value
   const mterraza = document.getElementById('mterraza').value;
   const nPisos = document.getElementById('nPisos').value;
-  const condoPregunta = document.getElementById('condoPregunta').value;
   const conserjeriaPregunta = document.getElementById('conserjeriaPregunta').value;
   const horario = document.getElementById('horario').value;
   const amoblada = document.getElementById('amoblada').value;
@@ -2873,7 +2805,7 @@ const rut = primerosdigitos + "-" + verificador;
   //=================================> Fin Sección de dirección del departamento <================================================================
   
 
-  //=================================> Terraza <================================================================
+  //=================================> prueba <================================================================
   
   
   
@@ -2881,7 +2813,9 @@ const rut = primerosdigitos + "-" + verificador;
 
   //=================================> Suites <================================================================
   var numeroSuite= document.getElementById('numeroSuite', numeroSuite).value
-
+  if (numeroSuite === ""){
+    numeroSuite = 'No aplica'
+  }
 
   var pisoSuite1 = document.getElementById('pisoSuite1').value
   if (pisoSuite1 === ""){
@@ -3054,6 +2988,11 @@ const fotoHab9 = document.getElementById('fotoHab9').files;
 const fotoHab10 = document.getElementById('fotoHab10').files; 
 //=================================> Pieza de servicio <================================================================
 var numeroPiezasServicio = document.getElementById('numeroPiezasServicio').value
+if (numeroPiezasServicio ===""){
+  numeroPiezasServicio = "No aplica"
+}
+
+
 var ayudaPiezaservicio = document.getElementById('ayudaPiezaservicio');
 
 var pisoPiezasServicio1 = document.getElementById('pisoPiezasServicio1').value;
@@ -3085,6 +3024,9 @@ var pisoPiezasServicio1 = document.getElementById('pisoPiezasServicio1').value;
 
 //=================================> Baños <================================================================
   var numeroBanos = document.getElementById('numeroBanos').value
+  if (numeroBanos ===""){
+    numeroBanos = "No aplica"
+  }
 
   var pisoBano1 = document.getElementById('pisoBano1').value;
   if (pisoBano1 ===""){
@@ -3143,6 +3085,11 @@ var pisoPiezasServicio1 = document.getElementById('pisoPiezasServicio1').value;
   const fotoBano10 = document.getElementById('fotoBano10').files;
   //=================================> Baño de servicio <================================================================
   var numeroBanosServicio = document.getElementById('numeroBanosServicio').value
+  if (numeroBanosServicio ===""){
+    numeroBanosServicio = "No aplica"
+  }
+
+
 
   var pisoBanosServicio1 = document.getElementById('pisoBanosServicio1').value;
   if (pisoBanosServicio1 ===""){
@@ -3176,15 +3123,27 @@ var pisoPiezasServicio1 = document.getElementById('pisoPiezasServicio1').value;
 
   
 const pisococina = document.getElementById('pisococina').value;
+if (pisococina === ""){
+  pisococina = 'No aplica'
+}
 const cocina = document.getElementById('cocina').files;
 
 const pisocomedor = document.getElementById('pisocomedor').value;
+if (pisocomedor === ""){
+  pisocomedor = "No aplica"
+}
 const comedor = document.getElementById('comedor').files;
   
 const pisoliving = document.getElementById('pisoliving').value;
+if (pisoliving === ""){
+  pisoliving = "No aplica"
+}
 const living = document.getElementById('living').files;
 
 const pisohall = document.getElementById('pisohall').value;
+if (pisohall === ""){
+  pisohall = "No aplica"
+}
 const hall = document.getElementById('hall').files;
 
 //=================================> Sección de famlyRoom <================================================================
@@ -3235,7 +3194,7 @@ const fotoHomeOffice = document.getElementById('fotoHomeOffice').files;
 
 
 
-const fachada = document.getElementById('fachada').files[0];
+
 
 const housePhotos=document.getElementById('housePhotos').files;
 
@@ -3281,7 +3240,6 @@ if (!terminos.checked) {
   formData.append('mtotales', mtotales);
   formData.append('sector', sector);
   formData.append('nPisos', nPisos);
-  formData.append('condoPregunta',condoPregunta);
   formData.append('conserjeriaPregunta',conserjeriaPregunta);
   formData.append('horario', horario);
   formData.append('mterraza',mterraza); 
@@ -3759,11 +3717,7 @@ for (var i=0; i<fotoBanosServicio5.length; i++){
   formData.append('rolbodega', rolbodega); //LISTO
   formData.append('rolestacionamiento', rolestacionamiento);
 // Las fotos
-  formData.append('fachada', fachada);
-  if (housePhotos.length > 25) {
-    alert('No se pueden subir más de 25 imágenes opcionales.');
-    return;
-  }
+  
 
   for (var i = 0; i < housePhotos.length; i++) {
     formData.append('housePhotos', housePhotos[i]);
