@@ -343,7 +343,7 @@
   <div class="col-md visually-hidden" id="anosDiv" >
     <div class="input-group">
     <div class="form-floating mb-3 mt-3">
-      <input class="form-control" type="number" id="anos" name="anos" placeholder="" min="1800">
+      <input class="form-control" type="number" id="anos" name="anos" placeholder="" min="1800" value="1800">
       <label class="form-label" for="anos">Año de contrucción</label>
     </div>
     <button type="button" class="btn btn-primary mb-3 mt-3" data-bs-toggle="modal" data-bs-target="#exampleModalAno">
@@ -364,9 +364,8 @@
   <div class="col-md-3">
     <div class="form-floating mb-3 mt-3 visually-hidden" id="amobadaDiv">
       <select class="form-select" id="amoblada" name="amoblada" onchange="toggleTextarea()">
-        <option value="" disabled selected>Selecciona una opción</option>
         <option value="Sí">Sí</option>                                                                       <!-- aqui esta sw -->
-        <option value="No">No</option>
+        <option value="No" selected>No</option>
       </select>
       <label class="form-label" for="amoblada">¿Vende la propiedad amoblada?</label>
     </div>
@@ -1568,6 +1567,7 @@
     <div class="form-floating mb-3 mt-3">
       <select class="form-select" id="pisococina" name="pisococina">
         <option value="" disabled selected>Seleccione una opción</option>
+        <option value="no tiene">No tiene</option>
         <option value="Alfombra">Alfombra</option>
         <option value="Baldosa Córdova">Baldosa Córdova</option>
         <option value="Baldosa">Baldosas</option>
@@ -1605,6 +1605,7 @@
     <div class="form-floating mb-3 mt-3">
       <select class="form-select" id="pisocomedor" name="pisocomedor">
         <option value="" disabled selected>Seleccione una opción</option>
+        <option value="no tiene">No tiene</option>
         <option value="Alfombra">Alfombra</option>
         <option value="Baldosa Córdova">Baldosa Córdova</option>
         <option value="Baldosa">Baldosas</option>
@@ -1686,6 +1687,7 @@
     <div class="form-floating mb-3 mt-3">
       <select class="form-select" id="pisoliving" name="pisoliving">
         <option value="" disabled selected>Seleccione una opción</option>
+        <option value="no tiene">No tiene</option>
         <option value="Alfombra">Alfombra</option>
         <option value="Baldosa Córdova">Baldosa Córdova</option>
         <option value="Baldosa">Baldosas</option>
@@ -1723,6 +1725,7 @@
     <div class="form-floating mb-3 mt-3">
       <select class="form-select" id="pisohall" name="pisocomedor">
         <option value="" disabled selected>Seleccione una opción</option>
+        <option value="no tiene">No tiene</option>
         <option value="Alfombra">Alfombra</option>
         <option value="Baldosa Córdova">Baldosa Córdova</option>
         <option value="Baldosa">Baldosas</option>
@@ -1942,7 +1945,7 @@
   <div class="col-md">
     <div class="input-group">
     <div class="form-floating mb-3 mt-3">
-      <select class="form-select" id="mueblecocina"><option value="" disabled selected>Seleccione...</option><option value="No tiene">No tiene</option><option value="Base">Base</option><option value="Base y muro">Base y muro</option><option value="Cuarzo">Cuarzo</option><option value="Cubierta granito">Cubierta granito</option><option value="Mármol">Mármol</option><option value="Otro">Otro</option><option value="Porcelanato">Porcelanato </option></select>
+      <select class="form-select" id="mueblecocina">><option value="No tiene" selected>No tiene</option><option value="Base">Base</option><option value="Base y muro">Base y muro</option><option value="Cuarzo">Cuarzo</option><option value="Cubierta granito">Cubierta granito</option><option value="Mármol">Mármol</option><option value="Otro">Otro</option><option value="Porcelanato">Porcelanato </option></select>
       <label class="form-label" for="mueblecocina">Tipo de muebles de cocina</label>
     </div>
     <button type="button" class="btn btn-primary mb-3 mt-3" data-bs-toggle="modal" data-bs-target="#exampleModalMueblesCocina">
@@ -1952,13 +1955,13 @@
   </div>
   <div class="col-md">
     <div class="form-floating mb-3 mt-3">  
-      <select class="form-select" id="tipoventana" ><option value="" disabled selected>Seleccione...</option><option value="No tiene">No tiene</option><option value="Aluminio">Aluminio</option><option value="Fierro">Fierro</option><option value="Madera">Madera</option><option value="Plastico">Plastico</option><option value="Termopanel">Termopanel</option></select>  
+      <select class="form-select" id="tipoventana" ><option value="No tiene" selected>No tiene</option><option value="Aluminio">Aluminio</option><option value="Fierro">Fierro</option><option value="Madera">Madera</option><option value="Plastico">Plastico</option><option value="Termopanel">Termopanel</option></select>  
       <label class="form-label" for="tipoventana">Tipo de ventanas</label>
     </div>
   </div>
   <div class="col-md">
     <div class="form-floating mb-3 mt-3" >
-      <select class="form-select" id="termopanel" onchange="toggletermopanel()"><option value="" disabled selected>Seleccione...</option><option value="No">No</option><option value="Parcial">Parcial (solo en algunas partes)</option><option value="Sí">Sí</option></select>
+      <select class="form-select" id="termopanel" onchange="toggletermopanel()"><option value="No" selected>No</option><option value="Parcial">Parcial (solo en algunas partes)</option><option value="Sí">Sí</option></select>
       <label class="form-label" for="termopanel">Termopanel</label>
     </div>
   </div>
@@ -1972,7 +1975,7 @@
 <div class="row visually-hidden" id="oculta2">
   <div class="col-md">
     <div class="form-floating mb-3 mt-3">
-      <select class="form-select" id="tipococina"><option value="" disabled selected>Seleccione...</option><option value="no tiene">No tiene</option></option><option value="Americana">Americana</option><option value="Central">Central</option><option value="Encimera">Encimera</option><option value="Tradicional">Tradicional</option></select>
+      <select class="form-select" id="tipococina"><option value="no tiene" selected>No tiene</option></option><option value="Americana">Americana</option><option value="Central">Central</option><option value="Encimera">Encimera</option><option value="Tradicional">Tradicional</option></select>
       <label class="form-label" for="tipococina">Tipo de cocina</label>
     </div>
   </div>
@@ -1980,8 +1983,7 @@
     <div class="input-group">
     <div class="form-floating mb-3 mt-3">
       <select class="form-select" id="construccion" name="construccion">
-        <option value="" disabled selected>Seleccione una opción</option>
-        <option value="no tiene">No tiene</option>
+        <option value="no tiene" selected>No tiene</option>
         <option value="Adobe">Adobe</option>
         <option value="Albañilería tradicional">Albañilería tradicional</option>
         <option value="Albañilería y tabiquería">Albañilería y tabiquería</option>
@@ -2005,8 +2007,7 @@
     <div class="input-group">
     <div class="form-floating mb-3 mt-3"> 
       <select class="form-select" id="techo" name="techo">
-        <option value="" disabled selected>Seleccione una opción</option>
-        <option value="no tiene">No tiene</option>
+        <option value="no tiene" selected>No tiene</option>
         <option value="Losa">Losa</option>
         <option value="Membrana asfáltica">Membrana asfáltica</option>
         <option value="Pizarreño">Pizarreño</option>
@@ -2049,7 +2050,7 @@
   </div>
   
     <div class="form-floating visually-hidden oculta5" id="">
-      <select class="form-select" id="aguacaliente"><option value="">Seleccione...</option><option value="No tiene">No tiene</option><option value="Calefont">Calefont</option><option value="Calefont y Caldera">Calefont y Caldera</option><option value="Central agua">Central agua</option><option value="Otro">Otro</option><option value="Panel solar">Panel solar</option><option value="Termo">Termo</option><option value="Termo y otro">Termo y otro</option></select>
+      <select class="form-select" id="aguacaliente"><option value="No tiene" selected>No tiene</option><option value="Calefont">Calefont</option><option value="Calefont y Caldera">Calefont y Caldera</option><option value="Central agua">Central agua</option><option value="Otro">Otro</option><option value="Panel solar">Panel solar</option><option value="Termo">Termo</option><option value="Termo y otro">Termo y otro</option></select>
       <label class="form-label" for="aguacaliente">Agua caliente</label>  
     </div>
   

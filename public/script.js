@@ -323,6 +323,19 @@ function toggleConstruccion() {
   } else {
     elementos.forEach(item => $(item).addClass("visually-hidden"));
     $("#oculta4").removeClass("visually-hidden");
+    anos.value = 1800;   // aqui hay que meter todos los valores del "no tiene"
+    numeroSuite.value = "0";
+    numeroDormitorios.value= "0";
+    numeroPiezasServicio.value = "0";
+    numeroBanos.value = "0";
+    numeroBanosServicio.value = "0";
+    pisococina.value = "no tiene";
+    pisocomedor.value = "no tiene";
+    pisoliving.value = "no tiene";
+    pisohall.value = "no tiene";
+    mconstruidos.value = "1";
+    mterraza.value = "0";
+    nPisos.value = "1";
   }
 }        
 
@@ -335,7 +348,7 @@ function toggleTextarea() {
   const articuloscasaContainer = document.getElementById("articuloscasaContainer");        
   const textareatutorial = document.getElementById("textareatutorial");
   const divInputFileAmoblada = document.getElementById("divInputFileAmoblada");
-
+ 
   if (amoblada.value === "Sí") {
     articuloscasa.disabled = false;
     articuloscasa.style.width= "100%";
@@ -346,6 +359,7 @@ function toggleTextarea() {
     textareatutorial.style.display = "block";
     articuloscasaContainer.classList.remove("visually-hidden");
     divInputFileAmoblada.classList.remove("visually-hidden");
+  
   } else {
     articuloscasa.disabled = true;
     articuloscasa.style.height= "56px";
@@ -442,7 +456,8 @@ function mostrarCamposDeSeleccion() {
   if (numeroDormitorios !=0) {
     tipoPisoButton.classList.remove('visually-hidden')
   } else {
-    tipoPisoButton.classList.add('visually-hidden')
+    tipoPisoButton.classList.add('visually-hidden');
+    numeroDormitorio = 'No aplica'
   }
 
 
@@ -2770,7 +2785,7 @@ const rut = primerosdigitos + "-" + verificador;
   //=================================> Fin Sección de dirección del departamento <================================================================
   
 
-  //=================================> Terraza <================================================================
+  //=================================> prueba <================================================================
   
   
   
@@ -2778,7 +2793,9 @@ const rut = primerosdigitos + "-" + verificador;
 
   //=================================> Suites <================================================================
   var numeroSuite= document.getElementById('numeroSuite', numeroSuite).value
-
+  if (numeroSuite === ""){
+    numeroSuite = 'No aplica'
+  }
 
   var pisoSuite1 = document.getElementById('pisoSuite1').value
   if (pisoSuite1 === ""){
@@ -2951,6 +2968,11 @@ const fotoHab9 = document.getElementById('fotoHab9').files;
 const fotoHab10 = document.getElementById('fotoHab10').files; 
 //=================================> Pieza de servicio <================================================================
 var numeroPiezasServicio = document.getElementById('numeroPiezasServicio').value
+if (numeroPiezasServicio ===""){
+  numeroPiezasServicio = "No aplica"
+}
+
+
 var ayudaPiezaservicio = document.getElementById('ayudaPiezaservicio');
 
 var pisoPiezasServicio1 = document.getElementById('pisoPiezasServicio1').value;
@@ -2982,6 +3004,9 @@ var pisoPiezasServicio1 = document.getElementById('pisoPiezasServicio1').value;
 
 //=================================> Baños <================================================================
   var numeroBanos = document.getElementById('numeroBanos').value
+  if (numeroBanos ===""){
+    numeroBanos = "No aplica"
+  }
 
   var pisoBano1 = document.getElementById('pisoBano1').value;
   if (pisoBano1 ===""){
@@ -3040,6 +3065,11 @@ var pisoPiezasServicio1 = document.getElementById('pisoPiezasServicio1').value;
   const fotoBano10 = document.getElementById('fotoBano10').files;
   //=================================> Baño de servicio <================================================================
   var numeroBanosServicio = document.getElementById('numeroBanosServicio').value
+  if (numeroBanosServicio ===""){
+    numeroBanosServicio = "No aplica"
+  }
+
+
 
   var pisoBanosServicio1 = document.getElementById('pisoBanosServicio1').value;
   if (pisoBanosServicio1 ===""){
@@ -3073,15 +3103,27 @@ var pisoPiezasServicio1 = document.getElementById('pisoPiezasServicio1').value;
 
   
 const pisococina = document.getElementById('pisococina').value;
+if (pisococina === ""){
+  pisococina = 'No aplica'
+}
 const cocina = document.getElementById('cocina').files;
 
 const pisocomedor = document.getElementById('pisocomedor').value;
+if (pisocomedor === ""){
+  pisocomedor = "No aplica"
+}
 const comedor = document.getElementById('comedor').files;
   
 const pisoliving = document.getElementById('pisoliving').value;
+if (pisoliving === ""){
+  pisoliving = "No aplica"
+}
 const living = document.getElementById('living').files;
 
 const pisohall = document.getElementById('pisohall').value;
+if (pisohall === ""){
+  pisohall = "No aplica"
+}
 const hall = document.getElementById('hall').files;
 
 //=================================> Sección de famlyRoom <================================================================
