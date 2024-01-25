@@ -353,12 +353,12 @@
   </div>
   <div class="col-md-3">
     <div class="form-floating mb-3 mt-3">
-      <select class="form-select" id="construccion" name="construccion" onchange="toggleConstruccion()" required>
+      <select class="form-select" id="construcciones" name="construcciones" onchange="toggleConstruccion()" required>
         <option value="" disabled selected>Selecciona una opción</option>
         <option value="Sí">Sí</option>                                                                       <!-- aqui esta sw -->
         <option value="No">No</option>
       </select>
-      <label class="form-label" for="construccion">¿El inmueble, tiene construcciones?</label>
+      <label class="form-label" for="construcciones">¿El inmueble, tiene construcciones?</label>
     </div>
   </div>
   <div class="col-md-3">
@@ -844,7 +844,7 @@
 <div class="row visually-hidden" id="dormitoriosDiv">
   <div class="col-md-6">
     <div class="form-floating mb-3 mt-3">
-      <select class="form-select" id="numeroDormitorios" onchange="mostrarCamposDeSeleccion()">
+      <select class="form-select" id="numeroDormitorios" onchange="mostrarCamposDeSeleccionDormitorios()">
         <option value="" disabled selected>Seleccionar</option>
         <option value="0">No tiene</option>
         <option value="1">1</option>
