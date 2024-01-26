@@ -117,12 +117,12 @@ let imagesCocina = [];
 let imagesComedor = [];
 let imagesLiving = [];
 let imagesHall = [];
-let imagesFachada = [];
+/*let imagesFachada = [];*/
 let imagesPatio = [];
-let imagesEntrada = [];
-let imagesGaraje = [];
+/*let imagesEntrada = [];
+let imagesGaraje = [];*/
 let imagesAdicionales = [];
-let imagesBalcon = [];
+/*let imagesBalcon = [];*/
 let imagesPiezaServicio =[];
 let imagesBanoServicio = [];
 let imagesFamilyRoom = [];
@@ -265,7 +265,7 @@ document.getElementById('hall').addEventListener('change', function (event) {
   imagesHall = Array.from(fileListHall);
 });
 
-function openModalFachada() {
+/*function openModalFachada() {
   // Vaciar el contenedor de imágenes antes de agregar las nuevas
   document.getElementById('imageContainerFachada').innerHTML = '';
 
@@ -341,7 +341,7 @@ document.getElementById('garaje').addEventListener('change', function (event) {
 
   // Convertir el objeto FileList a un array para facilitar su manejo
   imagesGaraje = Array.from(fileListGaraje);
-});
+});*/
 
 function openModalPatio() {
   // Vaciar el contenedor de imágenes antes de agregar las nuevas
