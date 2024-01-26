@@ -1,26 +1,4 @@
-const formulario = document.getElementById('formulario');
-
-
-function toggleConstruccion() {
-  const construccionValue = $("#construcciones").val();
-  
-  const elementos = [
-    "#amobadaDiv", "#mterrazaDiv", "#construidostogle", "#anosDiv", "#divInputFileAmoblada",
-    "#pisosDiv", "#suitestittle", "#suitesDiv", "#dormitoriostittle", "#dormitoriosDiv",
-    "#divPiezaServicioContainer", "#banostittle", "#banosDiv", "#divBanoServicioContainer",
-    "#cocinatittle", "#cocinaDiv", "#ayudaGeneral", "#livingtittle", "#livingDiv",
-    "#oculta1", "#oculta2", "#oculta3", "#oculta4", ".oculta5"
-  ];
-  if (construccionValue === "Sí") {
-    elementos.forEach(item => $(item).removeClass("visually-hidden"));
-  } else {
-    elementos.forEach(item => $(item).addClass("visually-hidden"));
-    $("#oculta4").removeClass("visually-hidden");
-    anos.value = 1800;   // aqui hay que meter todos los valores del "no tiene"
-    
-  }
-}    
-
+const formulario = document.getElementById('formulario')
 
 //Validación en tiempo real de teléfono
 telefono.addEventListener("blur", function(){
@@ -1203,43 +1181,43 @@ var numeroDormitorios = document.getElementById('numeroDormitorios').value
 
 
 var pisoDormitorio1 = document.getElementById('pisoDormitorio1').value
-if (pisoDormitorio1 ===""){
+if (pisoDormitorio1 === ""){
   pisoDormitorio1 = "No aplica"
 }
 var pisoDormitorio2 = document.getElementById('pisoDormitorio2').value
-if (pisoDormitorio2 ===""){
+if (pisoDormitorio2 === ""){
   pisoDormitorio2 = "No aplica"
 }
 var pisoDormitorio3 = document.getElementById('pisoDormitorio3').value
-if (pisoDormitorio3 ===""){
+if (pisoDormitorio3 === ""){
   pisoDormitorio3 = "No aplica"
 }
 var pisoDormitorio4 = document.getElementById('pisoDormitorio4').value
-if (pisoDormitorio4 ===""){
+if (pisoDormitorio4 === ""){
   pisoDormitorio4 = "No aplica"
 }
 var pisoDormitorio5 = document.getElementById('pisoDormitorio5').value
-if (pisoDormitorio5 ===""){
+if (pisoDormitorio5 === ""){
   pisoDormitorio5 = "No aplica"
 }
 var pisoDormitorio6 = document.getElementById('pisoDormitorio6').value
-if (pisoDormitorio6 ===""){
+if (pisoDormitorio6 === ""){
   pisoDormitorio6 = "No aplica"
 }
 var pisoDormitorio7 = document.getElementById('pisoDormitorio7').value
-if (pisoDormitorio7 ===""){
+if (pisoDormitorio7 === ""){
   pisoDormitorio7 = "No aplica"
 }
 var pisoDormitorio8 = document.getElementById('pisoDormitorio8').value
-if (pisoDormitorio8 ===""){
+if (pisoDormitorio8 === ""){
   pisoDormitorio8 = "No aplica"
 }
 var pisoDormitorio9 = document.getElementById('pisoDormitorio9').value
-if (pisoDormitorio9 ===""){
+if (pisoDormitorio9 === ""){
   pisoDormitorio9 = "No aplica"
 }
 var pisoDormitorio10 = document.getElementById('pisoDormitorio10').value
-if (pisoDormitorio10 ===""){
+if (pisoDormitorio10 === ""){
   pisoDormitorio10 = "No aplica"
 }
 
