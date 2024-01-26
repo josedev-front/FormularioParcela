@@ -2050,7 +2050,7 @@ if (fotoHomeOffice) {
           res.send('Error al enviar el correo electrónico.');
         } else {
           console.log('Correo electrónico enviado: ' + info.response);
-          //res.send('Formulario enviado correctamente.');
+          res.send('Formulario enviado correctamente.');
         }
       });
 
