@@ -156,11 +156,6 @@ document.getElementById('articulosamoblada').addEventListener('change', function
 });
 
 
-
-
-
-
-
 function openModalCocina() {
   // Vaciar el contenedor de imágenes antes de agregar las nuevas
   document.getElementById('imageContainerCocina').innerHTML = '';
@@ -397,7 +392,7 @@ document.getElementById('housePhotos').addEventListener('change', function (even
 
 // funcion para ocualtar las bienechurias
 function toggleConstruccion() {
-  const construccionValue = $("#construccion").val();
+  const construccionValue = $("#construcciones").val();
   
   const elementos = [
     "#amobadaDiv", "#mterrazaDiv", "#construidostogle", "#anosDiv", "#divInputFileAmoblada",
@@ -3208,6 +3203,11 @@ var pisoFamilyRoom = document.getElementById('pisoFamilyRoom').value
   const tipococina = document.getElementById('tipococina').value;
   const estacionamientos = document.getElementById('estacionamientos').value;
   const estacionamientosTechados = document.getElementById('estacionamientosTechados').value;
+  const construcciones=document.getElementById('construcciones').value
+   if (construcciones === "") {
+    alert('Por favor, selecciona una opción');
+    return;
+  }
   const construccion=document.getElementById('construccion').value
    if (construccion === "") {
     alert('Por favor, selecciona una opción');
@@ -3752,6 +3752,7 @@ for (var i=0; i<fotoBanosServicio5.length; i++){
   formData.append('estacionamientos', estacionamientos);
   formData.append('estacionamientosTechados', estacionamientosTechados);
   formData.append('construccion', construccion);
+  formData.append('construcciones', construcciones);
   formData.append('tipoventana', tipoventana);
   formData.append('techo', techo);
    //Selected options hace referencia a las cosas opcionales que puede tener la casa
