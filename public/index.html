@@ -162,23 +162,23 @@
    </div>
    <div class="col-md-5">
     <div class="form-floating mb-3 mt-3">
-      <select class="form-select" id="bienhechuria" name="biencheruria" onchange="togglerecepcion()" required>
+      <select class="form-select" id="bienhechuria" name="biencherurias" onchange="togglerecepcion()" required>
         <option value="" disabled selected>Selecciona una opción</option>
         <option value="Sí">Sí</option>
         <option value="No">No</option>
         <option value="En trámite">En trámite</option>
         <option value="Parcial">Parcial</option>
       </select>
-      <label class="form-label text-center text-sm-left" for="biencheruria">Recepción final <i class="reducir">(¿Los metrajes de la propiedad están regularizados?)</i></label>
+      <label class="form-label text-center text-sm-left" for="bienhechuria">Recepción final <i class="reducir">(¿Los metrajes de la propiedad están regularizados?)</i></label>
     </div>
   </div>
   <div class="form-floating mb-3 visually-hidden" id="enTramiteTextdiv">
     <textarea class="form-control" id="enTramiteText" name="enTramiteText" placeholder="Escriba aquí cualquier comentario adicional"></textarea>
-    <label for="enTrámiteDescrip" id="enTrámiteDescrip">Escriba en que parte del <br> tramite de regularización se encuentra</label>                         <!-- aqui esta text area -->
+    <label for="enTramiteText" id="enTrámiteDescrip">Escriba en que parte del <br> tramite de regularización se encuentra</label>                         <!-- aqui esta text area -->
   </div>
   <div class="form-floating mb-3 visually-hidden" id="parcialTextdiv">
     <textarea class="form-control" id="parcialText" name="parcialText" placeholder="Escriba aquí cualquier comentario adicional"></textarea>
-    <label for="parcialDescrip" id="parcialDescrip">Especifique</label>                         <!-- aqui esta text area -->
+    <label for="parcialText" id="parcialDescrip">Especifique</label>                         <!-- aqui esta text area -->
   </div>
  </div>
 </div>
@@ -337,7 +337,7 @@
   <div class="col-md">
     <div class="form-floating mb-3 mt-3">
      <input class="form-control" type="text" id="sector" name="sector" placeholder="Calle Betulio Medina">
-     <label class="form-label" for="Sector">Sector</label>
+     <label class="form-label" for="sector">Sector</label>
     </div>
  </div>
   <div class="col-md visually-hidden" id="anosDiv" >
@@ -447,7 +447,7 @@
       <option value="" disabled selected>Seleccionar</option>
       <option value="Sí">Sí</option>
       <option value="No">No</option>
-    </select>
+    </select>¿Tiene conserjería
     <label class="form-label" for="conserjeriaPregunta">¿Consta de conserjería?</label>
   </div>
 </div>
@@ -1840,7 +1840,7 @@
         </div>
         <h4 class="text-center"><kbd>Prefabricada metalica, paneles de madera, prefabricado de hormigon, similares</kbd></h4>
         <div class="text-center">
-        <img src="PREFABRICADA-METALICA_-PANELES-DE-MADERA_-PREFABRICADO-DE-HORMIGON_-SIMILARES-1-_1_.webp" class="img-fluid">
+        <img src="PREFABRICADA METALICA, PANELES DE MADERA, PREFABRICADO DE HORMIGON, SIMILARES 1.webp" class="img-fluid">
         </div>
       </div>
       <div class="modal-footer">
@@ -1962,7 +1962,7 @@
 
 <div class="form-floating mb-3 visually-hidden" id="termopanelContainer">
   <textarea class="form-control" id="termopanelText" name="termopanelText"placeholder="Escriba aquí cualquier comentario adicional"></textarea>
-  <label for="termopanelDescrip" id="termopanelDescrip">Indique por favor <br>cuantos paneles tiene <br>y una breve descripción</label>                         <!-- aqui esta text area -->
+  <label for="termopanelText" id="termopanelDescrip">Indique por favor <br>cuantos paneles tiene <br>y una breve descripción</label>                         <!-- aqui esta text area -->
 </div>
 
 <div class="row visually-hidden" id="oculta2">
@@ -2157,7 +2157,7 @@
          <option value="Radier afinado">Radier afinado</option>
          <option value="Otro">Otro</option>
         </select>
-       <label class="form-label" for="pisofamilyroom">Tipo de piso del family room</label>
+       <label class="form-label" for="pisoFamilyRoom">Tipo de piso del family room</label>
       </div>
    </div>
    <div class="col-md">
@@ -2188,7 +2188,7 @@
     </div>
   </div>
 </div>
-
+<!--
 <div class="row visually-hidden" id="homeofficeDiv">
   <div class="col-md">
      <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -2227,7 +2227,7 @@
      </div>
    </div>
 </div>
-<!--==============El modal para ver las fotos Homeoffice"==================-->
+==============El modal para ver las fotos Homeoffice"==================
 <div class="modal fade" id="imageModalhomeoffice" tabindex="-1" aria-labelledby="imageModalLabelhomeoffice" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
@@ -2236,14 +2236,14 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body" id="imageContainerhomeoffice">
-        <!-- Aquí se mostrarán las imágenes cargadas -->
+         Aquí se mostrarán las imágenes cargadas -
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>
-</div>
+</div>-->
 <!-- ===================================================================================== -->
 
 <!-- ===================================================================================== -->
@@ -2252,7 +2252,7 @@
       <div class="col-md-3">
         <div class="form-check">
           <input class="form-check-input" type="checkbox" onchange="mostrarCampoTexto()" name="Rol Bodega" value="Rol Bodega" id="checkrolbodega" >
-          <label class="form-check-label">Marque si la casa tiene un ROL bodega</label>
+          <label class="form-check-label" for="checkrolbodega">Marque si la casa tiene un ROL bodega</label>
         </div>
         <div class="input-group">
           <div class="form-floating mb-3 mt-3">
@@ -2267,7 +2267,7 @@
       <div class="col-md-5">
         <div class="form-check">
           <input class="form-check-input" type="checkbox" onchange="mostrarCampoTexto()" name="Rol Estacionamiento" value="Rol Estacionamiento" id="checkrolestacionamiento" >
-          <label class="form-check-label">Marque si la casa tiene un ROL estacionamiento</label>
+          <label class="form-check-label" for="checkrolestacionamiento">Marque si la casa tiene un ROL estacionamiento</label>
         </div>
         <div class="input-group">
           <div class="form-floating mb-3 mt-3">
@@ -2305,7 +2305,7 @@
             <input type="checkbox" name="Playroom" value="Playroom" class="ampliaciones2" id="playroom"> Playroom
           </label>
           <label>
-            <input type="checkbox" name="RiegoTecnificado" value="RiegoTecnificado" class="ampliaciones2" id="playroom"> Riego tecnificado
+            <input type="checkbox" name="RiegoTecnificado" value="RiegoTecnificado" class="ampliaciones2" id="RiegoTecnificado"> Riego tecnificado
           </label>
           <label>
             <input type="checkbox" name="Salón de fiestas" value="Salón de fiestas" class="ampliaciones2" id="salonFiestas"> Salón de fiestas
@@ -2371,7 +2371,7 @@
     </div>
     <div class="form-check mb-3">
       <input class="form-check-input fs-5" type="checkbox" id="terminos" name="terminos" required>
-    <label class="form-check-label fs-5">Acepto los <a href=""> términos y condiciones</a></label>
+    <label class="form-check-label fs-5" for="terminos">Acepto los <a href=""> términos y condiciones</a></label>
     </div>
 
     

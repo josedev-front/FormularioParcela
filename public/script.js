@@ -338,7 +338,7 @@ document.getElementById('garaje').addEventListener('change', function (event) {
   imagesGaraje = Array.from(fileListGaraje);
 });*/
 
-function openModalPatio() {
+/*function openModalPatio() {
   // Vaciar el contenedor de imágenes antes de agregar las nuevas
   document.getElementById('imageContainerPatio').innerHTML = '';
 
@@ -362,7 +362,7 @@ document.getElementById('patiojardin').addEventListener('change', function (even
 
   // Convertir el objeto FileList a un array para facilitar su manejo
   imagesPatio = Array.from(fileListPatio);
-});
+});*/
 
 function openModalAdicionales() {
   // Vaciar el contenedor de imágenes antes de agregar las nuevas
@@ -481,7 +481,7 @@ function toggletermopanel() {
 }
 
 // ===========> funcion para ocultar el text area de horario de conserjeria//
-function togglehorario() {
+/*function togglehorario() {
   const conserjeriaPregunta = document.getElementById("conserjeriaPregunta");
   const horarioText = document.getElementById("horarioText");
   const horarioContainer= document.getElementById("horarioContainer");
@@ -512,7 +512,7 @@ function toggleconserjeria() {
   condominiotittle.classList.add("visually-hidden");
     condominiocosas.classList.add("visually-hidden");
 }
-} 
+} */
 
 
 
@@ -2783,7 +2783,6 @@ formulario.addEventListener('submit', (e) => {
     alert("Por favor, seleccione un dígito verificador");
     return;
 }
-
 // Validar que los primeros dígitos sean numéricos y estén completos
 if (!/^\d{1,8}$/.test(primerosdigitos)) {
     alert("Los primeros dígitos del RUT deben ser numéricos y tener entre 1 y 8 dígitos");
@@ -3781,7 +3780,6 @@ if (fotoHomeOffice.length > 2) {
 for (var i = 0; i < fotoHomeOffice.length; i++) {
   formData.append('fotoHomeOffice', fotoHomeOffice[i]);
 }
-
 
   
   formData.append('adicional', adicional);
