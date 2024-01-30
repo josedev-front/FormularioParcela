@@ -2858,9 +2858,9 @@ const rut = primerosdigitos + "-" + verificador;
   const mtotales = document.getElementById('mtotales').value
   const mterraza = document.getElementById('mterraza').value;
   const nPisos = document.getElementById('nPisos').value;
-  const condoPregunta = document.getElementById('condoPregunta').value;
+  /*const condoPregunta = document.getElementById('condoPregunta').value;
   const conserjeriaPregunta = document.getElementById('conserjeriaPregunta').value;
-  const horario = document.getElementById('horario').value;
+  const horario = document.getElementById('horario').value;*/
   const amoblada = document.getElementById('amoblada').value;
   const articuloscasa = document.getElementById('articuloscasa').value
   
@@ -3235,7 +3235,7 @@ const fotoHomeOffice = document.getElementById('fotoHomeOffice').files;
 
 
 
-const fachada = document.getElementById('fachada').files[0];
+/*const fachada = document.getElementById('fachada').files[0];*/
 
 const housePhotos=document.getElementById('housePhotos').files;
 
@@ -3281,9 +3281,9 @@ if (!terminos.checked) {
   formData.append('mtotales', mtotales);
   formData.append('sector', sector);
   formData.append('nPisos', nPisos);
-  formData.append('condoPregunta',condoPregunta);
+  /*formData.append('condoPregunta',condoPregunta);
   formData.append('conserjeriaPregunta',conserjeriaPregunta);
-  formData.append('horario', horario);
+  formData.append('horario', horario);*/
   formData.append('mterraza',mterraza); 
   formData.append('amoblada', amoblada); 
   formData.append('articuloscasa', articuloscasa);
@@ -3760,7 +3760,7 @@ for (var i=0; i<fotoBanosServicio5.length; i++){
   formData.append('rolbodega', rolbodega); //LISTO
   formData.append('rolestacionamiento', rolestacionamiento);
 // Las fotos
-  formData.append('fachada', fachada);
+  /*formData.append('fachada', fachada);
   if (housePhotos.length > 25) {
     alert('No se pueden subir más de 25 imágenes opcionales.');
     return;
@@ -3768,7 +3768,7 @@ for (var i=0; i<fotoBanosServicio5.length; i++){
 
   for (var i = 0; i < housePhotos.length; i++) {
     formData.append('housePhotos', housePhotos[i]);
-  }
+  }*/
 
   //Campos del home office
 formData.append('pisoHomeOffice', pisoHomeOffice); 
