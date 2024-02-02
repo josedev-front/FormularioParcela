@@ -271,7 +271,7 @@ function toggleConstruccion() {
     "#pisosDiv", "#suitestittle", "#suitesDiv", "#dormitoriostittle", "#dormitoriosDiv",
     "#divPiezaServicioContainer", "#banostittle", "#banosDiv", "#divBanoServicioContainer",
     "#cocinatittle", "#cocinaDiv", "#ayudaGeneral", "#livingtittle", "#livingDiv",
-    "#oculta1", "#oculta2", "#oculta3", "#oculta4", ".oculta5"
+    "#oculta1", "#oculta2", "#oculta3", "#oculta4", "#numeroPiezasServicio", ".oculta5"
   ];
   
   if (construccionValue === "Sí") {
