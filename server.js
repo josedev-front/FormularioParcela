@@ -267,6 +267,10 @@ app.post('/enviar', (req, res) => {
       const selectedOptions = req.body.selectedOptions;
       const rolbodega = req.body.rolbodega;
       const rolestacionamiento = req.body.rolestacionamiento;
+      const alcantarillado = req.body.alcantarillado;
+      const tipoagua = req.body.tipoagua;
+      const Formaterreno = req.body.Formaterreno;
+
       
       const adicional = req.body.adicional;
       /*const fachada=req.files['fachada'][0]
@@ -506,7 +510,7 @@ app.post('/enviar', (req, res) => {
                 <p style="text-align: left;">Tipo de piso del living: ${pisoliving}</p>
                 <h3 style="text-align: left;">Hall de entrada</h3>
                 <p style="text-align: left;">Tipo de piso del hall de entrada: ${pisohall}</p>
-                <h3 style="text-align: left;">Home Office</h3>
+                <h3 style="text-align: left;">Home Office</h3><p>${pisoHomeOffice}</p>
                 <h3 style="text-align: left;">Información Adicional</h3>
                 <p style="text-align: left;">Tipo de muebles de cocina: ${mueblecocina}</p>
                 <p style="text-align: left;">Aislación: ${aislacion}</p>
@@ -523,6 +527,11 @@ app.post('/enviar', (req, res) => {
                 <p style="text-align: left;">Nº de estacionamientos techados: ${estacionamientosTechados}</p>
                 <p style="text-align: left;">Rol estacionamiento: ${rolestacionamiento}</p>
                 <p style="text-align: left;">Rol bodega: ${rolbodega}</p>
+
+                <p style="text-align: left;">Alcantarillado: ${alcantarillado}</p>
+                <p style="text-align: left;">Tipo de agua: ${tipoagua}</p>
+                <p style="text-align: left;">Forma del terreno: ${Formaterreno}</p>
+
                 <p style="text-align: left;">Características adicionales de la vivienda: ${selectedOptions}</p>
                 <p style="text-align: left;">Información adicional: ${adicional}</p>
                 <p style="text-align: left;">Artículos que incluye la casa (si aplica): ${articuloscasa}</p>

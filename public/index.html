@@ -317,7 +317,6 @@
       </select>
       <label class="form-label" for="comuna">Comuna:</label>
     </div>
-
   </div>
   <div class="col-md">
     <div class="form-floating mb-3 mt-3">
@@ -332,7 +331,6 @@
     </div>
   </div>
 </div>
-
 <div class="row">
   <div class="col-md">
     <div class="form-floating mb-3 mt-3">
@@ -372,8 +370,6 @@
     </div>
   </div>
 </div>
-
-
 <div class="row">
   <div class="col-md visually-hidden" id="construidostogle">
     <div class="form-floating mb-3 mt-3">
@@ -387,10 +383,6 @@
   <input class="form-control" type="number" id="mterraza" name="mterraza" min="0" placeholder="">
   <label class="form-label" for="mterraza">m<sup>2</sup> terraza</label>
 </div>
-
-
-
-
 <div class="col-md">
   <div class="form-floating mb-3 mt-3">
     <input class="form-control" type="number" id="mtotales" name="mtotales" min="0" placeholder="">
@@ -398,11 +390,6 @@
   </div>
 </div>
 </div>
-  
-
-
-
-
 <p id="textareatutorial">Tomese unos minutos para llenar el inventario, de acuerdo al orden estipulado en el siguiente campo</p>
 <div class="form-floating mb-3 visually-hidden" id="articuloscasaContainer">
   <textarea class="form-control" id="articuloscasa" name="articuloscasa" disabled placeholder="Escriba aquí cualquier comentario adicional"></textarea>
@@ -431,6 +418,7 @@
       <label class="form-label" for="nPisos">N° de pisos</label>
     </div>
   </div>
+</div>
   <!--<div class="col-md-5">
     <div class="form-floating mb-3 mt-3">
       <select class="form-select" id="condoPregunta" required  onchange="toggleconserjeria()">
@@ -1938,7 +1926,7 @@
   <div class="col-md">
     <div class="input-group">
     <div class="form-floating mb-3 mt-3">
-      <select class="form-select" id="mueblecocina"><option value="" disabled selected>Seleccione...</option><option value="No tiene">No tiene</option><option value="Base">Base</option><option value="Base y muro">Base y muro</option><option value="Cuarzo">Cuarzo</option><option value="Cubierta granito">Cubierta granito</option><option value="Mármol">Mármol</option><option value="Otro">Otro</option><option value="Porcelanato">Porcelanato </option></select>
+      <select class="form-select" id="mueblecocina"><option value="" disabled selected>Seleccione...</option><option value="no tiene">No tiene</option><option value="Base">Base</option><option value="Base y muro">Base y muro</option><option value="Cuarzo">Cuarzo</option><option value="Cubierta granito">Cubierta granito</option><option value="Mármol">Mármol</option><option value="Otro">Otro</option><option value="Porcelanato">Porcelanato </option></select>
       <label class="form-label" for="mueblecocina">Tipo de muebles de cocina</label>
     </div>
     <button type="button" class="btn btn-primary mb-3 mt-3" data-bs-toggle="modal" data-bs-target="#exampleModalMueblesCocina">
@@ -1948,7 +1936,7 @@
   </div>
   <div class="col-md">
     <div class="form-floating mb-3 mt-3">  
-      <select class="form-select" id="tipoventana" ><option value="" disabled selected>Seleccione...</option><option value="No tiene">No tiene</option><option value="Aluminio">Aluminio</option><option value="Fierro">Fierro</option><option value="Madera">Madera</option><option value="Plastico">Plastico</option><option value="Termopanel">Termopanel</option></select>  
+      <select class="form-select" id="tipoventana" ><option value="" disabled selected>Seleccione...</option><option value="no tiene">No tiene</option><option value="Aluminio">Aluminio</option><option value="Fierro">Fierro</option><option value="Madera">Madera</option><option value="Plastico">Plastico</option><option value="Termopanel">Termopanel</option></select>  
       <label class="form-label" for="tipoventana">Tipo de ventanas</label>
     </div>
   </div>
@@ -2043,43 +2031,42 @@
   </div>
   
     <div class="form-floating visually-hidden oculta5" id="">
-      <select class="form-select" id="aguacaliente"><option value="">Seleccione...</option><option value="No tiene">No tiene</option><option value="Calefont">Calefont</option><option value="Calefont y Caldera">Calefont y Caldera</option><option value="Central agua">Central agua</option><option value="Otro">Otro</option><option value="Panel solar">Panel solar</option><option value="Termo">Termo</option><option value="Termo y otro">Termo y otro</option></select>
+      <select class="form-select" id="aguacaliente"><option value="">Seleccione...</option><option value="no tiene">No tiene</option><option value="Calefont">Calefont</option><option value="Calefont y Caldera">Calefont y Caldera</option><option value="Central agua">Central agua</option><option value="Otro">Otro</option><option value="Panel solar">Panel solar</option><option value="Termo">Termo</option><option value="Termo y otro">Termo y otro</option></select>
       <label class="form-label" for="aguacaliente">Agua caliente</label>  
     </div>
   
 </div>
 </div>
-
-  <div class="col-md">
-    <div class="input-group">
-     <div class="form-floating mb-3 mt-3">
-       <select class="form-select" id="aislacion"><option value="">Seleccione...</option><option value="Aislada">Aislada</option><option value="Pareada-sola">Pareada por un solo lado</option><option value="Pareada doble">Pareada doble</option></select>
-       <label class="form-label" for="aislacion">Tipo de aislacion</label>  
-     </div>
-     <button type="button" class="btn btn-primary mb-3 mt-3" data-bs-toggle="modal" data-bs-target="#exampleModalAislacion">
-       <i class="fa-solid fa-question fa-xl"></i>
-     </button>
-    </div>
-  </div>
 </div>
 <div class="row">
   <div class="col-md">
     <div class="form-floating mb-3 mt-3">
-      <select class="form-select" id="alcantarillado"><option value="" disabled selected>Seleccione...</option><option value="no tiene">No tiene</option><option value="Empresa sanitaria">Empresa sanitaria</option><option value="Foza septica">Foza septica</option></select>
+      <select class="form-select" id="alcantarillado" required><option value="" disabled selected>Seleccione...</option><option value="no tiene">No tiene</option><option value="Empresa sanitaria">Empresa sanitaria</option><option value="Foza septica">Foza septica</option></select>
       <label class="form-label" for="alcantarillado">Alcantarillado</label>
     </div>
   </div>
   <div class="col-md">
     <div class="form-floating mb-3 mt-3">
-      <select class="form-select" id="tipoagua"><option value="" disabled selected>Seleccione...</option><option value="no tiene">No tiene</option><option value="Empresa sanitaria">Empresa sanitaria</option><option value="noria">Noria</option><option value="pozo">Pozo</option></select>
+      <select class="form-select" id="tipoagua" required><option value="" disabled selected>Seleccione...</option><option value="no tiene">No tiene</option><option value="Empresa sanitaria">Empresa sanitaria</option><option value="noria">Noria</option><option value="pozo">Pozo</option></select>
       <label class="form-label" for="tipoagua">Tipo de agua</label>
     </div>
   </div>
   <div class="col-md">
     <div class="form-floating mb-3 mt-3">
-      <select class="form-select" id="Formaterreno"><option value="" disabled selected>Seleccione...</option><option value="regular">Regular</option><option value="irregular">Irregular</option><option value="plano">Plano</option></select>
+      <select class="form-select" id="Formaterreno" required><option value="" disabled selected>Seleccione...</option><option value="regular">Regular</option><option value="irregular">Irregular</option><option value="plano">Plano</option></select>
       <label class="form-label" for="Formaterreno">Forma del terreno</label>
     </div>
+  </div>
+</div>
+<div class="col-md">
+  <div class="input-group">
+   <div class="form-floating mb-3 mt-3">
+     <select class="form-select" id="aislacion" required><option value="">Seleccione...</option><option value="Aislada">Aislada</option><option value="Pareada-sola">Pareada por un solo lado</option><option value="Pareada doble">Pareada doble</option></select>
+     <label class="form-label" for="aislacion">Tipo de aislacion</label>  
+   </div>
+   <button type="button" class="btn btn-primary mb-3 mt-3" data-bs-toggle="modal" data-bs-target="#exampleModalAislacion">
+     <i class="fa-solid fa-question fa-xl"></i>
+   </button>
   </div>
 </div>
 
@@ -2456,12 +2443,6 @@
   </div>
 </div>-->
 <!-- ===================================================================================== -->
-
-
-
-
-
-
 <!--==============El modal para ver las fotos adicionales==================-->
 <div class="modal fade" id="imageModalAdicionales" tabindex="-1" aria-labelledby="imageModalLabelAdicionales" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable">
