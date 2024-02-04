@@ -291,7 +291,7 @@ function toggleConstruccion() {
     "#pisosDiv", "#suitestittle", "#suitesDiv", "#dormitoriostittle", "#dormitoriosDiv",
     "#divPiezaServicioContainer", "#banostittle", "#banosDiv", "#divBanoServicioContainer",
     "#cocinatittle", "#cocinaDiv", "#ayudaGeneral", "#livingtittle", "#livingDiv",
-    "#oculta1", "#oculta2", "#oculta3", "#oculta4", "#numeroPiezasServicio", ".oculta5"
+    "#oculta1", "#oculta2", "#oculta3", "#oculta4", "#ocultarPiezaServicio", ".oculta5"
   ];
   
   if (construccionValue === "Sí") {
@@ -304,7 +304,7 @@ function toggleConstruccion() {
   if (construccionValue === "No") {
     const propertiesToSet = [
       "nPisos", "amoblada", "mconstruidos", "mterraza", "numeroSuite", 
-      "numeroDormitorios", "numeroPiezasServicio", "numeroBanos", 
+      "numeroDormitorios", "ocultarPiezaServicio", "numeroBanos", 
       "numeroBanosServicio", "pisococina", "pisocomedor", "pisoliving", 
       "pisohall", "mueblecocina", "tipoventana", "termopanel", 
       "tipococina", "construccion", "techo", "aguacaliente"
@@ -321,7 +321,7 @@ function toggleConstruccion() {
     switch (property) {
       case "nPisos":
       case "mconstruidos":
-        return 1;
+        return "La parcela no tiene construcciones";
       case "amoblada":
       case "termopanel":
         return "No";
@@ -3652,6 +3652,14 @@ if (fotoHomeOffice.length > 2) {
 
 for (var i = 0; i < fotoHomeOffice.length; i++) {
   formData.append('fotoHomeOffice', fotoHomeOffice[i]);
+}
+
+if (housePhotos.length > 25) {
+  alert('No se pueden subir más de 25 imágenes adicionales.');
+  return;
+}
+for (var i = 0; i < housePhotos.length; i++) {
+  formData.append('housePhotos', housePhotos[i]);
 }
 
   formData.append('adicional', adicional);

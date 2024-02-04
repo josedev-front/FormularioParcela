@@ -160,7 +160,17 @@
      </button>      
     </div>
    </div>
-   <div class="col-md-5">
+   <div class="col-md-3">
+    <div class="form-floating mb-3 mt-3">
+      <select class="form-select" id="construcciones" name="construcciones" onchange="toggleConstruccion()" required>
+        <option value="" disabled selected>Selecciona una opción</option>
+        <option value="Sí">Sí</option>                                                                       <!-- aqui esta sw -->
+        <option value="No">No</option>
+      </select>
+      <label class="form-label" for="construcciones">¿El inmueble tiene construcciones?</label>
+    </div>
+  </div>
+   <div class="col-md-6">
     <div class="form-floating mb-3 mt-3">
       <select class="form-select" id="bienhechuria" name="biencherurias" onchange="togglerecepcion()" required>
         <option value="" disabled selected>Selecciona una opción</option>
@@ -332,7 +342,7 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-md">
+  <div class="col-md-12">
     <div class="form-floating mb-3 mt-3">
      <input class="form-control" type="text" id="sector" name="sector" placeholder="Calle Betulio Medina">
      <label class="form-label" for="sector">Sector</label>
@@ -348,16 +358,6 @@
       <i class="fa-solid fa-question fa-xl"></i>
     </button>
   </div>
-  </div>
-  <div class="col-md-3">
-    <div class="form-floating mb-3 mt-3">
-      <select class="form-select" id="construcciones" name="construcciones" onchange="toggleConstruccion()" required>
-        <option value="" disabled selected>Selecciona una opción</option>
-        <option value="Sí">Sí</option>                                                                       <!-- aqui esta sw -->
-        <option value="No">No</option>
-      </select>
-      <label class="form-label" for="construcciones">¿El inmueble, tiene construcciones?</label>
-    </div>
   </div>
   <div class="col-md-3">
     <div class="form-floating mb-3 mt-3 visually-hidden" id="amobadaDiv">
@@ -383,7 +383,7 @@
   <input class="form-control" type="number" id="mterraza" name="mterraza" min="0" placeholder="">
   <label class="form-label" for="mterraza">m<sup>2</sup> terraza</label>
 </div>
-<div class="col-md">
+<div class="col-md-4">
   <div class="form-floating mb-3 mt-3">
     <input class="form-control" type="number" id="mtotales" name="mtotales" min="0" placeholder="">
     <label class="form-label" for="mtotales"> m<sup>2</sup> terreno</label>
@@ -1053,7 +1053,7 @@
    <i class="fa-solid fa-circle-info"></i> Ayuda para elegir el tipo de piso
  </button>
  <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-6 visually-hidden" id="ocultarPiezaServicio">
     <div class="form-floating mb-3 mt-3">
       <select class="form-select" id="numeroPiezasServicio" onchange="mostrarCamposDeSeleccionPiezasServicio()">
         <option value="" disabled selected>Seleccionar</option>

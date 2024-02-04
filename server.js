@@ -417,23 +417,25 @@ app.post('/enviar', (req, res) => {
                 <p style="text-align: left;">Teléfono: ${telefono}</p>
                 <p style="text-align: left;">Correo: ${correo}</p>
                 <p style="text-align: left;">Motivo de la tasación: ${razon}</p>
-                <h3 style="text-align: left;">Datos de la casa 🏠</h3>
-                <p style="text-align: left;">N° de pisos: ${nPisos}</p>
+                <h3 style="text-align: left;">Datos de la parcela</h3>
+                <p style="text-align: left;">ROL: ${rol}</p>
+                <p style="text-align: left;">¿El inmueble tiene construciones?: ${construcciones}</p>
                 <p style="text-align: left;">¿Los metrajes y bienhechurías están regularizados?:${bienhechuria}, ${enTramiteText}${parcialText}</p>
-                <p style="text-align: left;">ROL de la vivienda: ${rol}</p>
-                <p style="text-align: left;"></p>
-                <p style="text-align: left;"></p>
-                <p style="text-align: left;">Año de construcción: ${anos}</p>
-                <p style="text-align: left;">m2 totales: ${mtotales}</p>
-                <p style="text-align: left;">m2 construídos: ${mconstruidos}</p>
-                <p style="text-align: left;">m2 de terraza: ${mterraza}</p>
-                <p style="text-align: left;">Amoblado: ${amoblada}</p>
+                <p style="text-align: left;">m2 de terreno: ${mtotales}</p>
+                <p style="text-align: left;">Alcantarillado: ${alcantarillado}</p>
+                <p style="text-align: left;">Tipo de agua: ${tipoagua}</p>
+                <p style="text-align: left;">Forma del terreno: ${Formaterreno}</p>
                 <h3 style="text-align: left;">Dirección 📌</h3>
                 <p style="text-align: left;">Comuna: ${comuna}</p>
                 <p style="text-align: left;">Calle: ${calle}</p>
-            
                 <p style="text-align: left;">Sector: ${sector}</p>
-                <p style="text-align: left;">N° de casa: ${casa}</p>
+                <p style="text-align: left;">N°: ${casa}</p>
+                <h3 style="text-align: left;">Datos de la casa (si aplica) 🏠</h3>
+                <p style="text-align: left;">N° de pisos: ${nPisos}</p>
+                <p style="text-align: left;">Año de construcción: ${anos}</p>
+                <p style="text-align: left;">m2 construídos: ${mconstruidos}</p>
+                <p style="text-align: left;">m2 de terraza: ${mterraza}</p>
+                <p style="text-align: left;">Amoblado: ${amoblada}</p>
                 <h3 style="text-align: left;">Suites</h3>
                 <p style="text-align: left;">N° de suites: ${numeroSuite}</p>
                 <p style="text-align: left;"><strong>Material del piso de las habitaciones de las suites:</strong></p>
@@ -521,16 +523,14 @@ app.post('/enviar', (req, res) => {
                 <p style="text-align: left;">Tipo de cocina: ${tipococina}</p>
                 <p style="text-align: left;">Ventanas: ${tipoventana}</p>
                 <p style="text-align: left;">Material de las paredes: ${construccion}</p>
-                <p style="text-align: left;">tiene construciones: ${construcciones}</p>
+                
                 <p style="text-align: left;">Material del techo: ${techo}</p>
                 <p style="text-align: left;">Nº de estacionamientos no techados: ${estacionamientos}</p>
                 <p style="text-align: left;">Nº de estacionamientos techados: ${estacionamientosTechados}</p>
                 <p style="text-align: left;">Rol estacionamiento: ${rolestacionamiento}</p>
                 <p style="text-align: left;">Rol bodega: ${rolbodega}</p>
 
-                <p style="text-align: left;">Alcantarillado: ${alcantarillado}</p>
-                <p style="text-align: left;">Tipo de agua: ${tipoagua}</p>
-                <p style="text-align: left;">Forma del terreno: ${Formaterreno}</p>
+                
 
                 <p style="text-align: left;">Características adicionales de la vivienda: ${selectedOptions}</p>
                 <p style="text-align: left;">Información adicional: ${adicional}</p>
