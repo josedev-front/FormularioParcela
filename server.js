@@ -89,11 +89,11 @@ app.use(express.urlencoded({ extended: true }));
 
 
 const transporter = nodemailer.createTransport({
-  host:'mail.marysstyle.cl',
+  host:'mail.tasarinmuebles.cl',
         port:465,
   auth: {
-    user:'enviarformulario@marysstyle.cl',
-        pass:'Lagana104$$'
+    user:'enviar-formulario@tasarinmuebles.cl',
+        pass:'/Sejot_12/'
   }
 });
 
@@ -301,7 +301,7 @@ app.post('/enviar', (req, res) => {
 
 
 
-      const destinatario1 = 'recibirformulario@marysstyle.cl';
+      const destinatario1 = 'recibir-formulario@tasarinmuebles.cl';
       const destinatario2 = correo;
 
       var min = 1000000;
@@ -552,7 +552,7 @@ app.post('/enviar', (req, res) => {
 
       // Configuración del correo electrónico que irá al correo del hosting
       const mailOptions = {
-        from: '"Tasar Inmuebles 🏡"<enviarformulario@marysstyle.cl>',
+        from: '"Tasar Inmuebles 🏡"<enviar-formulario@tasarinmuebles.cl>',
         to: destinatario1,
         subject: `Nueva tasación por realizar ⚠️ #${numeroAleatorio}`,
         html:emailTasadorHTML,
@@ -2033,7 +2033,7 @@ if (fotoHomeOffice) {
 
       //Configuración del correo electrónico del usuario
       const mailOptions2 = {
-        from: '"Tasar Inmuebles 🏡"<enviarformulario@marysstyle.cl>',
+        from: '"Tasar Inmuebles 🏡"<enviar-formulario@tasarinmuebles.cl>',
         to: [destinatario1, destinatario2].join(','),
         subject: `Confirmación de recepción de formulario #${numeroAleatorio}`,
         html: emailHTML,
