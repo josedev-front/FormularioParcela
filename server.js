@@ -76,9 +76,10 @@ const upload = multer({
   { name: 'living', maxCount: 2 },
   { name: 'hall', maxCount: 2 },
   { name: 'fotoFamilyRoom', maxCount: 2 },
+ /* { name: 'fachada', maxCount: 1 },
   { name: 'entrada', maxCount: 2 },
   { name: 'garaje', maxCount: 2 },
-  { name: 'patiojardin', maxCount: 2 },
+  { name: 'patiojardin', maxCount: 2 },*/
   { name: 'fotoHomeOffice', maxCount: 2 },
   { name: 'housePhotos', maxCount: 25 }
 ]);
@@ -127,9 +128,6 @@ app.post('/enviar', (req, res) => {
       const mtotales = req.body.mtotales;
       const sector = req.body.sector;
       const nPisos = req.body.nPisos;
-      const condoPregunta = req.body.condoPregunta;
-      const conserjeriaPregunta = req.body.conserjeriaPregunta;
-      const horario = req.body.horario;
       const mterraza = req.body.mterraza;
       const amoblada = req.body.amoblada;
       const articuloscasa = req.body.articuloscasa;
@@ -263,20 +261,45 @@ app.post('/enviar', (req, res) => {
       const estacionamientos = req.body.estacionamientos;
       const estacionamientosTechados = req.body.estacionamientosTechados;
       const construccion = req.body.construccion;
+      const construcciones = req.body.construcciones;
       const tipoventana = req.body.tipoventana;
       const techo = req.body.techo;
       const selectedOptions = req.body.selectedOptions;
       const rolbodega = req.body.rolbodega;
       const rolestacionamiento = req.body.rolestacionamiento;
+      const alcantarillado = req.body.alcantarillado;
+      const tipoagua = req.body.tipoagua;
+      const Formaterreno = req.body.Formaterreno;
+
       
       const adicional = req.body.adicional;
+      /*const fachada=req.files['fachada'][0]
       const entrada=req.files['entrada'];
       const garaje=req.files['garaje'];
-      const patiojardin=req.files['patiojardin'];
+      const patiojardin=req.files['patiojardin'];*/
       const housePhotos = req.files['housePhotos'];
       //homeOffice
+      
       const pisoHomeOffice = req.body.pisoHomeOffice;
       const fotoHomeOffice = req.files['fotoHomeOffice'];
+
+            
+
+     /* sharp(fachada.path)
+    .resize(500)
+    .toFormat('jpeg')
+    .toFile(`public/uploads/compressed_${fachada.originalname}`, (err, info) => {
+      if (err) {
+        console.error('Error al comprimir la imagen de la fachada:', err);
+      } else {
+        // Borrar el archivo original sin comprimir.
+        // fs.unlinkSync(fachada.path);
+        console.log('Imagen de la fachada comprimida y guardada.');
+      }
+    });*/
+
+
+
 
       const destinatario1 = 'recibirformulario@marysstyle.cl';
       const destinatario2 = correo;
@@ -394,25 +417,25 @@ app.post('/enviar', (req, res) => {
                 <p style="text-align: left;">Teléfono: ${telefono}</p>
                 <p style="text-align: left;">Correo: ${correo}</p>
                 <p style="text-align: left;">Motivo de la tasación: ${razon}</p>
-                <h3 style="text-align: left;">Datos de la casa 🏠</h3>
-                <p style="text-align: left;">N° de pisos: ${nPisos}</p>
+                <h3 style="text-align: left;">Datos de la parcela</h3>
+                <p style="text-align: left;">ROL: ${rol}</p>
+                <p style="text-align: left;">¿El inmueble tiene construciones?: ${construcciones}</p>
                 <p style="text-align: left;">¿Los metrajes y bienhechurías están regularizados?:${bienhechuria}, ${enTramiteText}${parcialText}</p>
-                <p style="text-align: left;">ROL de la vivienda: ${rol}</p>
-                <p style="text-align: left;">¿Su vivienda pertenece a un condominio? ${condoPregunta}</p>
-                <p style="text-align: left;">¿Tiene conserjería? ${conserjeriaPregunta}, ${horario}</p>
-                <p style="text-align: left;"></p>
-                <p style="text-align: left;"></p>
-                <p style="text-align: left;">Año de construcción: ${anos}</p>
-                <p style="text-align: left;">m2 totales: ${mtotales}</p>
-                <p style="text-align: left;">m2 construídos: ${mconstruidos}</p>
-                <p style="text-align: left;">m2 de terraza: ${mterraza}</p>
-                <p style="text-align: left;">Amoblado: ${amoblada}</p>
+                <p style="text-align: left;">m2 de terreno: ${mtotales}</p>
+                <p style="text-align: left;">Alcantarillado: ${alcantarillado}</p>
+                <p style="text-align: left;">Tipo de agua: ${tipoagua}</p>
+                <p style="text-align: left;">Forma del terreno: ${Formaterreno}</p>
                 <h3 style="text-align: left;">Dirección 📌</h3>
                 <p style="text-align: left;">Comuna: ${comuna}</p>
                 <p style="text-align: left;">Calle: ${calle}</p>
-            
                 <p style="text-align: left;">Sector: ${sector}</p>
-                <p style="text-align: left;">N° de casa: ${casa}</p>
+                <p style="text-align: left;">N°: ${casa}</p>
+                <h3 style="text-align: left;">Datos de la casa (si aplica) 🏠</h3>
+                <p style="text-align: left;">N° de pisos: ${nPisos}</p>
+                <p style="text-align: left;">Año de construcción: ${anos}</p>
+                <p style="text-align: left;">m2 construídos: ${mconstruidos}</p>
+                <p style="text-align: left;">m2 de terraza: ${mterraza}</p>
+                <p style="text-align: left;">Amoblado: ${amoblada}</p>
                 <h3 style="text-align: left;">Suites</h3>
                 <p style="text-align: left;">N° de suites: ${numeroSuite}</p>
                 <p style="text-align: left;"><strong>Material del piso de las habitaciones de las suites:</strong></p>
@@ -489,8 +512,7 @@ app.post('/enviar', (req, res) => {
                 <p style="text-align: left;">Tipo de piso del living: ${pisoliving}</p>
                 <h3 style="text-align: left;">Hall de entrada</h3>
                 <p style="text-align: left;">Tipo de piso del hall de entrada: ${pisohall}</p>
-                <h3 style="text-align: left;">Home Office</h3>
-                <p style="text-align: left;">Piso Home Office: ${pisoHomeOffice}</p>
+                <h3 style="text-align: left;">Home Office</h3><p>${pisoHomeOffice}</p>
                 <h3 style="text-align: left;">Información Adicional</h3>
                 <p style="text-align: left;">Tipo de muebles de cocina: ${mueblecocina}</p>
                 <p style="text-align: left;">Aislación: ${aislacion}</p>
@@ -501,11 +523,15 @@ app.post('/enviar', (req, res) => {
                 <p style="text-align: left;">Tipo de cocina: ${tipococina}</p>
                 <p style="text-align: left;">Ventanas: ${tipoventana}</p>
                 <p style="text-align: left;">Material de las paredes: ${construccion}</p>
+                
                 <p style="text-align: left;">Material del techo: ${techo}</p>
                 <p style="text-align: left;">Nº de estacionamientos no techados: ${estacionamientos}</p>
                 <p style="text-align: left;">Nº de estacionamientos techados: ${estacionamientosTechados}</p>
                 <p style="text-align: left;">Rol estacionamiento: ${rolestacionamiento}</p>
                 <p style="text-align: left;">Rol bodega: ${rolbodega}</p>
+
+                
+
                 <p style="text-align: left;">Características adicionales de la vivienda: ${selectedOptions}</p>
                 <p style="text-align: left;">Información adicional: ${adicional}</p>
                 <p style="text-align: left;">Artículos que incluye la casa (si aplica): ${articuloscasa}</p>
@@ -531,6 +557,7 @@ app.post('/enviar', (req, res) => {
         subject: `Nueva tasación por realizar ⚠️ #${numeroAleatorio}`,
         html:emailTasadorHTML,
         attachments: [
+          { },
         ]
       };
 
@@ -1761,7 +1788,7 @@ if (fotoFamilyRoom) {
 });
 }
 
-if (entrada) {
+/*if (entrada) {
   // Comprimir y adjuntar fotos adicionales.
   entrada.forEach((entra) => {
     sharp(entra.path)
@@ -1811,7 +1838,7 @@ if (garaje) {
     path: `public/uploads/compressed_${garaj.originalname}`
   });
 });
-}
+}*
 
 if (patiojardin) {
   // Comprimir y adjuntar fotos adicionales.
@@ -1837,7 +1864,7 @@ if (patiojardin) {
     path: `public/uploads/compressed_${patiojardi.originalname}`
   });
 });
-}
+}*/
 
 if (fotoHomeOffice) {
   // Comprimir y adjuntar fotos adicionales.
@@ -2027,7 +2054,7 @@ if (fotoHomeOffice) {
           res.send('Error al enviar el correo electrónico.');
         } else {
           console.log('Correo electrónico enviado: ' + info.response);
-          //res.send('Formulario enviado correctamente.');
+          res.send('Formulario enviado correctamente.');
         }
       });
 

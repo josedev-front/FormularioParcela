@@ -70,26 +70,6 @@ function aceptarCookies() {
   cookie.classList.add('visually-hidden');
 }
 
-//Función para mostrar/ocultar pieza de servicio
-// function piezaserviciomostrar(){
-//   const divPiezaServicioContainer = document.getElementById("divPiezaServicioContainer")
-//   if (piezaservicio.value === "Sí"){
-//     divPiezaServicioContainer.classList.remove("visually-hidden")
-//   } else if (piezaservicio.value === "No"){
-//     divPiezaServicioContainer.classList.add("visually-hidden")
-//   }
-// }
-
-//Función para mostrar/ocultar baño de servicio
-// function banoserviciomostrar(){
-//   const divBanoServicioContainer = document.getElementById("divBanoServicioContainer")
-//   if (banoservicio.value === "Sí"){
-//     divBanoServicioContainer.classList.remove("visually-hidden")
-//   } else if (banoservicio.value === "No"){
-//     divBanoServicioContainer.classList.add("visually-hidden")
-//   }
-// }
-
 // Array para almacenar las imágenes cargadas por el usuario
 let imagesSuite1 = [];
 let imagesSuite2 = [];
@@ -139,7 +119,6 @@ let imagesLiving = [];
 let imagesHall = [];
 let imagesPatio = [];
 let imagesAdicionales = [];
-let imagesBalcon = [];
 let imagesPiezaServicio =[];
 let imagesBanoServicio = [];
 let imagesFamilyRoom = [];
@@ -171,11 +150,6 @@ document.getElementById('articulosamoblada').addEventListener('change', function
   // Convertir el objeto FileList a un array para facilitar su manejo
   imagesAmoblada = Array.from(fileListAmoblada);
 });
-
-
-
-
-
 
 
 function openModalCocina() {
@@ -282,24 +256,6 @@ document.getElementById('hall').addEventListener('change', function (event) {
   imagesHall = Array.from(fileListHall);
 });
 
-function openModalPatio() {
-  // Vaciar el contenedor de imágenes antes de agregar las nuevas
-  document.getElementById('imageContainerPatio').innerHTML = '';
-
-  // Recorrer el array de imágenes y crear elementos <img> para mostrarlas en el modal
-  for (let i = 0; i < imagesPatio.length; i++) {
-    const imgElementPatio = document.createElement('img');
-    imgElementPatio.src = URL.createObjectURL(imagesPatio[i]);
-    imgElementPatio.classList.add('img-fluid', 'mb-2');
-
-    document.getElementById('imageContainerPatio').appendChild(imgElementPatio);
-  }
-
-  // Mostrar el modal utilizando el método "modal" de Bootstrap
-  const imageModalPatio = new bootstrap.Modal(document.getElementById('imageModalPatio'));
-  imageModalPatio.show();
-}
-
 function openModalAdicionales() {
   // Vaciar el contenedor de imágenes antes de agregar las nuevas
   document.getElementById('imageContainerAdicionales').innerHTML = '';
@@ -328,16 +284,16 @@ document.getElementById('housePhotos').addEventListener('change', function (even
 
 // funcion para ocualtar las bienechurias
 function toggleConstruccion() {
-  const construccionValue = $("#construccion").val();
+  const construccionValue = $("#construcciones").val();
   
   const elementos = [
     "#amobadaDiv", "#mterrazaDiv", "#construidostogle", "#anosDiv", "#divInputFileAmoblada",
     "#pisosDiv", "#suitestittle", "#suitesDiv", "#dormitoriostittle", "#dormitoriosDiv",
     "#divPiezaServicioContainer", "#banostittle", "#banosDiv", "#divBanoServicioContainer",
     "#cocinatittle", "#cocinaDiv", "#ayudaGeneral", "#livingtittle", "#livingDiv",
-    "#oculta1", "#oculta2", "#oculta3", "#oculta4", ".oculta5"
+    "#oculta1", "#oculta2", "#oculta3", "#oculta4", "#ocultarPiezaServicio", ".oculta5"
   ];
-
+  
   if (construccionValue === "Sí") {
     elementos.forEach(item => $(item).removeClass("visually-hidden"));
   } else {
@@ -356,6 +312,51 @@ function toggleConstruccion() {
     mconstruidos.value = "1";
     mterraza.value = "0";
     nPisos.value = "1";
+  }
+
+  if (construccionValue === "No") {
+    const propertiesToSet = [
+      "nPisos", "amoblada", "mconstruidos", "mterraza", "numeroSuite", 
+      "numeroDormitorios", "ocultarPiezaServicio", "numeroBanos", 
+      "numeroBanosServicio", "pisococina", "pisocomedor", "pisoliving", 
+      "pisohall", "mueblecocina", "tipoventana", "termopanel", 
+      "tipococina", "construccion", "techo", "aguacaliente"
+    ];
+  
+    propertiesToSet.forEach(property => {
+      document.getElementById(property).value = getDefaultPropertyValue(property);
+    });
+  }
+  
+  // Función para obtener el valor predeterminado de una propiedad
+  function getDefaultPropertyValue(property) {
+    // Puedes agregar más casos o lógica según sea necesario
+    switch (property) {
+      case "nPisos":
+      case "mconstruidos":
+        return "La parcela no tiene construcciones";
+      case "amoblada":
+      case "termopanel":
+        return "No";
+      case "pisococina":
+      case "pisocomedor":
+      case "pisoliving":
+      case "pisohall":
+      case "mueblecocina":
+      case "tipoventana":
+      case "tipococina":
+      case "construccion":
+      case "techo":
+      case "aguacaliente":
+        return "no tiene";
+      default:
+        mostrarCamposDeSeleccionSuite(parseInt(property.charAt(property.length - 1)));
+        mostrarCamposDeSeleccion(parseInt(property.charAt(property.length - 1)));
+        mostrarCamposDeSeleccionPiezasServicio(parseInt(property.charAt(property.length - 1)));
+        mostrarCamposDeSeleccionBanos(parseInt(property.charAt(property.length - 1)));
+        mostrarCamposDeSeleccionBanosServicio(parseInt(property.charAt(property.length - 1)));
+        return 0;
+    }
   }
 }        
 
@@ -430,28 +431,6 @@ function toggletermopanel() {
 }
 }
 
-// ===========> funcion para ocultar el text area de horario de conserjeria//
-function togglehorario() {
-  const conserjeriaPregunta = document.getElementById("conserjeriaPregunta");
-  const horarioText = document.getElementById("horarioText");
-  const horarioContainer= document.getElementById("horarioContainer");
-
-  if (conserjeriaPregunta.value === "Sí") {
-    horarioText.style.width= "90%";
-    horarioContainer.classList.remove("visually-hidden");  
-} else {
-  horarioContainer.classList.add("visually-hidden");
-}
-}
-// ===========> funcion para ocultar el sectc de si hay conseria 
-
-  
-
-
-
-
-
-
 // ===========> funcion para ocultar el texto de ayuda de mt2 construidos//
 (function textomt2Ayuda() { 
 const textomt2 = document.getElementById("textomt2");
@@ -479,8 +458,6 @@ function mostrarCamposDeSeleccion() {
     tipoPisoButton.classList.add('visually-hidden');
     numeroDormitorio = 'No aplica'
   }
-
-
 
   var contenedorPisosHab = document.getElementById("contenedorPisosHab");
   contenedorPisosHab.innerHTML = "";
@@ -547,8 +524,6 @@ function mostrarCamposDeSeleccion() {
     if (i > numeroDormitorios) {
       labelInputHab.hidden = true;
     }
-
-
   }
   //Creo los Selects del tipo de piso del dormitorio
   for (var i = 1; i <= 10; i++) {
@@ -2720,31 +2695,25 @@ formulario.addEventListener('submit', (e) => {
     alert("Por favor, seleccione un dígito verificador");
     return;
 }
-
 // Validar que los primeros dígitos sean numéricos y estén completos
 if (!/^\d{1,8}$/.test(primerosdigitos)) {
     alert("Los primeros dígitos del RUT deben ser numéricos y tener entre 1 y 8 dígitos");
     document.getElementById('primerosdigitos').scrollIntoView();
     return;
 }
-
 const rut = primerosdigitos + "-" + verificador;
-
    const telefono = document.getElementById('telefono').value;
    if (!tlfregex.test(telefono)) {
      alert('Por favor, introduce un número de teléfono válido.');
      document.getElementById('telefono').scrollIntoView();
      return;
    }
-
    const confirmartelefono = document.getElementById('confirmartelefono').value;
-   
    if (telefono!==confirmartelefono){
     alert('Los teléfonos no coinciden');
     document.getElementById('confirmartelefono').scrollIntoView();
     return;
    }
-
    const correo = document.getElementById('correo').value;
    if (!emailregex.test(correo)) {
      alert('Por favor, introduce un correo válido.');
@@ -2770,10 +2739,16 @@ const rut = primerosdigitos + "-" + verificador;
 
     //=================================> Sección de datos del departamento <================================================================
   const bienhechuria = document.getElementById('bienhechuria').value
-  if (bienhechuria === "") {
+  
+  
+
+ if (bienhechuria === "") {
     alert('Por favor, selecciona una opción');
     return;
   }
+  
+  
+  // Función para obtener el valor predeterminado de una propiedad
   const enTramiteText = document.getElementById('enTramiteText').value;
   const parcialText = document.getElementById('parcialText').value;
   const rol=document.getElementById('rol').value
@@ -2781,36 +2756,21 @@ const rut = primerosdigitos + "-" + verificador;
   
 
   //=================================> Fin Sección de datos del departamento <================================================================
-
-
   //=================================> Sección de dirección del departamento <================================================================
   var comuna = document.getElementById('comuna').value;
   const calle = document.getElementById('calle').value;
   const casa = document.getElementById('casa').value;
-  
-  
-
   const anos = document.getElementById('anos').value;
   const mconstruidos = document.getElementById('mconstruidos').value
   const sector = document.getElementById('sector').value
   const mtotales = document.getElementById('mtotales').value
   const mterraza = document.getElementById('mterraza').value;
   const nPisos = document.getElementById('nPisos').value;
-  const conserjeriaPregunta = document.getElementById('conserjeriaPregunta').value;
-  const horario = document.getElementById('horario').value;
   const amoblada = document.getElementById('amoblada').value;
   const articuloscasa = document.getElementById('articuloscasa').value
-  
+
   const articulosamoblada = document.getElementById('articulosamoblada').files;
   //=================================> Fin Sección de dirección del departamento <================================================================
-  
-
-  //=================================> prueba <================================================================
-  
-  
-  
-
-
   //=================================> Suites <================================================================
   var numeroSuite= document.getElementById('numeroSuite', numeroSuite).value
   if (numeroSuite === ""){
@@ -3068,11 +3028,7 @@ var pisoPiezasServicio1 = document.getElementById('pisoPiezasServicio1').value;
   if (pisoBano10 ===""){
     pisoBano10 = "No aplica"
   }
-  
-  
-  
-  
-  
+
   const fotoBano1 = document.getElementById('fotoBano1').files;
   const fotoBano2 = document.getElementById('fotoBano2').files;
   const fotoBano3 = document.getElementById('fotoBano3').files;
@@ -3154,7 +3110,6 @@ var pisoFamilyRoom = document.getElementById('pisoFamilyRoom').value
 
   const fotoFamilyRoom = document.getElementById('fotoFamilyRoom').files;
 
-
 //=================================> Sección de información adicional <================================================================
 
   const mueblecocina = document.getElementById('mueblecocina').value;
@@ -3166,6 +3121,11 @@ var pisoFamilyRoom = document.getElementById('pisoFamilyRoom').value
   const tipococina = document.getElementById('tipococina').value;
   const estacionamientos = document.getElementById('estacionamientos').value;
   const estacionamientosTechados = document.getElementById('estacionamientosTechados').value;
+  const construcciones=document.getElementById('construcciones').value
+   if (construcciones === "") {
+    alert('Por favor, selecciona una opción');
+    return;
+  }
   const construccion=document.getElementById('construccion').value
    if (construccion === "") {
     alert('Por favor, selecciona una opción');
@@ -3176,7 +3136,22 @@ var pisoFamilyRoom = document.getElementById('pisoFamilyRoom').value
    if (techo === "") {
     alert('Por favor, selecciona una opción');
     return;
-  }  
+  } 
+  const alcantarillado = document.getElementById('alcantarillado').value;
+  if (alcantarillado === "") {
+    alert('Por favor, selecciona una opción');
+    return;
+  }
+  const tipoagua = document.getElementById('tipoagua').value;
+  if (tipoagua === "") {
+    alert('Por favor, selecciona una opción');
+    return;
+  }
+  var Formaterreno = document.getElementById('Formaterreno').value;
+  if (Formaterreno === "") {
+    alert('Por favor, selecciona una opción');
+    return;
+  }
 //El checkbox de características adicionales
 var selectedOptions = [];
   var checkboxes = document.querySelectorAll('input[type="checkbox"].ampliaciones:checked');
@@ -3191,10 +3166,6 @@ var rolestacionamiento = document.getElementById('rolestacionamiento').value
 //Campos del home office
 const pisoHomeOffice = document.getElementById('pisoHomeOffice').value;
 const fotoHomeOffice = document.getElementById('fotoHomeOffice').files;
-
-
-
-
 
 const housePhotos=document.getElementById('housePhotos').files;
 
@@ -3232,16 +3203,11 @@ if (!terminos.checked) {
   formData.append('comuna', comuna);
   formData.append('calle', calle);
   formData.append('casa', casa);
-  
-  
-
   formData.append('anos', anos); 
   formData.append('mconstruidos', mconstruidos); 
   formData.append('mtotales', mtotales);
   formData.append('sector', sector);
   formData.append('nPisos', nPisos);
-  formData.append('conserjeriaPregunta',conserjeriaPregunta);
-  formData.append('horario', horario);
   formData.append('mterraza',mterraza); 
   formData.append('amoblada', amoblada); 
   formData.append('articuloscasa', articuloscasa);
@@ -3644,7 +3610,6 @@ for (var i=0; i<fotoBanosServicio5.length; i++){
 }
 
 
-
 //Cocina
   formData.append('pisococina', pisococina); //LISTO
   if (cocina.length > 2) {
@@ -3697,7 +3662,6 @@ for (var i=0; i<fotoBanosServicio5.length; i++){
     formData.append('fotoFamilyRoom',fotoFamilyRoom[i]);
   }
  
-
 //Información adicional
   formData.append('mueblecocina', mueblecocina);
   formData.append('aislacion', aislacion);
@@ -3709,20 +3673,18 @@ for (var i=0; i<fotoBanosServicio5.length; i++){
   formData.append('estacionamientos', estacionamientos);
   formData.append('estacionamientosTechados', estacionamientosTechados);
   formData.append('construccion', construccion);
+  formData.append('construcciones', construcciones);
   formData.append('tipoventana', tipoventana);
   formData.append('techo', techo);
+  formData.append('alcantarillado', alcantarillado);
+  formData.append('tipoagua', tipoagua);
+  formData.append('Formaterreno', Formaterreno);
    //Selected options hace referencia a las cosas opcionales que puede tener la casa
   formData.append('selectedOptions', selectedOptions); 
   //Rol adicional
   formData.append('rolbodega', rolbodega); //LISTO
   formData.append('rolestacionamiento', rolestacionamiento);
 // Las fotos
-  
-
-  for (var i = 0; i < housePhotos.length; i++) {
-    formData.append('housePhotos', housePhotos[i]);
-  }
-
   //Campos del home office
 formData.append('pisoHomeOffice', pisoHomeOffice); 
 if (fotoHomeOffice.length > 2) {
@@ -3734,8 +3696,14 @@ for (var i = 0; i < fotoHomeOffice.length; i++) {
   formData.append('fotoHomeOffice', fotoHomeOffice[i]);
 }
 
+if (housePhotos.length > 25) {
+  alert('No se pueden subir más de 25 imágenes adicionales.');
+  return;
+}
+for (var i = 0; i < housePhotos.length; i++) {
+  formData.append('housePhotos', housePhotos[i]);
+}
 
-  
   formData.append('adicional', adicional);
 
   // ===============> La animación de "cargando" <==============

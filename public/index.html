@@ -160,25 +160,35 @@
      </button>      
     </div>
    </div>
-   <div class="col-md-5">
+   <div class="col-md-3">
     <div class="form-floating mb-3 mt-3">
-      <select class="form-select" id="bienhechuria" name="biencheruria" onchange="togglerecepcion()" required>
+      <select class="form-select" id="construcciones" name="construcciones" onchange="toggleConstruccion()" required>
+        <option value="" disabled selected>Selecciona una opción</option>
+        <option value="Sí">Sí</option>                                                                       <!-- aqui esta sw -->
+        <option value="No">No</option>
+      </select>
+      <label class="form-label" for="construcciones">¿El inmueble tiene construcciones?</label>
+    </div>
+  </div>
+   <div class="col-md-6">
+    <div class="form-floating mb-3 mt-3">
+      <select class="form-select" id="bienhechuria" name="biencherurias" onchange="togglerecepcion()" required>
         <option value="" disabled selected>Selecciona una opción</option>
         <option value="Sí">Sí</option>
         <option value="No">No</option>
         <option value="En trámite">En trámite</option>
         <option value="Parcial">Parcial</option>
       </select>
-      <label class="form-label text-center text-sm-left" for="biencheruria">Recepción final <i class="reducir">(¿Los metrajes de la propiedad están regularizados?)</i></label>
+      <label class="form-label text-center text-sm-left" for="bienhechuria">Recepción final <i class="reducir">(¿Los metrajes de la propiedad están regularizados?)</i></label>
     </div>
   </div>
   <div class="form-floating mb-3 visually-hidden" id="enTramiteTextdiv">
     <textarea class="form-control" id="enTramiteText" name="enTramiteText" placeholder="Escriba aquí cualquier comentario adicional"></textarea>
-    <label for="enTrámiteDescrip" id="enTrámiteDescrip">Escriba en que parte del <br> tramite de regularización se encuentra</label>                         <!-- aqui esta text area -->
+    <label for="enTramiteText" id="enTrámiteDescrip">Escriba en que parte del <br> tramite de regularización se encuentra</label>                         <!-- aqui esta text area -->
   </div>
   <div class="form-floating mb-3 visually-hidden" id="parcialTextdiv">
     <textarea class="form-control" id="parcialText" name="parcialText" placeholder="Escriba aquí cualquier comentario adicional"></textarea>
-    <label for="parcialDescrip" id="parcialDescrip">Especifique</label>                         <!-- aqui esta text area -->
+    <label for="parcialText" id="parcialDescrip">Especifique</label>                         <!-- aqui esta text area -->
   </div>
  </div>
 </div>
@@ -317,7 +327,6 @@
       </select>
       <label class="form-label" for="comuna">Comuna:</label>
     </div>
-
   </div>
   <div class="col-md">
     <div class="form-floating mb-3 mt-3">
@@ -332,12 +341,11 @@
     </div>
   </div>
 </div>
-
 <div class="row">
-  <div class="col-md">
+  <div class="col-md-12">
     <div class="form-floating mb-3 mt-3">
      <input class="form-control" type="text" id="sector" name="sector" placeholder="Calle Betulio Medina">
-     <label class="form-label" for="Sector">Sector</label>
+     <label class="form-label" for="sector">Sector</label>
     </div>
  </div>
   <div class="col-md visually-hidden" id="anosDiv" >
@@ -352,16 +360,6 @@
   </div>
   </div>
   <div class="col-md-3">
-    <div class="form-floating mb-3 mt-3">
-      <select class="form-select" id="construccion" name="construccion" onchange="toggleConstruccion()" required>
-        <option value="" disabled selected>Selecciona una opción</option>
-        <option value="Sí">Sí</option>                                                                       <!-- aqui esta sw -->
-        <option value="No">No</option>
-      </select>
-      <label class="form-label" for="construccion">¿El inmueble, tiene construcciones?</label>
-    </div>
-  </div>
-  <div class="col-md-3">
     <div class="form-floating mb-3 mt-3 visually-hidden" id="amobadaDiv">
       <select class="form-select" id="amoblada" name="amoblada" onchange="toggleTextarea()">
         <option value="Sí">Sí</option>                                                                       <!-- aqui esta sw -->
@@ -371,8 +369,6 @@
     </div>
   </div>
 </div>
-
-
 <div class="row">
   <div class="col-md visually-hidden" id="construidostogle">
     <div class="form-floating mb-3 mt-3">
@@ -386,22 +382,13 @@
   <input class="form-control" type="number" id="mterraza" name="mterraza" min="0" placeholder="">
   <label class="form-label" for="mterraza">m<sup>2</sup> terraza</label>
 </div>
-
-
-
-
-<div class="col-md">
+<div class="col-md-4">
   <div class="form-floating mb-3 mt-3">
     <input class="form-control" type="number" id="mtotales" name="mtotales" min="0" placeholder="">
     <label class="form-label" for="mtotales"> m<sup>2</sup> terreno</label>
   </div>
 </div>
 </div>
-  
-
-
-
-
 <p id="textareatutorial">Tomese unos minutos para llenar el inventario, de acuerdo al orden estipulado en el siguiente campo</p>
 <div class="form-floating mb-3 visually-hidden" id="articuloscasaContainer">
   <textarea class="form-control" id="articuloscasa" name="articuloscasa" disabled placeholder="Escriba aquí cualquier comentario adicional"></textarea>
@@ -430,6 +417,7 @@
       <label class="form-label" for="nPisos">N° de pisos</label>
     </div>
   </div>
+</div>
   <!--<div class="col-md-5">
     <div class="form-floating mb-3 mt-3">
       <select class="form-select" id="condoPregunta" required  onchange="toggleconserjeria()">
@@ -439,14 +427,14 @@
       </select>
       <label class="form-label" for="condoPregunta">¿Su vivienda pertenece a un condominio?</label>
     </div>
-</div>-->
+</div>
 <div class="col-md-3">
   <div class="form-floating mb-3 mt-3 visually-hidden" id="conserjeriaPreguntaDiv">
     <select class="form-select" id="conserjeriaPregunta" onchange="togglehorario()">
       <option value="" disabled selected>Seleccionar</option>
       <option value="Sí">Sí</option>
       <option value="No">No</option>
-    </select>
+    </select>¿Tiene conserjería
     <label class="form-label" for="conserjeriaPregunta">¿Consta de conserjería?</label>
   </div>
 </div>
@@ -456,7 +444,7 @@
    <textarea class="form-control" id="horario" name="horario" placeholder="Escriba aquí cualquier comentario adicional"></textarea>
    <label for="horario" id="horarioText">Horario de trabajo y días de la semana.</label>
   </div>
-</div>
+</div>-->
 
 
 <!--==============El modal para ver las fotos de los artículos en venta==================-->
@@ -1064,7 +1052,7 @@
    <i class="fa-solid fa-circle-info"></i> Ayuda para elegir el tipo de piso
  </button>
  <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-6 visually-hidden" id="ocultarPiezaServicio">
     <div class="form-floating mb-3 mt-3">
       <select class="form-select" id="numeroPiezasServicio" onchange="mostrarCamposDeSeleccionPiezasServicio()">
         <option value="" disabled selected>Seleccionar</option>
@@ -1809,45 +1797,37 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <h4 class="text-center"><kbd>Adobe</kbd></h4>
+        <h4 class="text-center"><kbd>Estructura de adobe o tierra cemento</kbd></h4>
         <div class="text-center">
-        <img src="adobe-wall-with-window-photo.webp" class="img-fluid">
+        <img src="ESTRUCTURA-DE-ADOBE-1.webp" class="img-fluid">
         </div>
-        <h4 class="text-center"><kbd>Albañilería tradicional</kbd></h4>
+        <h4 class="text-center"><kbd>Albañileria de bloques o piedra con hormigon armado</kbd></h4>
         <div class="text-center">
-        <img src="albanileria tradicional.webp" class="img-fluid">
+        <img src="ALBAÑILERIA-DE-BLOQUES-O-PIEDRA-CON-HORMIGON-ARMADO-1.webp" class="img-fluid">
         </div>
-        <h4 class="text-center"><kbd>Albañilería y tabiquería</kbd></h4>
+        <h4 class="text-center"><kbd>Albañileria de ladrillo con hormigon armado</kbd></h4>
         <div class="text-center">
-        <img src="albanileria y tabiqueria.webp" class="img-fluid">
+        <img src="ALBAÑILERIA-DE-LADRILLO-CON-HOMIGON-ARMADO-1.webp" class="img-fluid">
         </div>
-        <h4 class="text-center"><kbd>Covintec</kbd></h4>
+        <h4 class="text-center"><kbd>Estructura de acero</kbd></h4>
         <div class="text-center">
-        <img src="covintec.webp" class="img-fluid">
+        <img src="estructura-de-acero-1.webp" class="img-fluid">
         </div>
-        <h4 class="text-center"><kbd>Hormigón</kbd></h4>
+        <h4 class="text-center"><kbd>Estructura de paneles de madera, fibro cemento o similares</kbd></h4>
         <div class="text-center">
-        <img src="pared de hormigon.webp" class="img-fluid">
+        <img src="ESTRUCTURA-DE-PANELES-DE-MADERA_-FIBRO-CEMENTO-O-SIMILARES-1.webp" class="img-fluid">
         </div>
-        <h4 class="text-center"><kbd>Hormigón celular</kbd></h4>
+        <h4 class="text-center"><kbd>Estructura y soporte de hormigon armado</kbd></h4>
         <div class="text-center">
-        <img src="hormigon celular.webp" class="img-fluid">
+        <img src="HORMIGON-ARMADO-1.webp" class="img-fluid">
         </div>
-        <h4 class="text-center"><kbd>Hormigón y tabiquería</kbd></h4>
+        <h4 class="text-center"><kbd>Paneles o placas prefabricados, paneles de hormigon armado, fibrocemento o paneles de poliestireno</kbd></h4>
         <div class="text-center">
-        <img src="hormigon y tabiqueria (1).webp" class="img-fluid">
+        <img src="PANEL-SIP-1.webp" class="img-fluid">
         </div>
-        <h4 class="text-center"><kbd>Madera</kbd></h4>
+        <h4 class="text-center"><kbd>Prefabricada metalica, paneles de madera, prefabricado de hormigon, similares</kbd></h4>
         <div class="text-center">
-        <img src="pared de madera.webp" class="img-fluid">
-        </div>
-        <h4 class="text-center"><kbd>Metalcom</kbd></h4>
-        <div class="text-center">
-        <img src="pared de metalcom.webp" class="img-fluid">
-        </div>
-        <h4 class="text-center"><kbd>Prefabricada</kbd></h4>
-        <div class="text-center">
-        <img src="pared prefabricada.webp" class="img-fluid">
+        <img src="PREFABRICADA METALICA, PANELES DE MADERA, PREFABRICADO DE HORMIGON, SIMILARES 1.webp" class="img-fluid">
         </div>
       </div>
       <div class="modal-footer">
@@ -1945,7 +1925,7 @@
   <div class="col-md">
     <div class="input-group">
     <div class="form-floating mb-3 mt-3">
-      <select class="form-select" id="mueblecocina">><option value="No tiene" selected>No tiene</option><option value="Base">Base</option><option value="Base y muro">Base y muro</option><option value="Cuarzo">Cuarzo</option><option value="Cubierta granito">Cubierta granito</option><option value="Mármol">Mármol</option><option value="Otro">Otro</option><option value="Porcelanato">Porcelanato </option></select>
+      <select class="form-select" id="mueblecocina"><option value="" disabled selected>Seleccione...</option><option value="no tiene">No tiene</option><option value="Base">Base</option><option value="Base y muro">Base y muro</option><option value="Cuarzo">Cuarzo</option><option value="Cubierta granito">Cubierta granito</option><option value="Mármol">Mármol</option><option value="Otro">Otro</option><option value="Porcelanato">Porcelanato </option></select>
       <label class="form-label" for="mueblecocina">Tipo de muebles de cocina</label>
     </div>
     <button type="button" class="btn btn-primary mb-3 mt-3" data-bs-toggle="modal" data-bs-target="#exampleModalMueblesCocina">
@@ -1955,7 +1935,7 @@
   </div>
   <div class="col-md">
     <div class="form-floating mb-3 mt-3">  
-      <select class="form-select" id="tipoventana" ><option value="No tiene" selected>No tiene</option><option value="Aluminio">Aluminio</option><option value="Fierro">Fierro</option><option value="Madera">Madera</option><option value="Plastico">Plastico</option><option value="Termopanel">Termopanel</option></select>  
+      <select class="form-select" id="tipoventana" ><option value="" disabled selected>Seleccione...</option><option value="no tiene">No tiene</option><option value="Aluminio">Aluminio</option><option value="Fierro">Fierro</option><option value="Madera">Madera</option><option value="Plastico">Plastico</option><option value="Termopanel">Termopanel</option></select>  
       <label class="form-label" for="tipoventana">Tipo de ventanas</label>
     </div>
   </div>
@@ -1969,7 +1949,7 @@
 
 <div class="form-floating mb-3 visually-hidden" id="termopanelContainer">
   <textarea class="form-control" id="termopanelText" name="termopanelText"placeholder="Escriba aquí cualquier comentario adicional"></textarea>
-  <label for="termopanelDescrip" id="termopanelDescrip">Indique por favor <br>cuantos paneles tiene <br>y una breve descripción</label>                         <!-- aqui esta text area -->
+  <label for="termopanelText" id="termopanelDescrip">Indique por favor <br>cuantos paneles tiene <br>y una breve descripción</label>                         <!-- aqui esta text area -->
 </div>
 
 <div class="row visually-hidden" id="oculta2">
@@ -1981,21 +1961,20 @@
   </div>
   <div class="col-md-5">
     <div class="input-group">
-    <div class="form-floating mb-3 mt-3">
-      <select class="form-select" id="construccion" name="construccion">
-        <option value="no tiene" selected>No tiene</option>
-        <option value="Adobe">Adobe</option>
-        <option value="Albañilería tradicional">Albañilería tradicional</option>
-        <option value="Albañilería y tabiquería">Albañilería y tabiquería</option>
-        <option value="Covintec">Covintec</option>
-        <option value="Hormigón">Hormigón</option>
-        <option value="Hormigón celular">Hormigón celular</option>
-        <option value="Hormigón y tabiquería">Hormigón y tabiquería</option>
-        <option value="Madera">Madera</option>
-        <option value="Metalcom">Metalcom</option>
-        <option value="Prefabricada">Prefabricada</option>
-        <option value="Otro">Otro</option>
-      </select>
+    <div class="form-floating mb-3 mt-3">   
+    <select class="form-select" id="construccion" name="construccion">
+       <option value="" disabled selected>Seleccione una opción</option>
+       <option value="no tiene">No tiene</option>
+       <option value="ESTRUCTURA DE ADOBE O TIERRA CEMENTO">ESTRUCTURA DE ADOBE O TIERRA CEMENTO</option>
+       <option value="ALBAÑILERIA DE BLOQUES O PIEDRA CON HORMIGON ARMADO">ALBAÑILERIA DE BLOQUES O PIEDRA CON HORMIGON ARMADO</option>
+       <option value="ALBAÑILERIA DE LADRILLO CON HORMIGON ARMADO">ALBAÑILERIA DE LADRILLO CON HORMIGON ARMADO</option>
+       <option value="ESTRUCTURA DE PANELES DE MADERA, FIBRO CEMENTO O SIMILARES">ESTRUCTURA DE PANELES DE MADERA, FIBRO CEMENTO O SIMILARES</option>
+       <option value="ESTRUCTURA DE ACERO">ESTRUCTURA DE ACERO</option>
+       <option value="ESTRUCTURA Y SOPORTE DE HORMIGON ARMADO">ESTRUCTURA Y SOPORTE DE HORMIGON ARMADO</option>
+       <option value="PANELES O PLACAS PREFABRICADOS, PANELES DE HORMIGON ARMADO, FIBROCEMENTO O PANELES DE POLIESTIRENO">PANELES O PLACAS PREFABRICADOS, PANELES DE HORMIGON ARMADO, FIBROCEMENTO O PANELES DE POLIESTIRENO</option>
+       <option value="PREFABRICADA METALICA, PANELES DE MADERA, PREFABRICADO DE HORMIGON, SIMILARES">PREFABRICADA METALICA, PANELES DE MADERA, PREFABRICADO DE HORMIGON, SIMILARES</option>
+       <option value="Otro">Otro</option>
+    </select>
       <label class="form-label text-center text-sm-left" for="construccion">Tipo de construcción de la vivienda</label>
     </div>
     <button type="button" class="btn btn-primary mb-3 mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal3">
@@ -2050,43 +2029,42 @@
   </div>
   
     <div class="form-floating visually-hidden oculta5" id="">
-      <select class="form-select" id="aguacaliente"><option value="No tiene" selected>No tiene</option><option value="Calefont">Calefont</option><option value="Calefont y Caldera">Calefont y Caldera</option><option value="Central agua">Central agua</option><option value="Otro">Otro</option><option value="Panel solar">Panel solar</option><option value="Termo">Termo</option><option value="Termo y otro">Termo y otro</option></select>
+      <select class="form-select" id="aguacaliente"><option value="">Seleccione...</option><option value="no tiene">No tiene</option><option value="Calefont">Calefont</option><option value="Calefont y Caldera">Calefont y Caldera</option><option value="Central agua">Central agua</option><option value="Otro">Otro</option><option value="Panel solar">Panel solar</option><option value="Termo">Termo</option><option value="Termo y otro">Termo y otro</option></select>
       <label class="form-label" for="aguacaliente">Agua caliente</label>  
     </div>
   
 </div>
 </div>
-
-  <div class="col-md">
-    <div class="input-group">
-     <div class="form-floating mb-3 mt-3">
-       <select class="form-select" id="aislacion"><option value="">Seleccione...</option><option value="Aislada">Aislada</option><option value="Pareada-sola">Pareada por un solo lado</option><option value="Pareada doble">Pareada doble</option></select>
-       <label class="form-label" for="aislacion">Tipo de aislacion</label>  
-     </div>
-     <button type="button" class="btn btn-primary mb-3 mt-3" data-bs-toggle="modal" data-bs-target="#exampleModalAislacion">
-       <i class="fa-solid fa-question fa-xl"></i>
-     </button>
-    </div>
-  </div>
 </div>
 <div class="row">
   <div class="col-md">
     <div class="form-floating mb-3 mt-3">
-      <select class="form-select" id="alcantarillado"><option value="" disabled selected>Seleccione...</option><option value="no tiene">No tiene</option><option value="Empresa sanitaria">Empresa sanitaria</option><option value="Foza septica">Foza septica</option></select>
+      <select class="form-select" id="alcantarillado" required><option value="" disabled selected>Seleccione...</option><option value="no tiene">No tiene</option><option value="Empresa sanitaria">Empresa sanitaria</option><option value="Foza septica">Foza septica</option></select>
       <label class="form-label" for="alcantarillado">Alcantarillado</label>
     </div>
   </div>
   <div class="col-md">
     <div class="form-floating mb-3 mt-3">
-      <select class="form-select" id="tipoagua"><option value="" disabled selected>Seleccione...</option><option value="no tiene">No tiene</option><option value="Empresa sanitaria">Empresa sanitaria</option><option value="noria">Noria</option><option value="pozo">Pozo</option></select>
+      <select class="form-select" id="tipoagua" required><option value="" disabled selected>Seleccione...</option><option value="no tiene">No tiene</option><option value="Empresa sanitaria">Empresa sanitaria</option><option value="noria">Noria</option><option value="pozo">Pozo</option></select>
       <label class="form-label" for="tipoagua">Tipo de agua</label>
     </div>
   </div>
   <div class="col-md">
     <div class="form-floating mb-3 mt-3">
-      <select class="form-select" id="Formaterreno"><option value="" disabled selected>Seleccione...</option><option value="regular">Regular</option><option value="irregular">Irregular</option><option value="plano">Plano</option></select>
+      <select class="form-select" id="Formaterreno" required><option value="" disabled selected>Seleccione...</option><option value="regular">Regular</option><option value="irregular">Irregular</option><option value="plano">Plano</option></select>
       <label class="form-label" for="Formaterreno">Forma del terreno</label>
     </div>
+  </div>
+</div>
+<div class="col-md">
+  <div class="input-group">
+   <div class="form-floating mb-3 mt-3">
+     <select class="form-select" id="aislacion" required><option value="">Seleccione...</option><option value="Aislada">Aislada</option><option value="Pareada-sola">Pareada por un solo lado</option><option value="Pareada doble">Pareada doble</option></select>
+     <label class="form-label" for="aislacion">Tipo de aislacion</label>  
+   </div>
+   <button type="button" class="btn btn-primary mb-3 mt-3" data-bs-toggle="modal" data-bs-target="#exampleModalAislacion">
+     <i class="fa-solid fa-question fa-xl"></i>
+   </button>
   </div>
 </div>
 
@@ -2164,7 +2142,7 @@
          <option value="Radier afinado">Radier afinado</option>
          <option value="Otro">Otro</option>
         </select>
-       <label class="form-label" for="pisofamilyroom">Tipo de piso del family room</label>
+       <label class="form-label" for="pisoFamilyRoom">Tipo de piso del family room</label>
       </div>
    </div>
    <div class="col-md">
@@ -2221,7 +2199,7 @@
          <option value="Radier afinado">Radier afinado</option>
          <option value="Otro">Otro</option>
         </select>
-       <label class="form-label" for="pisohomeoffice">Tipo de piso de la home office</label>
+       <label class="form-label" for="pisoHomeOffice">Tipo de piso de la home office</label>
       </div>
    </div>
    <div class="col-md">
@@ -2234,7 +2212,8 @@
      </div>
    </div>
 </div>
-<!--==============El modal para ver las fotos Homeoffice"==================-->
+<!-- ==============El modal para ver las fotos Homeoffice"================== -->
+
 <div class="modal fade" id="imageModalhomeoffice" tabindex="-1" aria-labelledby="imageModalLabelhomeoffice" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
@@ -2243,7 +2222,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body" id="imageContainerhomeoffice">
-        <!-- Aquí se mostrarán las imágenes cargadas -->
+         Aquí se mostrarán las imágenes cargadas -
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -2259,7 +2238,7 @@
       <div class="col-md-3">
         <div class="form-check">
           <input class="form-check-input" type="checkbox" onchange="mostrarCampoTexto()" name="Rol Bodega" value="Rol Bodega" id="checkrolbodega" >
-          <label class="form-check-label">Marque si la casa tiene un ROL bodega</label>
+          <label class="form-check-label" for="checkrolbodega">Marque si la casa tiene un ROL bodega</label>
         </div>
         <div class="input-group">
           <div class="form-floating mb-3 mt-3">
@@ -2274,7 +2253,7 @@
       <div class="col-md-5">
         <div class="form-check">
           <input class="form-check-input" type="checkbox" onchange="mostrarCampoTexto()" name="Rol Estacionamiento" value="Rol Estacionamiento" id="checkrolestacionamiento" >
-          <label class="form-check-label">Marque si la casa tiene un ROL estacionamiento</label>
+          <label class="form-check-label" for="checkrolestacionamiento">Marque si la casa tiene un ROL estacionamiento</label>
         </div>
         <div class="input-group">
           <div class="form-floating mb-3 mt-3">
@@ -2312,7 +2291,7 @@
             <input type="checkbox" name="Playroom" value="Playroom" class="ampliaciones2" id="playroom"> Playroom
           </label>
           <label>
-            <input type="checkbox" name="RiegoTecnificado" value="RiegoTecnificado" class="ampliaciones2" id="playroom"> Riego tecnificado
+            <input type="checkbox" name="RiegoTecnificado" value="RiegoTecnificado" class="ampliaciones2" id="RiegoTecnificado"> Riego tecnificado
           </label>
           <label>
             <input type="checkbox" name="Salón de fiestas" value="Salón de fiestas" class="ampliaciones2" id="salonFiestas"> Salón de fiestas
@@ -2378,7 +2357,7 @@
     </div>
     <div class="form-check mb-3">
       <input class="form-check-input fs-5" type="checkbox" id="terminos" name="terminos" required>
-    <label class="form-check-label fs-5">Acepto los <a href=""> términos y condiciones</a></label>
+    <label class="form-check-label fs-5" for="terminos">Acepto los <a href=""> términos y condiciones</a></label>
     </div>
 
     
@@ -2386,13 +2365,10 @@
     <button onclick="validarBootstrap()" class="btn btn-primary btn-md" type="submit">Enviar</button>
   </form>
 
-  <div id="overlay" class="overlay" style="display: none;">
-    <span class="loading-text">Cargando...</span>
-    <div class="loading-spinner"></div>
-  </div>
+ 
 
   <!--==============El modal para ver las fotos de la fachada==================-->
-  <!--<div class="modal fade" id="imageModalFachada" tabindex="-1" aria-labelledby="imageModalLabelFachada" aria-hidden="true">
+<!--<div class="modal fade" id="imageModalFachada" tabindex="-1" aria-labelledby="imageModalLabelFachada" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
@@ -2400,8 +2376,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body" id="imageContainerFachada">
-         Aquí se mostrarán las imágenes cargadas -->
-      <!-- </div>
+        Aquí se mostrarán las imágenes cargadas -->
+     <!-- </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
       </div>
@@ -2428,8 +2404,8 @@
 </div>-->
 <!-- ===================================================================================== -->
 
-<!--==============El modal para ver las fotos del Garaje==================-->
-<!--<div class="modal fade" id="imageModalGaraje" tabindex="-1" aria-labelledby="imageModalLabelGaraje" aria-hidden="true">
+<!--==============El modal para ver las fotos del Garaje==================
+<div class="modal fade" id="imageModalGaraje" tabindex="-1" aria-labelledby="imageModalLabelGaraje" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
@@ -2437,18 +2413,18 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body" id="imageContainerGaraje">
-         Aquí se mostrarán las imágenes cargadas -->
-        <!--</div>
+         Aquí se mostrarán las imágenes cargadas 
+      </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>
-</div> -->
+</div>-->
 <!-- ===================================================================================== -->
 
 <!--==============El modal para ver las fotos del Patio==================-->
-<div class="modal fade" id="imageModalPatio" tabindex="-1" aria-labelledby="imageModalLabelPatio" aria-hidden="true">
+<!--<div class="modal fade" id="imageModalPatio" tabindex="-1" aria-labelledby="imageModalLabelPatio" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
@@ -2456,21 +2432,15 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body" id="imageContainerPatio">
-        <!-- Aquí se mostrarán las imágenes cargadas -->
+        - Aquí se mostrarán las imágenes cargadas 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>
-</div>
+</div>-->
 <!-- ===================================================================================== -->
-
-
-
-
-
-
 <!--==============El modal para ver las fotos adicionales==================-->
 <div class="modal fade" id="imageModalAdicionales" tabindex="-1" aria-labelledby="imageModalLabelAdicionales" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable">
@@ -2490,7 +2460,10 @@
 </div>
 
 <!-- ===================================================================================== -->
-
+<div id="overlay" class="overlay" style="display: none;">
+  <span class="loading-text">Cargando...</span>
+  <div class="loading-spinner"></div>
+</div>
 
   <script src="script.js"></script>
 </body>
