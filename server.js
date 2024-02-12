@@ -93,7 +93,7 @@ const transporter = nodemailer.createTransport({
         port:465,
   auth: {
     user:'enviar-formulario@tasarinmuebles.cl',
-        pass:'/Sejot_12/'
+        pass:process.env.CLAVE,
   }
 });
 
