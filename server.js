@@ -251,7 +251,6 @@ app.post('/enviar', (req, res) => {
       const fotoFamilyRoom = req.files['fotoFamilyRoom'];
  
       //Información adicional
-      const mueblecocina = req.body.mueblecocina;
       const aislacion = req.body.aislacion;
       const tipogas = req.body.tipogas;
       const termopanel = req.body.termopanel;
@@ -514,7 +513,6 @@ app.post('/enviar', (req, res) => {
                 <p style="text-align: left;">Tipo de piso del hall de entrada: ${pisohall}</p>
                 <h3 style="text-align: left;">Home Office</h3><p>${pisoHomeOffice}</p>
                 <h3 style="text-align: left;">Información Adicional</h3>
-                <p style="text-align: left;">Tipo de muebles de cocina: ${mueblecocina}</p>
                 <p style="text-align: left;">Aislación: ${aislacion}</p>
                 <p style="text-align: left;">Gas: ${tipogas}</p>
                 <p style="text-align: left;">Termopanel: ${termopanel}</p>

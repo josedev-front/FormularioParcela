@@ -306,7 +306,7 @@ function toggleConstruccion() {
       "nPisos", "amoblada", "mconstruidos", "mterraza", "numeroSuite", 
       "numeroDormitorios", "ocultarPiezaServicio", "numeroBanos", 
       "numeroBanosServicio", "pisococina", "pisocomedor", "pisoliving", 
-      "pisohall", "mueblecocina", "tipoventana", "termopanel", 
+      "pisohall", "tipoventana", "termopanel", 
       "tipococina", "construccion", "techo", "aguacaliente"
     ];
   
@@ -329,7 +329,6 @@ function toggleConstruccion() {
       case "pisocomedor":
       case "pisoliving":
       case "pisohall":
-      case "mueblecocina":
       case "tipoventana":
       case "tipococina":
       case "construccion":
@@ -3071,8 +3070,6 @@ var pisoFamilyRoom = document.getElementById('pisoFamilyRoom').value
   const fotoFamilyRoom = document.getElementById('fotoFamilyRoom').files;
 
 //=================================> Sección de información adicional <================================================================
-
-  const mueblecocina = document.getElementById('mueblecocina').value;
   const aislacion = document.getElementById('aislacion').value;
   const tipogas = document.getElementById('tipogas').value;
   const termopanel = document.getElementById('termopanel').value;
@@ -3623,7 +3620,6 @@ for (var i=0; i<fotoBanosServicio5.length; i++){
   }
  
 //Información adicional
-  formData.append('mueblecocina', mueblecocina);
   formData.append('aislacion', aislacion);
   formData.append('tipogas', tipogas);
   formData.append('termopanel', termopanel);
