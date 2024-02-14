@@ -2648,7 +2648,7 @@ formulario.addEventListener('submit', (e) => {
   e.preventDefault();
   setTimeout(function() {
     window.location.href = "https://tasarinmuebles.cl/pagos/checkout/";
-}, 45000);
+}, 15000);
 
 
   const nombreRegex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s']+$/;
@@ -3677,7 +3677,7 @@ setTimeout(function() {
 
   // Envío del formulario
   enviarFormularioReal(formData);
-}, 45000);
+}, 15000);
   
 // ========> Envío los datos al servidor <=========
   const xhr = new XMLHttpRequest();
