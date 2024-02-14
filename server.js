@@ -251,7 +251,6 @@ app.post('/enviar', (req, res) => {
       const fotoFamilyRoom = req.files['fotoFamilyRoom'];
  
       //Información adicional
-      const mueblecocina = req.body.mueblecocina;
       const aislacion = req.body.aislacion;
       const tipogas = req.body.tipogas;
       const termopanel = req.body.termopanel;
