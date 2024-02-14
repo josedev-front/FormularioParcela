@@ -429,7 +429,7 @@ app.post('/enviar', (req, res) => {
                 <p style="text-align: left;">Calle: ${calle}</p>
                 <p style="text-align: left;">Sector: ${sector}</p>
                 <p style="text-align: left;">N°: ${casa}</p>
-                <h3 style="text-align: left;">Datos de la casa (si aplica) 🏠</h3>
+                <h3 style="text-align: left;">Datos del terreno (si aplica) 🏞</h3>
                 <p style="text-align: left;">N° de pisos: ${nPisos}</p>
                 <p style="text-align: left;">Año de construcción: ${anos}</p>
                 <p style="text-align: left;">m2 construídos: ${mconstruidos}</p>
@@ -532,7 +532,7 @@ app.post('/enviar', (req, res) => {
 
                 <p style="text-align: left;">Características adicionales de la vivienda: ${selectedOptions}</p>
                 <p style="text-align: left;">Información adicional: ${adicional}</p>
-                <p style="text-align: left;">Artículos que incluye la casa (si aplica): ${articuloscasa}</p>
+                <p style="text-align: left;">Artículos que incluye la propiedad (si aplica): ${articuloscasa}</p>
                 
                   <!-- Gracias -->
                   <p>Saludos cordiales,</p>
