@@ -1998,31 +1998,31 @@ if (fotoHomeOffice) {
               <p style="text-align: left;">Dentro de los próximos cinco días hábiles, nuestro equipo de tasadores revisará detalladamente la información proporcionada. En caso de ser necesario, nos pondremos en contacto contigo para solicitar cualquier aclaración adicional.</p>
               <p style="text-align: left">Si tienes alguna pregunta o requieres mayor información, no dudes en contactarnos. Agradecemos nuevamente tu confianza en nuestros servicios y te aseguramos que estaremos trabajando diligentemente para atender tu solicitud. Te mantendremos informado(a) sobre cualquier avance o actualización relevante relacionada con tu tasación.</p>
 
-                <!-- Gracias -->
-                <p>Saludos cordiales,</p>
-                <p style="margin-bottom: 50px;"><br><br>Equipo de atención al cliente<br>Correo: <a href="mailto:postventa@tasarinmuebles.cl">postventa@tasarinmuebles.cl</a></p>
-            <!-- Contenido principal -->
+              <!-- Gracias -->
+              <p>Saludos cordiales,</p>
+              <p style="margin-bottom: 50px;"><br><br>Equipo de atención al cliente<br>Correo: <a href="mailto:postventa@tasarinmuebles.cl">postventa@tasarinmuebles.cl</a></p>
+          <!-- Contenido principal -->
 
-            <!-- Footer -->
-            <div style="background-color: rgb(40,94,192); color: #ffffff; padding: 5px 0px 0px 0px; width: 100%; text-align: center;">
-                <!-- Redes sociales -->
-                <a href="https://www.facebook.com/profile.php?id=61556464801843" class="contA"><img src="cid:facebook.png" class="imag" /></a>
-                <a href="https://www.instagram.com/tasarinmuebles/" class="contA"><img src="cid:instagram.png" class="imag" /></a>
-                <a href="https://wa.me/+56957028852" class="contA"><img src="cid:whatsapp.png" class="imag" /></a>
-                <a href="mailto:consultas@tasarinmuebles.cl" class="contA"><img src="cid:correo-electronico.png" class="imag" /></a>
-                <!-- Redes sociales -->
+          <!-- Footer -->
+          <div style="background-color: rgb(40,94,192); color: #ffffff; padding: 5px 0px 0px 0px; width: 100%; text-align: center;">
+          <!-- Redes sociales -->
+          <a href="https://www.facebook.com/profile.php?id=61556464801843" class="contA"><img src="cid:facebook.png" class="imag" /></a>
+          <a href="https://www.instagram.com/tasarinmuebles/" class="contA"><img src="cid:instagram.png" class="imag" /></a>
+          <a href="https://wa.me/+56957028852" class="contA"><img src="cid:whatsapp.png" class="imag" /></a>
+          <a href="mailto:consultas@tasarinmuebles.cl" class="contA"><img src="cid:correo-electronico.png" class="imag" /></a>
+          <!-- Redes sociales -->
 
-                <h4>Soporte</h4>
-                <p style="font-size: 13px; padding: 0px 20px 0px 20px;">
-                    Comunícate con nosotros por los siguientes medios:<br>
-                    Correo: <a class="afooter" href="mailto:proyectos@pretwor.com">proyectos@pretwor.com</a><br>
-                    Whatsapp: <a class="afooter" href="https://wa.me/573224294332">+57 322 429 4332</a><br>
-                </p>
-                <p style="background-color: rgb(2,33,89); padding: 10px 0px 10px 0px; font-size: 12px !important;">
-                    © 2023 TasarInmuebles.cl, todos los derechos reservados.
-                </p>
-            </div>
-            <!-- Footer -->
+              <h4>Soporte</h4>
+              <p style="font-size: 13px; padding: 0px 20px 0px 20px;">
+                  Comunícate con nosotros por los siguientes medios:<br>
+                  Correo: <a class="afooter" href="mailto:postventas@tasarinmuebles.cl">postventas@tasarinmuebles.cl</a><br>
+                  Whatsapp: <a class="afooter" "https://wa.me/+56957028852">+56 9 57028852</a><br>
+              </p>
+              <p style="background-color: rgb(2,33,89); padding: 10px 0px 10px 0px; font-size: 12px !important;">
+                  © 2023 TasarInmuebles.cl, todos los derechos reservados.
+              </p>
+          </div>
+          <!-- Footer -->
 
 
 
