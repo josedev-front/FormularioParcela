@@ -536,7 +536,7 @@ app.post('/enviar', (req, res) => {
                 
                   <!-- Gracias -->
                   <p>Saludos cordiales,</p>
-                  <p style="margin-bottom: 50px;"><br>Pedro Pérez<br>Gerente de atención al cliente<br>Correo: <a href="mailto:proyectos@pretwor.com">proyectos@pretwor.com</a></p>
+                  <p style="margin-bottom: 50px;"><br><br>Equipo de atención al cliente<br>Correo: <a href="mailto:postventa@tasarinmuebles.cl">postventa@tasarinmuebles.cl</a></p>
               <!-- Contenido principal -->
               <!-- Footer -->
                   <p style="background-color: rgb(2,33,89); padding: 10px 0px 10px 0px; font-size: 12px !important;">
@@ -2000,16 +2000,16 @@ if (fotoHomeOffice) {
 
                 <!-- Gracias -->
                 <p>Saludos cordiales,</p>
-                <p style="margin-bottom: 50px;"><br>Pedro Pérez<br>Gerente de atención al cliente<br>Correo: <a href="mailto:proyectos@pretwor.com">proyectos@pretwor.com</a></p>
+                <p style="margin-bottom: 50px;"><br><br>Equipo de atención al cliente<br>Correo: <a href="mailto:postventa@tasarinmuebles.cl">postventa@tasarinmuebles.cl</a></p>
             <!-- Contenido principal -->
 
             <!-- Footer -->
             <div style="background-color: rgb(40,94,192); color: #ffffff; padding: 5px 0px 0px 0px; width: 100%; text-align: center;">
                 <!-- Redes sociales -->
-                <a href="https://www.facebook.com/pretwor" class="contA"><img src="cid:facebook.png" class="imag" /></a>
-                <a href="https://www.instagram.com/pretwor/" class="contA"><img src="cid:instagram.png" class="imag" /></a>
-                <a href="https://wa.me/573224294332" class="contA"><img src="cid:whatsapp.png" class="imag" /></a>
-                <a href="mailto:contacto@pretwor.com" class="contA"><img src="cid:correo-electronico.png" class="imag" /></a>
+                <a href="https://www.facebook.com/profile.php?id=61556464801843" class="contA"><img src="cid:facebook.png" class="imag" /></a>
+                <a href="https://www.instagram.com/tasarinmuebles/" class="contA"><img src="cid:instagram.png" class="imag" /></a>
+                <a href="https://wa.me/+56957028852" class="contA"><img src="cid:whatsapp.png" class="imag" /></a>
+                <a href="mailto:consultas@tasarinmuebles.cl" class="contA"><img src="cid:correo-electronico.png" class="imag" /></a>
                 <!-- Redes sociales -->
 
                 <h4>Soporte</h4>
